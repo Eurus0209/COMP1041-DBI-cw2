@@ -128,12 +128,10 @@
             font-weight: 700;
             color: #eee;
         }
-        .selling-table {
+        .selling-table, .sr-info-table {
             display: none;
         }
-        .show{
-            display: block;
-        }
+        
         .table{
             align : center;
             font-size: 14px;
@@ -176,6 +174,56 @@
         .sell-nav-box .nav-item a{
             width:130px!important;
         }
+
+        .form-control{
+        height: 1.7em;
+        /* border-top: none; */
+        border-radius: 0;
+        }
+        .form-control:focus{
+        /* border: tomato; */
+        border-color: rgb(75, 90, 131);
+        box-shadow: none;
+        }
+
+        .sr-info-content{
+            /* margin-top:10vh; */
+            margin-left: 10vh;
+            font-size: 14px;
+            font-weight:600;
+        }
+        .btn-save-change{
+            font-size: 14px;
+            background-color: rgb(75, 90, 131);
+            border: none;
+            width: 150px;
+            display: block;
+            margin: 0 auto;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            }
+        .sr-info-content{
+            margin-top:5vh;
+            width:50%;
+            /* font-size: 14px; */
+        }
+        .sr-info-add-box2{
+            width:50%;
+            margin-left:100px;
+        }
+
+        .sr-info-content .tip{
+            display: none;
+            color: rgb(255, 79, 79);
+            font-size: .8em;
+            /* margin-bottom: 1.1em; */
+            margin-top: .1em;
+            margin-left: .2em;
+        }
+
+        .show{
+            display: block!important;
+        }
     </style>
 </head>
 <body>
@@ -204,7 +252,7 @@
                     </a>
                     <ul id="salerep-situtaion" class="collapse aside-nav">
                       <li><a class = "sr-info-label" id = "sr-information" href="javascript:;">Information</a></li>
-                      <li><a class = "sr-info-label" id = "sr-edit" href="javascript:;">Add</a></li>
+                      <li><a class = "sr-info-label" id = "sr-add" href="javascript:;">Add</a></li>
                       <li><a class = "sr-info-label" id = "sr-warning" href="javascript:;">Warning</a></li>
                     </ul>
                   </li>
@@ -225,6 +273,15 @@
                 <?php include 'selling_processing.php'; ?>
             </div>
             
+            <div class="sr-info-table sr-information">
+
+            </div>
+            <div class="sr-info-table sr-add">
+                <?php include 'salerep_add.php'; ?>
+            </div>
+            <div class="sr-info-table sr-warning">
+            
+            </div>
         </div>
     </div>
 </body>
@@ -232,7 +289,105 @@
     $(".selling-label").on("click",function(){
         var str = $(this).attr("id");
         $(".selling-table").removeClass("show");
+        $(".sr-info-table").removeClass("show");
         $("."+str).addClass("show");
+    })
+
+    $(".sr-info-label").on("click",function(){
+        var str = $(this).attr("id");
+        $(".selling-table").removeClass("show");
+        $(".sr-info-table").removeClass("show");
+        $("."+str).addClass("show");
+    })
+
+    $("#email").on("focus",function(){
+        $(".email-tip").removeClass("show");
+        
+    })
+    $("#email").on("blur",function(){
+        if(/([\w\-]+\@[\w\-]+\.[\w\-]+)/.test($(this).val())==false){
+            $(".email-tip").addClass("show");
+        }
+    })
+    $("#phone").on("focus",function(){
+        $(".phone-tip").removeClass("show");
+    })
+    $("#phone").on("blur",function(){
+        if(/\d{11}/.test($(this).val())==false){
+            $(".phone-tip").addClass("show");
+        }
+    })
+
+    $("#repeatPassword").on("focus",function(){
+        $(".password-tip").removeClass("show");
+    })
+    $("#repeatPassword").on("blur",function(){
+        if($("#inputPassword").val()!=$("#repeatPassword").val()){
+            $(".password-tip").addClass("show");
+        }
+    })
+
+    $(".btn-save-change").on("click",function(){
+        if($("#email").val()==''|| 
+        $("#phone").val() =='' ||
+        $("#inputPassword").val() =='' ||
+        $("#realname").val() ==''||
+        $("#srname").val()==''||
+        $("#employee-id").val()==''
+        ){
+            swal("Please complete the form!");
+        }
+        else if(
+            /([\w\-]+\@[\w\-]+\.[\w\-]+)/.test($("#email").val())==false ||
+            /\d{11}/.test($("#phone").val())==false
+        ){
+            swal("Please complete the form as right format!");
+        }else if($("#inputPassword").val()!=$("#repeatPassword").val()){
+            swal("Please make sure password is entered consistently!");
+        }else{
+            var issucc = 0;
+            $.ajax({
+                type : "post",
+                url : "isexist.php",
+                data :{
+                    name: $("#srname").val(),
+                },
+                success : function(msg){
+                    if(msg == 1){
+                        swal("Username already exist!");
+                    }else{
+                        issucc = 1;
+                        swal("here");
+                        $.ajax({
+                            type : "post",
+                            url : "adduser.php",
+                            data:{
+                                name:  $("#srname").val(),
+                                realname : $("#realname").val(),
+                                id : $("#employee-id").val(),
+                                pass : $("#inputPassword").val(),
+                                email: $("#email").val(),
+                                phone: $("#phone").val(),
+                                region: $("#srregion option:selected").val(),
+                                role : 2,
+                                quota1 : $("#quota1").val(),
+                                quota2 : $("#quota2").val(),
+                                quota3 : $("#quota3").val(),
+                            },
+                            success : function(msg){
+                                if(msg == 1)
+                                    swal("Add successfully!");
+                                    // history.go(0);
+                                    // location.reload();
+                                else{
+                                    swal("Add failed!");
+                                }
+                            }
+                        });
+                    }
+                }
+            });
+        }
     })
 </script>
 </html>

@@ -47,22 +47,18 @@
 
               <form class="form-regist form-horizontal sign-up-content" action = "signup-back.php" method = "post">
                 <div class="form-group ">
-                  <!-- <label for="username">Username</label> -->
                   <input type="text" name = "username" class="form-control" id="username" placeholder="Username" >
                 </div>
 
                 <div class="form-group ">
-                  <!-- <label for="username">Username</label> -->
                   <input type="text" name = "realname" class="form-control" id="realname" placeholder="RealName" >
                 </div>
 
                 <div class="form-group ">
-                  <!-- <label for="username">Username</label> -->
                   <input type="text" name = "passportid" class="form-control" id="passportid" placeholder="PassportID" >
                 </div>
     
                 <div class="form-group">
-                    <!-- <label for="telephone">Telephone</label> -->
                     <input type="text" name = "telephone" class="form-control" id="telephone" placeholder="Telephone" >
                     <div class="tip-phone tip">
                       Wrong format of phone number!
@@ -71,7 +67,6 @@
                 
     
                 <div class="form-group">
-                    <!-- <label for="email">Email</label> -->
                     <input type="email" name = "email" class="form-control" id="email" placeholder="Email">
                     <div class="tip-email tip">
                       Wrong format of email!
@@ -80,20 +75,17 @@
                 
     
                 <div class="form-group">
-                  <!-- <label for="password1">Password</label> -->
                   <input type="password" name = "password1" class="form-control" id="password1" placeholder="Password">
                 </div>
     
                 <div class="form-group">
-                    <!-- <label for="password2">Repeat Password</label> -->
                     <input type="password" name = "password2" class="form-control" id="password2" placeholder="Repeate Password">
                     <div class="tip-pass tip">
                       Entered passwords differ.
                   </div>
                 </div>
                 <div class="form-group">
-                <!-- <label for="exampleFormControlSelect1">Example select</label> -->
-                  <select class="form-control" name = "region" style="font-size:16px; padding : 0 6px;" >
+                  <select class="form-control" name = "region" id = "region" style="font-size:16px; padding : 0 6px;" >
                     <option value="China">China</option>
                     <option value="American">American</option>
                     <option value="England">England</option>
@@ -102,15 +94,8 @@
                     <option value="Canada">Canada</option>
                   </select>
                 </div>
-                <!-- <select name="region" id="">
-                  <option value="China">China</option>
-                  <option value="American">American</option>
-                  <option value="England">England</option>
-                  <option value="Japan">Japan</option>
-                  <option value="Korea">Korea</option>
-                  <option value="Canada">Canada</option>
-                </select>        -->
-                <button type="submit" class="btn btn-primary btn-sign-up">Sign up</button>
+                  
+                <button type="button" class="btn btn-primary btn-sign-up">Sign up</button>
               </form>
             </div>
             <div class="col-4" style="height:auto; background-color:  rgb(75, 90, 131);">
@@ -150,30 +135,64 @@
         $(this).siblings(".tip").removeClass("active-tip");
     })
 
-    $("#form-regist").submit(function (e) {
-        e.preventDefault();
-        // return false;
-    })
+    // $("#form-regist").submit(function (e) {
+    //     e.preventDefault();
+    //     // return false;
+    // })
 
-    $(".sign-up-content").on("submit",function(e){
+    $(".btn-sign-up").on("click",function(){
       if($("#telephone").val()=='' ||
       $("#username").val()=='' ||
       $("#email").val()==''||
       $("#password1").val()==''||
-      $("#password2").val()==''){
+      $("#password2").val()==''||
+      $("#realname").val() ==''||
+      $('#passportid').val() ==''
+      ){
         swal("Please complete form!");
-        e.preventDefault();
-        return false;
       }else if(
         /([\w\-]+\@[\w\-]+\.[\w\-]+)/.test($("#email").val())==false ||
         $("#password1").val()!=$("#password2").val() ||
         /\d{11}/.test($("#telephone").val())==false
       ){
         alert("Please complete form as right format!");
-        e.preventDefault();
-        return false;
       }else{
-        return true;
+          $.ajax({
+              type: "post",
+              url : "isexist.php",
+              data:{
+                name : $("#username").val(),
+              },
+              success: function(msg){
+                if(msg == 1){
+                  swal("Username already exist!");
+                }else{
+                  $.ajax({
+                    type:"post",
+                    url: "adduser.php",
+                    data:{
+                      name:  $("#username").val(),
+                      realname : $("#realname").val(),
+                      id : $("#passportid").val(),
+                      pass : $("#password1").val(),
+                      email: $("#email").val(),
+                      phone: $("#telephone").val(),
+                      region: $("#region option:selected").val(),
+                      role : 1,
+                    },
+                    success : function(msg){
+                      if(msg == 1){
+                        swal("Sign up successfully!");
+                        // location.reload();
+                      }else{
+                        swal("Failed!");
+                      }
+                    }
+                    
+                  })
+                }
+              }
+          })
       }
     })
 
