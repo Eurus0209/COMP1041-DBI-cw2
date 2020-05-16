@@ -1,0 +1,84 @@
+.sign-up-box {
+    /* width: 30%; */
+    margin-top: 4vh;
+    /* margin: auto auto; */
+}
+.form-control{
+  height: 1.7em;
+  /* border-top: none; */
+  border-radius: 0;
+}
+.form-control:focus{
+  /* border: tomato; */
+  border-color: #16a085;
+  box-shadow: none;
+}
+
+.login-content{
+    height: 300px;
+    font-size: 14px;
+  /* width: 400px; */
+  /* margin: 40px 50px 40px 40px; */
+  padding: 50px 80px 20px 100px;
+}
+
+.inner-box {
+  width: 800px;
+  margin: 0 auto;
+  border: 1px solid #eee;
+}
+
+.btn-login{
+  font-size: 14px;
+  background-color:#16a085;
+  border: none;
+  width: 100px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 15px;
+}
+
+#btn-to-sign-up{
+  border-radius: 3px;
+  border: 1.2px solid white;
+  width: 100px;
+  background-color: #16a085;
+  color: white;
+  height: 32px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+
+}
+#btn-to-sign-up:hover{
+  background-color:#327c6d;
+  transition: ease-in-out .3s;
+}
+
+.btn-login:hover{
+  background-color: #1abc9c;
+}
+
+.login-text{
+  color: white;
+  padding: 110px 20px;
+   margin: 0 auto;
+  text-align: center;
+}
+.login-welcome{
+    text-align: center;
+    color: #2c6156;
+    padding-top: 60px;
+}
+.tip{
+    display: none;
+    color: rgb(255, 79, 79);
+    font-size: .8em;
+    margin-bottom: 1.1em;
+    margin-top: .1em;
+    margin-left: .2em;
+}
+.active-tip{
+    display: block;
+}

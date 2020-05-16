@@ -1,0 +1,94 @@
+.sign-up-box {
+    /* width: 30%; */
+    margin-top: 8vh;
+    margin-bottom: 10vh;
+}
+.form-control{
+  height: 1.7em;
+  /* border-top: none; */
+  border-radius: 0;
+}
+.form-control:focus{
+  /* border: tomato; */
+  border-color: rgb(75, 90, 131);
+  box-shadow: none;
+}
+
+.sign-up-content{
+  font-size: 14px;
+  /* width: 400px; */
+  /* margin: 40px 50px 40px 40px; */
+  padding: 5vh 100px 5vh 100px;
+  /* height: 350px; */
+}
+
+.inner-box {
+  width: 800px;
+  margin: 0 auto;
+  border: 1px solid #eee;
+}
+
+.btn-sign-up{
+  font-size: 14px;
+  background-color: rgb(75, 90, 131);
+  border: none;
+  width: 100px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+#btn-to-login{
+  border-radius: 3px;
+  border: 1.2px solid white;
+  width: 100px;
+  background-color: rgb(75, 90, 131);
+  color: white;
+  height: 32px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+
+}
+#btn-to-login:hover{
+  background-color: rgb(67, 79, 112);
+  transition: ease-in-out .3s;
+}
+
+.btn-sign-up:hover{
+  background-color: rgb(97, 114, 161);
+}
+
+.login-text{
+  color: white;
+  padding: 110px 20px;
+   margin: 0 auto;
+  text-align: center;
+}
+.sign-up-welcome{
+  text-align: center;
+  color: rgb(67, 79, 112);
+  padding-top: 5vh;
+}
+
+.tip{
+    display: none;
+    color: rgb(255, 79, 79);
+    font-size: .8em;
+    margin-bottom: 1.1em;
+    margin-top: .1em;
+    margin-left: .2em;
+}
+.active-tip{
+    display: block;
+}
+
+.region {
+  border:#eee;
+}
+
+.region:focus{
+  border: 1px solid rgb(34, 21, 21);
+  box-shadow: none;
+}

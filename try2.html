@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-1.12.3.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/bootstrap.bundle.js"></script>
+    <!-- <script src="https://cdn.bootcdn.net/ajax/libs/sweetalert/2.1.1/sweetalert.min.js"></script> -->
+    <script src = "js/sweetalert.js"> </script>
+    <!-- <link rel="stylesheet" href="css/sweetalert.css"> -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/all.css">
+    <!-- <link rel="stylesheet" href="css/salerep.css"> -->
+    <style>
+        .aside{
+            /* position: fixed; */
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 180px;
+            /* width: 100%; */
+            background-color: rgb(41, 53, 77);
+            /* height: 100vh; */
+        }
+        li{
+            list-style: none;
+        }
+        
+
+        a, a:hover{
+            display: block;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav a{
+            padding: 10px 20px;
+            width: 180px;
+            font-weight: 500;
+            /* border: .4px solid #22293b; */
+        }
+
+        .aside .nav .active > a {
+            color: #eee;
+            /* background-color: #243443; */
+        } 
+        .aside .nav a:hover,
+        .aside .nav a:focus {
+            color: #fcfcfc;
+            background-color: #22293b;
+        }
+        #ordering-menu{
+            padding:0 0 0 0px;
+            background-color: rgb(56, 69, 94);
+            font-size: 0.8em;
+        }
+
+        #ordering-menu a{
+            border: none;
+        }
+
+        .profile{
+            align-items: center;
+            margin-left: 18px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            /* text-align: center; */
+        }
+        .account-img{
+            width: 28%;
+            /* display: inline; */
+            /* object-fit: cover; */
+        }
+        .aside .profile .name{
+            display: inline;
+            margin-left: 10px;
+            font-size: 16px;
+            font-weight: 700;
+            color: #eee;
+        }
+        .nav-link.active{
+            /* padding: 0;
+            margin: 0;
+            width: 100%; */
+            /* margin: 0; */
+            width: 180px;
+            /* background-color:  #22293b; */
+        }
+        .aside .nav .active > a {
+            background-color:  #22293b;
+        }
+    </style>
+</head>
+<body>
+    <div class="row">
+        <div class="col-3">
+            <div class="aside nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
+                <div class="profile">
+                  <!-- <img class="avatar" src="../uploads/avatar.jpg"> -->
+                  <img class = "account-img" src="img/account1.png" alt="">
+                  <h3 class="name">Huifei</h3>
+                </div>
+                <ul class="nav">
+                  <li class="active ">
+                    <a class = "nav-link active" data-toggle="pill" href="#dashboard" role="tab" aria-controls="v-pills-home" aria-selected="true" >Dashboard</a>
+                  </li>
+                  <li>
+                    <a href="#ordering-menu" class="collapsed" data-toggle="collapse">
+                      Ordering
+                    </a>
+                    <!-- <ul id="ordering-menu" class="collapse">
+                       <div class = "nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
+                      <li><a class="nav-link active"  data-toggle="pill" href="#all" role="tab" aria-controls="v-pills-profile" aria-selected="false">All</a></li>
+                      <li><a class="nav-link"  data-toggle="pill" href="#processing" role="tab" aria-controls="v-pills-profile" aria-selected="false">Processing</a></li>
+                      <li><a class="nav-link"  data-toggle="pill" href="#completed" role="tab" aria-controls="v-pills-profile" aria-selected="false">Completed</a></li>
+                      <li><a class="nav-link"  data-toggle="pill" href="#cancelled" role="tab" aria-controls="v-pills-profile" aria-selected="false">Cancelled</a></li>
+                      <li><a class="nav-link"  data-toggle="pill" href="#edit" role="tab" aria-controls="v-pills-profile" aria-selected="false">Edit</a></li>
+                    </div>
+                    </ul> -->
+                    <div id="ordering-menu" class="collapse nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
+                       <a class="nav-link "  data-toggle="pill" href="#all" role="tab" aria-controls="v-pills-profile" aria-selected="false">All</a>
+                       <a class="nav-link"  data-toggle="pill" href="#processing" role="tab" aria-controls="v-pills-profile" aria-selected="false">Processing</a>
+                       <a class="nav-link"  data-toggle="pill" href="#completed" role="tab" aria-controls="v-pills-profile" aria-selected="false">Completed</a>
+                       <a class="nav-link"  data-toggle="pill" href="#cancelled" role="tab" aria-controls="v-pills-profile" aria-selected="false">Cancelled</a>
+                       <a class="nav-link"  data-toggle="pill" href="#edit" role="tab" aria-controls="v-pills-profile" aria-selected="false">Edit</a>
+                     </div>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#">Information</a>
+                  </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-9">
+            <div class="tab-content" id="v-pills-tabContent">
+                <div class="tab-pane fade show active" id="dashboard" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                    22222222222
+                </div>
+                <div class="tab-pane fade" id="all" role="tabpanel" aria-labelledby="v-pills-profile-tab">333333</div>
+                <div class="tab-pane fade" id="processing" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
+                <div class="tab-pane fade" id="completed" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
+              </div>
+        </div>
+    </div>
+    <!-- <div class="aside">
+        <div class="profile">
+          <img class = "account-img" src="img/account1.png" alt="">
+          <h3 class="name">Huifei</h3>
+        </div>
+        <ul class="nav">
+          <li class="active">
+            <a href="#">Dashboard</a>
+          </li>
+          <li>
+            <a href="#ordering-menu" class="collapsed" data-toggle="collapse">
+              Ordering
+            </a>
+            <ul id="ordering-menu" class="collapse">
+              <li><a href="#">All</a></li>
+              <li><a href="">Processing</a></li>
+              <li><a href="">Completed</a></li>
+              <li><a href="">Cancelled</a></li>
+              <li><a href="">Edit</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Information</a>
+          </li>
+        </ul>
+    </div> -->
+</body>
+</html>
