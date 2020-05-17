@@ -29,20 +29,6 @@
     $Japan_processing = getNumOfRegion($Japan_sql_processing,$conn);
     $England_processing = getNumOfRegion($England_sql_processing,$conn);
     $Korea_processing = getNumOfRegion($China_sql_processing,$conn);
-    // echo $Korea[0];
-
-    // function getDateFromRange($startdate, $enddate){
-    //     $stimestamp = strtotime($startdate);
-    //     $etimestamp = strtotime($enddate);
-    //     // 计算日期段内有多少天
-    //     $days = ($etimestamp-$stimestamp)/86400+1;
-    //     // 保存每天日期
-    //     $date = array();
-    //     for($i=0; $i<$days; $i++){
-    //       $date[] = date('Y-m-d', $stimestamp+(86400*$i));
-    //     }
-    //     return $date;
-    // }
     include 'getdata.php';
 ?>
 
@@ -55,6 +41,7 @@
     <script src="js/jquery-1.12.3.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/bootstrap.bundle.js"></script>
+    <script src="library/echarts-4.8.0/dist/echarts.min.js"></script>
     <!-- <script src="https://cdn.bootcdn.net/ajax/libs/sweetalert/2.1.1/sweetalert.min.js"></script> -->
     <script src = "js/sweetalert.js"> </script>
     <!-- <link rel="stylesheet" href="css/sweetalert.css"> -->
@@ -224,6 +211,60 @@
         .show{
             display: block!important;
         }
+
+        .warning-tip{
+            display:none;
+        }
+        .sr-detail-info-box{
+            /* font-size: 18px!important; */
+            width: 100%;
+            margin: 10vh auto;
+            text-align: center;
+        }
+        .detail-box{
+            display: none;
+            /* padding: auto 100px!important; */
+        }
+        .show-cell{
+            display: table-cell;
+        }
+        .sr-detail-info-table td,
+        .sr-detail-info-table th{
+            padding: 7px;
+        }
+        .col-3 .quota-chart{
+            margin: 0 auto;
+        }
+        .inner-table{
+            margin: 50px auto;
+            font-size: 14px;
+        }
+        .chart-column {
+            margin: 0 auto;
+            align-items: center;
+            text-align: center;
+            
+        }
+        
+        .sr-detail-info-table .form-control{
+            width: 70px; 
+            margin: 0 auto; 
+            height: 30px; 
+            border-radius: 0; 
+            text-align: center;
+            border: none;
+            border-bottom: .5px solid black;
+        }
+        .save-btn{
+            height: 30px;
+            /* padding: 0; */
+            border: none;
+            width: 50px;
+        }
+
+        .sr-detail-info-box a{
+            color:black;
+        }
     </style>
 </head>
 <body>
@@ -248,12 +289,15 @@
                   </li>
                   <li>
                     <a href="#salerep-situtaion" class="collapsed" data-toggle="collapse">
-                      Sale Rep &nbsp <i class="fa fa-angle-down" aria-hidden="true"></i>
+                      Sale Rep &nbsp <i class="fa fa-angle-down" aria-hidden="true"></i> &nbsp
+                      <i class = "fa fa-exclamation-circle warning-tip" style="font-size:13px;" ></i>
                     </a>
                     <ul id="salerep-situtaion" class="collapse aside-nav">
                       <li><a class = "sr-info-label" id = "sr-information" href="javascript:;">Information</a></li>
                       <li><a class = "sr-info-label" id = "sr-add" href="javascript:;">Add</a></li>
-                      <li><a class = "sr-info-label" id = "sr-warning" href="javascript:;">Warning</a></li>
+                      <li><a class = "sr-info-label" id = "sr-warning" href="javascript:;">Warning &nbsp
+                      <i class = "fa fa-exclamation-circle warning-tip" style="font-size:13px;" ></i>
+                      </a></li>
                     </ul>
                   </li>
                   <li>
@@ -274,7 +318,7 @@
             </div>
             
             <div class="sr-info-table sr-information">
-
+                <?php include 'srinfo.php' ?>
             </div>
             <div class="sr-info-table sr-add">
                 <?php include 'salerep_add.php'; ?>

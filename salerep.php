@@ -233,7 +233,10 @@
         /* margin-bottom: 1.1em; */
         margin-top: .1em;
         margin-left: .2em;
-    }
+        }
+        .quota-chart-box{
+            margin-top: 5vh;
+        }
     </style>
 </head>
 <body>
@@ -274,9 +277,11 @@
                 <div class="ordering-table information-tab show">
                     <div class="row">
                         <div class="col-4">
-                            <div id="n95-quota" style="height:220px; width: 250px"></div>
-                            <div id="surgial-quota" style="height:170px; width: 250px"></div>
-                            <div id="n95-surgial-quota" style="height:170px; width: 250px"></div>
+                            <div class="quota-chart-box">
+                                <div id="n95-quota" style="height:220px; width: 250px"></div>
+                                <div id="surgial-quota" style="height:170px; width: 250px"></div>
+                                <div id="n95-surgial-quota" style="height:170px; width: 250px"></div>
+                            </div>
                         </div>
                         <div class="col-8">
                             <div class="sr-info-box">

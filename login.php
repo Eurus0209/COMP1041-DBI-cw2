@@ -20,22 +20,6 @@ session_start();
     
 </head>
 <body>
-  <!-- <nav class="navbar navbar-expand-sm navbar-light bg-light nav-before-login">
-    <a href="index.php" class="navbar-brand">SMS</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target = "#myNav" >
-        <span class="navbar-toggler-icon small"></span>
-    </button>
-    <div class="collapse navbar-collapse " id="myNav">
-        <ul class="navbar-nav  ml-auto ">
-            <li class="nav-item">
-                <a href="signup.php" class="nav-link">Sign Up</a>
-            </li>
-            <li class="nav-item">
-                <a href="login.php" class="nav-link">Login</a>
-            </li>
-        </ul>
-    </div>
-</nav> -->
     <?php
         include 'nav-before.php';
     ?>
@@ -60,15 +44,13 @@ session_start();
                 
               <form class="form-regist form-horizontal login-content" action = "login-back.php" method = "post">
                 <div class="form-group ">
-                  <!-- <label for="username">Username</label> -->
                   <input type="text" name = "username" class="form-control" id="username" placeholder="Username">
                 </div>
                 <div class="form-group">
-                  <!-- <label for="password1">Password</label> -->
                   <input type="password" name ="password" class="form-control" id="password" placeholder="Password">
                 </div>
          
-                <button type="submit" class="btn btn-primary btn-login">Login</button>
+                <button type="button" class="btn btn-primary btn-login">Login</button>
               </form>
             </div>
             
@@ -80,13 +62,34 @@ session_start();
     
 </body>
 <script>
-    $(".login-content").on("submit",function (e) {
-        // alert("here");
+    $(function(){
+      $(".btn-login").on("click",function () {
         if($("#username").val()==''||
         $("#password").val()==''){
-            alert("Please complete form!");
-            e.preventDefault();
+          swal("Please complete form!");
+        }else{
+          $.ajax({
+            type:"post",
+            url: "checklogin.php",
+            data:{
+              name : $("#username").val(),
+              password : $("#password").val()
+            },
+            success: function(msg){
+              if(msg == 4){
+                swal("Failed login!");
+              }
+              if(msg == 1){
+                window.location= 'index.php';
+              }else if (msg == 2){
+                window.location= 'salerep.php';
+              }else if (msg == 3){
+                window.location= 'manager.php';
+              }
+            }
+          })
         }
+      })
     })
 </script>
 

@@ -22,12 +22,10 @@
     $sql = "insert into ordering (orderid, custname, date, totalsales, status,custregion,type1,type2,type3,salerep) values ('$ordid','$username','$datetime','$sales','processing','$region','$num1','$num2','$num3','$sr')";
     // $sql = "insert into pur (num1, num2, num3, username) values ('$num1','$num2','$num3','$username')";
     if($conn->query($sql) === true){
-        // echo "added.";
-        // $_SESSION['username']="abc";
-        // echo '<script>alert("hhh");</script>';
-        // echo '<script>window.location.href = "login.php";</script>';
+         echo 1;
+        
     }else{
-        echo "add failed";
+        echo 0;
     }
 
     // if($num1 != 0){

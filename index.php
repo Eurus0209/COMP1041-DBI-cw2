@@ -17,7 +17,7 @@
 <body>
     <?php
         session_start();
-        // echo json_encode($_SESSION);
+        // echo json_encode($_SESSION); 
         if(isset($_SESSION['username'])){
             $islog = true;
             include 'nav-after.php';
@@ -37,8 +37,10 @@
                     $sr_list = $sr_list."<option value = ".$row["name"].">".$row["name"]."</option>";
                 }
                 $sr_list = $sr_list."</select> </div>";
+                $ishavesr = 1;
             }else{
                 $sr_list = "<h4> This region has no Sale Representative now!</h4>";
+                $ishavesr = 0;
             }
         }else{
             $islog = false;
@@ -215,66 +217,40 @@
                 var user = "<?php echo $name ?>";
                 var sr = $("#sr-selector option:selected").val();
                 // alert(sr);
-                $.ajax({
-                    type: 'POST',
-                    url: 'purchase.php',
-                    data: {num1:num1,
-                            num2 : num2,
-                            num3 : num3,
-                            user : user,
-                            sr: sr
-                    },
-                    success: function(msg){// msg: php返回内容/* alert(修改成功); */window.location = window.location;
-                        swal({
-                            text:"Purchase successfully!",
-                            timer:2000,
-                            button : false,
-                        });
-                        $('.chose-sr').modal('hide');
-                    }
-                })
+                var flag = <?php echo $ishavesr; ?>;
+                if (flag == 1){
+                    $.ajax({
+                        type: 'POST',
+                        url: 'purchase.php',
+                        data: {num1:num1,
+                                num2 : num2,
+                                num3 : num3,
+                                user : user,
+                                sr: sr
+                        },
+                        success: function(msg){
+                            if(msg == 1){
+                                swal({
+                                    text:"Purchase successfully!",
+                                    timer:2000,
+                                    button : false,
+                                });
+                            }else{
+                                swal({
+                                    text:"Purchase failed!",
+                                    timer:2000,
+                                    button : false,
+                                });
+                            }
+                            
+                        }
+                    })
+                }
+                $('.chose-sr').modal('hide');
+                
             })
-            // swal(
-            //        {
-            //            text :"Confirm the purchase!",
-            //         //    timer:2000,
-            //            buttons: true,
-            //             // showCancelButton: true,
-            //             // showConfirmButton: true,
-            //        }
-            //    ).then(function(isConfirm){
-            //         if(isConfirm){
-            //             // swal(
-            //             // '删除！',
-            //             // '你的文件已经被删除。',
-            //             // 'success'
-            //             // );
-            //             var num1 = ($("input").get(0).value)*1.0;
-            //             var num2 = ($("input").get(1).value)*1.0;
-            //             var num3 = ($("input").get(2).value)*1.0;
-            //             var user = "<?php if(isset($_SESSION['username'])) echo $_SESSION['username'] ?>";
-            //             $.ajax({
-            //             type: 'POST',
-            //             url: 'purchase.php',
-            //             data: {num1:num1,
-            //                     num2 : num2,
-            //                     num3 : num3,
-            //                     user : user,
-            //             },
-            //             success: function(msg){// msg: php返回内容/* alert(修改成功); */window.location = window.location;
-            //                 swal({
-            //                     text:"Purchase successfully!",
-            //                     timer:2000,
-            //                     button : false,
-            //                 });
-            //             }
-            //             // ,
-            //             // error:function(msg){// 提交失败}
-            //             // }
-            //         });
-            //         }
-            //     })
-            }
+            
+        }
             
         })
     })
