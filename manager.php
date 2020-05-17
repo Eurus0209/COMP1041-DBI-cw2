@@ -1,9 +1,13 @@
 <?php
     session_start();
+    include 'getdata.php';
     include 'check_iscomplete.php';
     include 'conntodb.php';
     include 'print_table.php';
     include 'getNum.php';
+    include 'getSrInfo.php';
+    include 'temp.php';
+    
     $China_sql = "SELECT * FROM ordering WHERE custregion = 'China'";
     $American_sql = "SELECT * FROM ordering WHERE custregion = 'American'";
     $Canada_sql = "SELECT * FROM ordering WHERE custregion = 'Canada'";
@@ -29,7 +33,7 @@
     $Japan_processing = getNumOfRegion($Japan_sql_processing,$conn);
     $England_processing = getNumOfRegion($England_sql_processing,$conn);
     $Korea_processing = getNumOfRegion($China_sql_processing,$conn);
-    include 'getdata.php';
+    
 ?>
 
 <!DOCTYPE html>

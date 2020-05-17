@@ -1,6 +1,6 @@
 <?php
     include 'conntodb.php';
-    include 'getdata.php';
+    // include 'getdata.php';
     $sql = "SELECT * FROM user WHERE role = 2";
     $info_list = array();
     if(($result=$conn->query($sql))==true){
@@ -27,6 +27,7 @@
     }else{
         echo "failed";
     }
+    $srInfoList = $info_list;
     // echo $info_list;
     // print_r($info_list[0]);
 ?>

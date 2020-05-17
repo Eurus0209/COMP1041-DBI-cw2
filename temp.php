@@ -1,6 +1,8 @@
 <?php
     $numOfSR = count($srInfoList);
     $tStr = '';
+    $sStr = '';
+    $dataList = array();
     for($i=0;$i<$numOfSR; $i++){
         $srInfo = $srInfoList[$i];
         $saleNum = $srInfo[9];
@@ -19,7 +21,7 @@
         <td><a href="javascript:;" class = "expand">detail</a></td>
         <td><input type="button" class ="save-btn" value="save"></td>
     </tr>';
-        $tStr = $tStr.'<tr><td colspan="9" class = "detail-box" id = "'.$srInfo[1].'-label'.'">
+        $tStr = $tStr.'<tr><td colspan="9" class = "detail-box show-cell" id = "'.$srInfo[1].'-label'.'">
         <div class="detail-content row">
             <div class="col-1"></div>
             <div class="col-1 chart-column">
@@ -50,5 +52,48 @@
             </div>
         </div>
     </td> </tr>';
+
+    $sStr = $sStr .'var '.$srInfo[1]."chart1".' = echarts.init(document.getElementById("'.$srInfo[1].'-chart1"));
+    var '.$srInfo[1]."chart2".' = echarts.init(document.getElementById("'.$srInfo[1].'-chart2")); 
+    var '.$srInfo[1]."chart3".' = echarts.init(document.getElementById("'.$srInfo[1].'-chart3")); 
+    var '.$srInfo[1].'barchart = echarts.init(document.getElementById("'.$srInfo[1].'barchart"));';
+    
+    // $sStr = $sStr. '';
+    for($j=0; $j<3; $j++){
+        $sStr = $sStr ."var option".$srInfo[1].'_'.$j." = {
+            tooltip: {
+                trigger: 'item',
+                formatter: '{a} <br/>{b}: {c}'
+            },
+            color:['#425569','#5b7794','#94aac2','#ff7979'],
+            series: [
+                {
+                    name: 'N95-respirator',
+                    type: 'pie',
+                    radius: [20, 30],
+                    avoidLabelOverlap: false,
+                    label: {
+                        show: false,
+                        position: 'center'
+                    },
+                    labelLine: {
+                        show: true
+                    },
+                    data: [
+                        {value: ".$saleNum[$j][0].", name: 'completed'},
+                        {value: ".$saleNum[$j][1].", name: 'processing'},
+                        {value: ".$saleNum[$j][2].", name: 'remaining'},
+                        {value: ".$saleNum[$j][3].", name: 'exceed'},
+                    ]
+                }
+            ]
+        };";
+    }
+
+
+    $sStr = $sStr.$srInfo[1]."chart1".'.setOption(option'.$srInfo[1].'_0);
+    '.$srInfo[1].'chart2.setOption(option'.$srInfo[1].'_1);
+    '.$srInfo[1].'chart3.setOption(option'.$srInfo[1].'_2);
+    '.$srInfo[1].'barchart.setOption(option2);';
     }
 ?>

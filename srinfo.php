@@ -15,7 +15,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
+            <!-- <tr>
                 <td >1</th>
                 <td>rep1</td>
                 <td>China</td>
@@ -58,49 +58,47 @@
                         </div>
                     </div>
                 </td>
-            </tr>
+            </tr> -->
+            <?php
+                echo $tStr;
+            ?>
+
         </tbody>
     </table>
 </div>
 <script >
-    var n95 = echarts.init(document.getElementById("achart1"));
-    var surgial = echarts.init(document.getElementById("achart2")); 
-    var chart3 = echarts.init(document.getElementById("achart3")); 
-    var barchart1 = echarts.init(document.getElementById("barchart1"));
-    var option1 = {
-        tooltip: {
-            trigger: 'item',
-            formatter: '{a} <br/>{b}: {c}'
-        },
-        color:['#425569','#5b7794','#94aac2','#ff7979'],
-        // legend: {
-        //     orient: 'vertical',
-        //     // left: 30,
-        //     data: ['completed', 'processing', 'remaining','exceed'],
-        // },
-        series: [
-            {
-                name: 'N95-respirator',
-                type: 'pie',
-                radius: [20, 30],
-                avoidLabelOverlap: false,
-                // top: 50,
-                label: {
-                    show: false,
-                    position: 'center'
-                },
-                labelLine: {
-                    show: true
-                },
-                data: [
-                    {value: 230, name: 'completed'},
-                    {value: 20, name: 'processing'},
-                    {value: 0, name: 'remaining'},
-                    {value: 30, name: 'exceed'},
-                ]
-            }
-        ]
-    };
+    // var n95 = echarts.init(document.getElementById("achart1"));
+    // var surgial = echarts.init(document.getElementById("achart2")); 
+    // var chart3 = echarts.init(document.getElementById("achart3")); 
+    // var barchart1 = echarts.init(document.getElementById("barchart1"));
+    // var option1 = {
+    //     tooltip: {
+    //         trigger: 'item',
+    //         formatter: '{a} <br/>{b}: {c}'
+    //     },
+    //     color:['#425569','#5b7794','#94aac2','#ff7979'],
+    //     series: [
+    //         {
+    //             name: 'N95-respirator',
+    //             type: 'pie',
+    //             radius: [20, 30],
+    //             avoidLabelOverlap: false,
+    //             label: {
+    //                 show: false,
+    //                 position: 'center'
+    //             },
+    //             labelLine: {
+    //                 show: true
+    //             },
+    //             data: [
+    //                 {value: 230, name: 'completed'},
+    //                 {value: 20, name: 'processing'},
+    //                 {value: 0, name: 'remaining'},
+    //                 {value: 30, name: 'exceed'},
+    //             ]
+    //         }
+    //     ]
+    // };
     var option2= {
         xAxis:{
             data: ['13/5','14/5','15/5','16/5','17/5']
@@ -109,8 +107,6 @@
             type:"value",
         },
         legend: {
-            // type: 'scroll',
-            // bottom: 10,
             top:10,
             data: [{name:'N95'},
                 {name:'Surgial'},
@@ -124,10 +120,10 @@
             formatter: '{a} <br/>{b} : {c}'
         },
         dataZoom: [
-            {   // 这个dataZoom组件，默认控制x轴。
-                type: 'slider', // 这个 dataZoom 组件是 slider 型 dataZoom 组件
-                // start: 10,      // 左边在 10% 的位置。
-                // end: 60         // 右边在 60% 的位置。
+            { 
+                type: 'slider', 
+                start: 10,    
+                end: 60         
             }
         ],
         series: [
@@ -157,10 +153,13 @@
             }
         ]
     }
-    n95.setOption(option1);
-    surgial.setOption(option1);
-    chart3.setOption(option1);
-    barchart1.setOption(option2);
+    // n95.setOption(option1);
+    // surgial.setOption(option1);
+    // chart3.setOption(option1);
+    // barchart1.setOption(option2);
+    <?php
+        echo $sStr;
+    ?>
     $(function(){
         $(".expand").on("click",function(){
             // var al = new Array("a",1,new Array(new Array("hh","hei"),2,3));
