@@ -1,3 +1,7 @@
+<?php
+    $date = getDateFromRange($startdate,$now_date);
+    $json_date = json_encode($date);
+?>
 <div class="sr-detail-info-box">
     <table class="table sr-detail-info-table">
         <thead>
@@ -11,7 +15,7 @@
             <th scope="col">surgial quota</th>
             <th scope="col">N95-surgial quota</th>
             <th scope="col"></th>
-            <th scope="col"></th>
+            <th scope="col" colspan = 2>Edit </th>
             </tr>
         </thead>
         <tbody>
@@ -99,60 +103,60 @@
     //         }
     //     ]
     // };
-    var option2= {
-        xAxis:{
-            data: ['13/5','14/5','15/5','16/5','17/5']
-        },
-        yAxis:{
-            type:"value",
-        },
-        legend: {
-            top:10,
-            data: [{name:'N95'},
-                {name:'Surgial'},
-                {name:'N95 Surgial'},
-                {name:'Average'}
+    // var option2= {
+    //     xAxis:{
+    //         data: ['13/5','14/5','15/5','16/5','17/5']
+    //     },
+    //     yAxis:{
+    //         type:"value",
+    //     },
+    //     legend: {
+    //         top:10,
+    //         data: [{name:'N95'},
+    //             {name:'Surgial'},
+    //             {name:'N95 Surgial'},
+    //             {name:'Average'}
                     
-                ]
-        },
-        tooltip: {
-            trigger: 'item',
-            formatter: '{a} <br/>{b} : {c}'
-        },
-        dataZoom: [
-            { 
-                type: 'slider', 
-                start: 10,    
-                end: 60         
-            }
-        ],
-        series: [
-            {
-                color:['#82ccdd'],
-                type:'bar',
-                name:'N95',
-                data:[20,30,10,40,100]
-            },
-            {
-                color:['#60a3bc'],
-                name:'Surgial',
-                type:'bar',
-                data:[40,10,40,50,30]
-            },
-            {
-                color:['rgb(65, 83, 102)'],
-                name:'N95 Surgial',
-                type:'bar',
-                data:[100,30,20,10,40]
-            },
-            {
-                color:['#34495e'],
-                name: 'Average',
-                type:'line',
-                data:[40,21,40,50,30]
-            }
-        ]
-    }
+    //             ]
+    //     },
+    //     tooltip: {
+    //         trigger: 'item',
+    //         formatter: '{a} <br/>{b} : {c}'
+    //     },
+    //     dataZoom: [
+    //         { 
+    //             type: 'slider', 
+    //             start: 10,    
+    //             end: 60         
+    //         }
+    //     ],
+    //     series: [
+    //         {
+    //             color:['#82ccdd'],
+    //             type:'bar',
+    //             name:'N95',
+    //             data:[20,30,10,40,100]
+    //         },
+    //         {
+    //             color:['#60a3bc'],
+    //             name:'Surgial',
+    //             type:'bar',
+    //             data:[40,10,40,50,30]
+    //         },
+    //         {
+    //             color:['rgb(65, 83, 102)'],
+    //             name:'N95 Surgial',
+    //             type:'bar',
+    //             data:[100,30,20,10,40]
+    //         },
+    //         {
+    //             color:['#34495e'],
+    //             name: 'Average',
+    //             type:'line',
+    //             data:[40,21,40,50,30]
+    //         }
+    //     ]
+    // }
     // n95.setOption(option1);
     // surgial.setOption(option1);
     // chart3.setOption(option1);
@@ -160,6 +164,28 @@
     <?php
         echo $sStr;
     ?>
+
+    function getData(dateinfo, numinfo){
+        var date = [];
+        var type1 = [];
+        var type2 = [];
+        var type3 = [];
+        var ave = [];
+        for(var i=0; i<dateinfo.length; i++){
+            date.push(dateinfo[i].substr(5));
+            type1.push(numinfo[0][i]);
+            type2.push(numinfo[1][i]);
+            type3.push(numinfo[2][i]);
+            ave.push(Math.round((numinfo[0][i]+numinfo[1][i]+numinfo[2][i])/3));
+        }
+        return {
+            date:date,
+            type1: type1,
+            type2: type2,
+            type3: type3,
+            ave:ave
+        }
+    }
     $(function(){
         $(".expand").on("click",function(){
             // var al = new Array("a",1,new Array(new Array("hh","hei"),2,3));

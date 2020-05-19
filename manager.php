@@ -7,6 +7,7 @@
     include 'getNum.php';
     include 'getSrInfo.php';
     include 'temp.php';
+    include 'warning_data.php';
     
     $China_sql = "SELECT * FROM ordering WHERE custregion = 'China'";
     $American_sql = "SELECT * FROM ordering WHERE custregion = 'American'";
@@ -46,230 +47,16 @@
     <script src="js/bootstrap.js"></script>
     <script src="js/bootstrap.bundle.js"></script>
     <script src="library/echarts-4.8.0/dist/echarts.min.js"></script>
-    <!-- <script src="https://cdn.bootcdn.net/ajax/libs/sweetalert/2.1.1/sweetalert.min.js"></script> -->
     <script src = "js/sweetalert.js"> </script>
-    <!-- <link rel="stylesheet" href="css/sweetalert.css"> -->
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/all.css">
     <link rel="stylesheet" href="library/fontawesome/css/all.css">
     <!-- <link rel="stylesheet" href="css/salerep.css"> -->
-    <style>
-        .aside{
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 180px;
-            background-color: #34495e;
-            /* height: 100vh; */
-        }
-        li{
-            list-style: none;
-        }
+    <link rel="stylesheet" href="css/manager.css">
+    <script>
+        var fw = <?php echo $flag_warning;?>;
         
-
-        a, a:hover{
-            display: block;
-            color: white;
-            text-decoration: none;
-        }
-
-        .nav a{
-            padding: 10px 20px;
-            width: 180px;
-            font-weight: 500;
-            /* border: .4px solid #22293b; */
-        }
-
-        .aside .toggle-list .active > a {
-            color: #eee;
-            /* background-color: #243443; */
-        } 
-        .aside .toggle-list a:hover,
-        .aside .toggle-list a:focus {
-            color: #fcfcfc;
-            background-color: #2c3e50;
-        }
-        .aside-nav{
-            padding:0 0 0 0px;
-            background-color: #496077;
-            font-size: 0.8em;
-        }
-
-        .aside-nav a{
-            border: none;
-        }
-
-        .profile{
-            align-items: center;
-            margin-left: 18px;
-            margin-top: 20px;
-            margin-bottom: 20px;
-            /* text-align: center; */
-        }
-        .account-img{
-            width: 28%;
-            /* display: inline; */
-            /* object-fit: cover; */
-        }
-        .aside .profile .name{
-            display: inline;
-            margin-left: 10px;
-            font-size: 16px;
-            font-weight: 700;
-            color: #eee;
-        }
-        .selling-table, .sr-info-table {
-            display: none;
-        }
-        
-        .table{
-            align : center;
-            font-size: 14px;
-            /* height : 18px; */
-            margin: 10vh 10vh;
-            width: 80%;
-            
-        }
-        .table tr th,
-        .table tr td{
-            /* height : 20px; */
-            padding: 7px;
-            text-align : center;
-        }
-
-        .logout{
-            /* position :fixed; */
-            bottom : 10px;
-        }
-        .cancel-btn {
-            border: none;
-            border-radius: 4px;
-            height:27px;
-            width: 90px;
-            background-color:#eee;
-            margin: 0;
-        }
-        .no-need{
-            margin : 20vh 40px;
-        }
-
-        .content-box{
-            margin: 7vh 7vh 7vh 7vh;
-            /* color:black; */
-        }
-        .nav-item a{
-            font-size: 14px;
-            color:#585d74;
-        }
-        .sell-nav-box .nav-item a{
-            width:130px!important;
-        }
-
-        .form-control{
-        height: 1.7em;
-        /* border-top: none; */
-        border-radius: 0;
-        }
-        .form-control:focus{
-        /* border: tomato; */
-        border-color: rgb(75, 90, 131);
-        box-shadow: none;
-        }
-
-        .sr-info-content{
-            /* margin-top:10vh; */
-            margin-left: 10vh;
-            font-size: 14px;
-            font-weight:600;
-        }
-        .btn-save-change{
-            font-size: 14px;
-            background-color: rgb(75, 90, 131);
-            border: none;
-            width: 150px;
-            display: block;
-            margin: 0 auto;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            }
-        .sr-info-content{
-            margin-top:5vh;
-            width:50%;
-            /* font-size: 14px; */
-        }
-        .sr-info-add-box2{
-            width:50%;
-            margin-left:100px;
-        }
-
-        .sr-info-content .tip{
-            display: none;
-            color: rgb(255, 79, 79);
-            font-size: .8em;
-            /* margin-bottom: 1.1em; */
-            margin-top: .1em;
-            margin-left: .2em;
-        }
-
-        .show{
-            display: block!important;
-        }
-
-        .warning-tip{
-            display:none;
-        }
-        .sr-detail-info-box{
-            /* font-size: 18px!important; */
-            width: 100%;
-            margin: 10vh auto;
-            text-align: center;
-        }
-        .detail-box{
-            display: none;
-            /* padding: auto 100px!important; */
-        }
-        .show-cell{
-            display: table-cell;
-        }
-        .sr-detail-info-table td,
-        .sr-detail-info-table th{
-            padding: 7px;
-        }
-        .col-3 .quota-chart{
-            margin: 0 auto;
-        }
-        .inner-table{
-            margin: 50px auto;
-            font-size: 14px;
-        }
-        .chart-column {
-            margin: 0 auto;
-            align-items: center;
-            text-align: center;
-            
-        }
-        
-        .sr-detail-info-table .form-control{
-            width: 70px; 
-            margin: 0 auto; 
-            height: 30px; 
-            border-radius: 0; 
-            text-align: center;
-            border: none;
-            border-bottom: .5px solid black;
-        }
-        .save-btn{
-            height: 30px;
-            /* padding: 0; */
-            border: none;
-            width: 50px;
-        }
-
-        .sr-detail-info-box a{
-            color:black;
-        }
-    </style>
+    </script>
 </head>
 <body>
     
@@ -328,12 +115,17 @@
                 <?php include 'salerep_add.php'; ?>
             </div>
             <div class="sr-info-table sr-warning">
-            
+                <?php include 'warning.php' ?>
             </div>
         </div>
     </div>
 </body>
 <script >
+    if(fw==1){
+            // $(".warning-tip").removeClass("warning-tip");
+            $(".warning-tip").addClass("show-wt");
+        }
+
     $(".selling-label").on("click",function(){
         var str = $(this).attr("id");
         $(".selling-table").removeClass("show");
@@ -375,6 +167,7 @@
         }
     })
 
+    
     $(".btn-save-change").on("click",function(){
         if($("#email").val()==''|| 
         $("#phone").val() =='' ||

@@ -37,11 +37,12 @@
     $region_sql2 = "SELECT * FROM ordering WHERE salerep = '$name' and status = 'completed'";
     $result2 = $conn -> query($region_sql2);
     if($result2 ->num_rows >0){
-        while($row = $result->fetch_assoc()){
+        while($row = $result2->fetch_assoc()){
             $com_num1 += $row['type1'];
             $com_num2 += $row['type2'];
             $com_num3 += $row['type3'];
         }
+    }else{
     }
     $num1 = $pro_num1+$com_num1;
     $num2 = $pro_num2+$com_num2;

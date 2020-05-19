@@ -3,9 +3,13 @@
     $tStr = '';
     $sStr = '';
     $dataList = array();
+    $date = getDateFromRange($startdate,$now_date);
+    $json_date = json_encode($date);
     for($i=0;$i<$numOfSR; $i++){
         $srInfo = $srInfoList[$i];
         $saleNum = $srInfo[9];
+        $numInfo = $srInfo[8];
+        $json_maskNum = json_encode($numInfo);
         $total1 = $saleNum[0][0]+$saleNum[0][1];
         $total2 = $saleNum[1][0]+$saleNum[1][1];
         $total3 = $saleNum[2][0]+$saleNum[2][1];
@@ -15,13 +19,15 @@
         <td>'.$srInfo[3].'</td>
         <td>'.$srInfo[4].'</td>
         <td>'.$srInfo[2].'</td>
-        <td><input type="text" class = "form-control" value = '.$srInfo[5].'></td>
-        <td><input type="text" class = "form-control" value = '.$srInfo[6].'></td>
-        <td><input type="text" class = "form-control" value = '.$srInfo[7].'></td>
-        <td><a href="javascript:;" class = "expand">detail</a></td>
-        <td><input type="button" class ="save-btn" value="save"></td>
+        <td>'.$srInfo[5].'</td>
+        <td>'.$srInfo[6].'</td>
+        <td>'.$srInfo[7].'</td>
+        
+        <td><a href="javascript:;" class = "expand"><i class="fa fa-chevron-down"></i></a></td>
+        <td><input type="button" class ="re-grant-btn" value="re-grant"></td>
+        <td><input type="button" class ="update-btn" value="update"></td>
     </tr>';
-        $tStr = $tStr.'<tr><td colspan="9" class = "detail-box show-cell" id = "'.$srInfo[1].'-label'.'">
+        $tStr = $tStr.'<tr><td colspan="10" class = "detail-box" id = "'.$srInfo[1].'-label'.'">
         <div class="detail-content row">
             <div class="col-1"></div>
             <div class="col-1 chart-column">
@@ -45,19 +51,22 @@
                         </tr>
                         <tr>
                             <th scope="row">N95-surgial</th>
-                            <td>'.$total2.'</td>
+                            <td>'.$total3.'</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
-    </td> </tr>';
+    </td> </tr>
+    ';
+
 
     $sStr = $sStr .'var '.$srInfo[1]."chart1".' = echarts.init(document.getElementById("'.$srInfo[1].'-chart1"));
     var '.$srInfo[1]."chart2".' = echarts.init(document.getElementById("'.$srInfo[1].'-chart2")); 
     var '.$srInfo[1]."chart3".' = echarts.init(document.getElementById("'.$srInfo[1].'-chart3")); 
     var '.$srInfo[1].'barchart = echarts.init(document.getElementById("'.$srInfo[1].'barchart"));';
     
+
     // $sStr = $sStr. '';
     for($j=0; $j<3; $j++){
         $sStr = $sStr ."var option".$srInfo[1].'_'.$j." = {
@@ -89,6 +98,70 @@
             ]
         };";
     }
+
+    $sStr = $sStr.'
+            var num_info = '.$json_maskNum .';
+            var dateinfo = '.$json_date.';
+            var data = getData(dateinfo, num_info);
+    ';
+
+    
+    $sStr = $sStr."
+    var option2= {
+        xAxis:{
+            data: data.date
+        },
+        yAxis:{
+            type:'value',
+        },
+        legend: {
+            top:10,
+            data: [{name:'N95'},
+                {name:'Surgial'},
+                {name:'N95 Surgial'},
+                {name:'Average'}
+                    
+                ]
+        },
+        tooltip: {
+            trigger: 'item',
+            formatter: '{a} <br/>{b} : {c}'
+        },
+        dataZoom: [
+            { 
+                type: 'slider', 
+                start: 10,    
+                end: 60         
+            }
+        ],
+        series: [
+            {
+                color:['#82ccdd'],
+                type:'bar',
+                name:'N95',
+                data:data.type1
+            },
+            {
+                color:['#60a3bc'],
+                name:'Surgial',
+                type:'bar',
+                data:data.type2
+            },
+            {
+                color:['rgb(65, 83, 102)'],
+                name:'N95 Surgial',
+                type:'bar',
+                data:data.type3
+            },
+            {
+                color:['#34495e'],
+                name: 'Average',
+                type:'line',
+                data:data.ave
+            }
+        ]
+    }
+    ";
 
 
     $sStr = $sStr.$srInfo[1]."chart1".'.setOption(option'.$srInfo[1].'_0);

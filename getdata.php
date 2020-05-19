@@ -92,6 +92,7 @@ function getDateMaskNumBySR($dateArray,$srname,$conn){
         // $maskNum[] = $num;
     }
     $maskNum = array($num1,$num2,$num3);
+    // $json_maskNum = json_encode($maskNum);
     return $maskNum;
 }
 
@@ -114,7 +115,7 @@ function getDetailSoldMask($name,$conn,$quota1,$quota2,$quota3){
     $completed_sql = "SELECT * FROM ordering WHERE salerep = '$name' and status = 'completed'";
     $result2 = $conn -> query($completed_sql);
     if($result2 ->num_rows >0){
-        while($row = $result->fetch_assoc()){
+        while($row = $result2->fetch_assoc()){
             $com_num1 += $row['type1'];
             $com_num2 += $row['type2'];
             $com_num3 += $row['type3'];
