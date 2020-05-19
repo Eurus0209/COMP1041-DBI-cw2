@@ -6,7 +6,7 @@
     include 'print_table.php';
     include 'getNum.php';
     include 'getSrInfo.php';
-    include 'temp.php';
+    include 'print_srinfo.php';
     include 'warning_data.php';
     
     $China_sql = "SELECT * FROM ordering WHERE custregion = 'China'";
@@ -48,6 +48,7 @@
     <script src="js/bootstrap.bundle.js"></script>
     <script src="library/echarts-4.8.0/dist/echarts.min.js"></script>
     <script src = "js/sweetalert.js"> </script>
+    <script src="js/manager.js"></script>
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/all.css">
     <link rel="stylesheet" href="library/fontawesome/css/all.css">
@@ -121,114 +122,113 @@
     </div>
 </body>
 <script >
-    if(fw==1){
-            // $(".warning-tip").removeClass("warning-tip");
-            $(".warning-tip").addClass("show-wt");
-        }
+    // if(fw==1){
+    //         $(".warning-tip").addClass("show-wt");
+    //     }
 
-    $(".selling-label").on("click",function(){
-        var str = $(this).attr("id");
-        $(".selling-table").removeClass("show");
-        $(".sr-info-table").removeClass("show");
-        $("."+str).addClass("show");
-    })
+    // $(".selling-label").on("click",function(){
+    //     var str = $(this).attr("id");
+    //     $(".selling-table").removeClass("show");
+    //     $(".sr-info-table").removeClass("show");
+    //     $("."+str).addClass("show");
+    // })
 
-    $(".sr-info-label").on("click",function(){
-        var str = $(this).attr("id");
-        $(".selling-table").removeClass("show");
-        $(".sr-info-table").removeClass("show");
-        $("."+str).addClass("show");
-    })
+    // $(".sr-info-label").on("click",function(){
+    //     var str = $(this).attr("id");
+    //     $(".selling-table").removeClass("show");
+    //     $(".sr-info-table").removeClass("show");
+    //     $("."+str).addClass("show");
+    // })
 
-    $("#email").on("focus",function(){
-        $(".email-tip").removeClass("show");
+    // $("#email").on("focus",function(){
+    //     $(".email-tip").removeClass("show");
         
-    })
-    $("#email").on("blur",function(){
-        if(/([\w\-]+\@[\w\-]+\.[\w\-]+)/.test($(this).val())==false){
-            $(".email-tip").addClass("show");
-        }
-    })
-    $("#phone").on("focus",function(){
-        $(".phone-tip").removeClass("show");
-    })
-    $("#phone").on("blur",function(){
-        if(/\d{11}/.test($(this).val())==false){
-            $(".phone-tip").addClass("show");
-        }
-    })
+    // })
+    // $("#email").on("blur",function(){
+    //     if(/([\w\-]+\@[\w\-]+\.[\w\-]+)/.test($(this).val())==false){
+    //         $(".email-tip").addClass("show");
+    //     }
+    // })
+    // $("#phone").on("focus",function(){
+    //     $(".phone-tip").removeClass("show");
+    // })
+    // $("#phone").on("blur",function(){
+    //     if(/\d{11}/.test($(this).val())==false){
+    //         $(".phone-tip").addClass("show");
+    //     }
+    // })
 
-    $("#repeatPassword").on("focus",function(){
-        $(".password-tip").removeClass("show");
-    })
-    $("#repeatPassword").on("blur",function(){
-        if($("#inputPassword").val()!=$("#repeatPassword").val()){
-            $(".password-tip").addClass("show");
-        }
-    })
+    // $("#repeatPassword").on("focus",function(){
+    //     $(".password-tip").removeClass("show");
+    // })
+    // $("#repeatPassword").on("blur",function(){
+    //     if($("#inputPassword").val()!=$("#repeatPassword").val()){
+    //         $(".password-tip").addClass("show");
+    //     }
+    // })
 
     
-    $(".btn-save-change").on("click",function(){
-        if($("#email").val()==''|| 
-        $("#phone").val() =='' ||
-        $("#inputPassword").val() =='' ||
-        $("#realname").val() ==''||
-        $("#srname").val()==''||
-        $("#employee-id").val()==''
-        ){
-            swal("Please complete the form!");
-        }
-        else if(
-            /([\w\-]+\@[\w\-]+\.[\w\-]+)/.test($("#email").val())==false ||
-            /\d{11}/.test($("#phone").val())==false
-        ){
-            swal("Please complete the form as right format!");
-        }else if($("#inputPassword").val()!=$("#repeatPassword").val()){
-            swal("Please make sure password is entered consistently!");
-        }else{
-            var issucc = 0;
-            $.ajax({
-                type : "post",
-                url : "isexist.php",
-                data :{
-                    name: $("#srname").val(),
-                },
-                success : function(msg){
-                    if(msg == 1){
-                        swal("Username already exist!");
-                    }else{
-                        issucc = 1;
-                        swal("here");
-                        $.ajax({
-                            type : "post",
-                            url : "adduser.php",
-                            data:{
-                                name:  $("#srname").val(),
-                                realname : $("#realname").val(),
-                                id : $("#employee-id").val(),
-                                pass : $("#inputPassword").val(),
-                                email: $("#email").val(),
-                                phone: $("#phone").val(),
-                                region: $("#srregion option:selected").val(),
-                                role : 2,
-                                quota1 : $("#quota1").val(),
-                                quota2 : $("#quota2").val(),
-                                quota3 : $("#quota3").val(),
-                            },
-                            success : function(msg){
-                                if(msg == 1)
-                                    swal("Add successfully!");
-                                    // history.go(0);
-                                    // location.reload();
-                                else{
-                                    swal("Add failed!");
-                                }
-                            }
-                        });
-                    }
-                }
-            });
-        }
-    })
+    // $(".btn-save-change").on("click",function(){
+    //     if($("#email").val()==''|| 
+    //     $("#phone").val() =='' ||
+    //     $("#inputPassword").val() =='' ||
+    //     $("#realname").val() ==''||
+    //     $("#srname").val()==''||
+    //     $("#employee-id").val()==''
+    //     ){
+    //         swal("Please complete the form!");
+    //     }
+    //     else if(
+    //         /([\w\-]+\@[\w\-]+\.[\w\-]+)/.test($("#email").val())==false ||
+    //         /\d{11}/.test($("#phone").val())==false
+    //     ){
+    //         swal("Please complete the form as right format!");
+    //     }else if($("#inputPassword").val()!=$("#repeatPassword").val()){
+    //         swal("Please make sure password is entered consistently!");
+    //     }else{
+    //         var issucc = 0;
+    //         $.ajax({
+    //             type : "post",
+    //             url : "isexist.php",
+    //             data :{
+    //                 name: $("#srname").val(),
+    //             },
+    //             success : function(msg){
+    //                 if(msg == 1){
+    //                     swal("Username already exist!");
+    //                 }else{
+    //                     issucc = 1;
+    //                     swal("here");
+    //                     $.ajax({
+    //                         type : "post",
+    //                         url : "adduser.php",
+    //                         data:{
+    //                             name:  $("#srname").val(),
+    //                             realname : $("#realname").val(),
+    //                             id : $("#employee-id").val(),
+    //                             pass : $("#inputPassword").val(),
+    //                             email: $("#email").val(),
+    //                             phone: $("#phone").val(),
+    //                             region: $("#srregion option:selected").val(),
+    //                             role : 2,
+    //                             quota1 : $("#quota1").val(),
+    //                             quota2 : $("#quota2").val(),
+    //                             quota3 : $("#quota3").val(),
+    //                         },
+    //                         success : function(msg){
+    //                             if(msg == 1)
+    //                                 swal("Add successfully!");
+    //                                 // history.go(0);
+    //                                 // location.reload();
+    //                             else{
+    //                                 swal("Add failed!");
+    //                             }
+    //                         }
+    //                     });
+    //                 }
+    //             }
+    //         });
+    //     }
+    // })
 </script>
 </html>

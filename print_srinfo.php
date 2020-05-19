@@ -15,16 +15,14 @@
         $total3 = $saleNum[2][0]+$saleNum[2][1];
         $tStr = $tStr.'<tr>
         <td >'.$srInfo[0].'</th>
-        <td>'.$srInfo[1].'</td>
+        <td class = "srinfo_table_name">'.$srInfo[1].'</td>
         <td>'.$srInfo[3].'</td>
         <td>'.$srInfo[4].'</td>
         <td>'.$srInfo[2].'</td>
-        <td>'.$srInfo[5].'</td>
-        <td>'.$srInfo[6].'</td>
-        <td>'.$srInfo[7].'</td>
-        
+        <td class="info_quota1"><input type ="text" name="quota1" class="update-input "  onkeyup = "value=value.replace(/[^\d]/g,'."''".')" value="'.$srInfo[5].'"></td>
+        <td class="info_quota2"><input type ="text" name="quota2" class="update-input "  onkeyup = "value=value.replace(/[^\d]/g,'."''".')" value="'.$srInfo[6].'"></td>
+        <td class="info_quota3"><input type ="text" name="quota3" class="update-input "  onkeyup = "value=value.replace(/[^\d]/g,'."''".')" value="'.$srInfo[7].'"></td>
         <td><a href="javascript:;" class = "expand"><i class="fa fa-chevron-down"></i></a></td>
-        <td><input type="button" class ="re-grant-btn" value="re-grant"></td>
         <td><input type="button" class ="update-btn" value="update"></td>
     </tr>';
         $tStr = $tStr.'<tr><td colspan="10" class = "detail-box" id = "'.$srInfo[1].'-label'.'">

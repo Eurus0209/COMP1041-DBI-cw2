@@ -40,8 +40,7 @@
 </body>
 <script>
     $(".regrant-btn").on("click",function(){
-        var a = $("tr");
-        alert(a.html());
+        var a = $(".regrant-table .table-row");
         var i = 0;
         while(a.html() != undefined){
             var name = a.children()[0].innerHTML;

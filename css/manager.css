@@ -129,7 +129,7 @@ box-shadow: none;
 }
 .btn-save-change{
     font-size: 14px;
-    background-color: rgb(75, 90, 131);
+    background-color:  #364758;
     border: none;
     width: 150px;
     display: block;
@@ -188,7 +188,7 @@ box-shadow: none;
     margin: 0 auto;
 }
 .inner-table{
-    margin: 50px auto;
+    margin: 30px auto;
     font-size: 14px;
 }
 .chart-column {
@@ -223,12 +223,6 @@ box-shadow: none;
 .sr-detail-info-box tbody{
     font-size: 16px;
 }
-.sr-detail-info-box .re-grant-btn,
-.sr-detail-info-box .update-btn {
-    font-size: 12px;
-    border:none;
-    
-}
 
 .warning-box{
     width: 90%;
@@ -255,4 +249,32 @@ box-shadow: none;
     border: none;
     background-color: #364758;
     color: rgb(248, 248, 248);
+}
+
+.update-btn{
+    border: 2px solid #364758;
+    border-radius: 4px;
+    background-color: rgb(255, 255, 255);
+    color: #364758;
+    font-weight: 600;
+    margin-top: -2px;
+}
+.update-btn:focus,
+.update-btn:hover{
+    outline: none;
+    border: 2px solid #364758;
+    background-color:  #364758;
+    color: #ffffff;
+    transition: ease-in-out .3s;
+}
+
+.update-input,
+.update-input:focus{
+    width: 80px;
+    border: 1px solid #c5c5c5;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    text-align: center;
+    outline: none;
 }
