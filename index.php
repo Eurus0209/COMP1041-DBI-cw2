@@ -10,7 +10,8 @@
     <!-- <script src="https://cdn.bootcdn.net/ajax/libs/sweetalert/2.1.1/sweetalert.min.js"></script> -->
     <script src = "js/sweetalert.js"> </script>
     <!-- <link rel="stylesheet" href="css/sweetalert.css"> -->
-    
+    <!-- <script src="library/font-awesome-4.7.0/css/font-awesome.css"></script> -->
+    <link rel="stylesheet" href="library/font-awesome-4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/index.css">
 </head>
@@ -18,6 +19,8 @@
     <?php
         session_start();
         // echo json_encode($_SESSION); 
+        $name = '';
+        $ishavesr = 0;
         if(isset($_SESSION['username'])){
             $islog = true;
             include 'nav-after.php';

@@ -16,6 +16,7 @@
     $conn -> query($up_sql);
 
     if(isset($_SESSION['username'])){
+        $_SESSION['username'] = $name;
         // $ori_name = $_SESSION['username'];
     }else{
         $_SESSION['srname'] = $name;

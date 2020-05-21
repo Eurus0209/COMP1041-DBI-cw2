@@ -114,6 +114,8 @@ $(function(){
         var q1 = $(this).parent().siblings(".info_quota1").children().val();
         var q2 = $(this).parent().siblings(".info_quota2").children().val();
         var q3 = $(this).parent().siblings(".info_quota3").children().val();
+        var region = $(this).parent().siblings(".srinfo_region").children().find("option:selected").text();
+        // alert(region);
         $.ajax({
             type:"post",
             url: "update_quota.php",
@@ -121,7 +123,8 @@ $(function(){
                 name:name,
                 quota1: q1,
                 quota2: q2,
-                quota3: q3
+                quota3: q3,
+                region: region
             },success:function(msg){
                 if(msg == 1){
                     swal("Update successfully!");

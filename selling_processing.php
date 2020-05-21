@@ -203,7 +203,7 @@
             <?php echo $selling_proce_table_head; ?>
             <tbody>
             <?php
-                $find_sql = "SELECT * FROM ordering WHERE custregion = 'Amercian' AND status = 'processing' ";
+                $find_sql = "SELECT * FROM ordering WHERE custregion = 'American' AND status = 'processing' ";
                 $td = print_table_formanager_processing($find_sql,$conn);
                 echo $td;
             ?>

@@ -199,7 +199,7 @@
         <div class="tab-pane fade" id="amercian" role="tabpanel" aria-labelledby="amercian-tab">
             <div id="amercian-chart" class = "charts" style ="width: 600px;height:300px;"></div>
             <?php
-                $masknum_amer = getDateMaskNum($date,'Amercian',$conn);
+                $masknum_amer = getDateMaskNum($date,'American',$conn);
                 $json_num_amer = json_encode($masknum_amer);
             ?>
             <script>

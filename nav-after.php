@@ -10,10 +10,12 @@
                 <a href="user_ordering.php" class="nav-link">Ordering</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">Information</a>
+                <a href="user_information.php" class="nav-link">
+                <i class="fa fa-user" aria-hidden="true"></i>Information</a>
             </li>
             <li class="nav-item">
-                <a href="logout.php" class="nav-link logout" >Logout</a>
+                <a href="logout.php" class="nav-link logout" > 
+                <i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
             </li>
         </ul>
     </div>

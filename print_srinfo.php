@@ -17,12 +17,21 @@
         <td >'.$srInfo[0].'</th>
         <td class = "srinfo_table_name">'.$srInfo[1].'</td>
         <td>'.$srInfo[3].'</td>
-        <td>'.$srInfo[4].'</td>
+        <td class = "srinfo_region">
+        <select class="form-control sr-ud-select-box" name = "region" id = "region" style="width:100px;font-size:16px; padding : 0 6px;" >
+          <option '.($srInfo[4]=="China"?"selected":"").'  value="China">China</option>
+          <option '.($srInfo[4]=="American"?"selected":"").' value="American">American</option>
+          <option '.($srInfo[4]=="England"?"selected":"").' value="England">England</option>
+          <option '.($srInfo[4]=="Japan"?"selected":"").' value="Japan">Japan</option>
+          <option '.($srInfo[4]=="Korea"?"selected":"").' value="Korea">Korea</option>
+          <option '.($srInfo[4]=="Canada"?"selected":"").' value="Canada">Canada</option>
+        </select>
+      </td>
         <td>'.$srInfo[2].'</td>
         <td class="info_quota1"><input type ="text" name="quota1" class="update-input "  onkeyup = "value=value.replace(/[^\d]/g,'."''".')" value="'.$srInfo[5].'"></td>
         <td class="info_quota2"><input type ="text" name="quota2" class="update-input "  onkeyup = "value=value.replace(/[^\d]/g,'."''".')" value="'.$srInfo[6].'"></td>
         <td class="info_quota3"><input type ="text" name="quota3" class="update-input "  onkeyup = "value=value.replace(/[^\d]/g,'."''".')" value="'.$srInfo[7].'"></td>
-        <td><a href="javascript:;" class = "expand"><i class="fa fa-chevron-down"></i></a></td>
+        <td><a href="javascript:;" class = "expand"><i class="fa fa-caret-down" aria-hidden="true"></i></a></td>
         <td><input type="button" class ="update-btn" value="update"></td>
     </tr>';
         $tStr = $tStr.'<tr><td colspan="10" class = "detail-box" id = "'.$srInfo[1].'-label'.'">

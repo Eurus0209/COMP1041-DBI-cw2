@@ -1,0 +1,58 @@
+.form-control{
+    height: 1.7em;
+    /* border-top: none; */
+    border-radius: 0;
+}
+.form-control:focus{
+/* border: tomato; */
+    border-color: rgb(75, 90, 131);
+    box-shadow: none;
+}
+
+.sr-info-content{
+/* margin-top:10vh; */
+    margin-left: 10vh;
+    font-size: 14px;
+    font-weight:600;
+}
+
+div.form-group.row{
+    margin: 10px;
+}
+
+.cust-info-box{
+    width: 50%;
+    margin: 10vh auto;
+}
+
+.btn-save-change{
+    font-size: 14px;
+    background-color:  #364758;
+    border: none;
+    width: 150px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.btn-save-change:focus,
+.btn-save-change:hover{
+    outline: none;
+    background-color:  #283441;
+}
+
+.tip{
+    display: none;
+    font-size: .8em;
+    font-weight: 600;
+    color: red;
+}
+
+.show{
+    display: block;
+}
+
+.hide{
+    display: none;
+}

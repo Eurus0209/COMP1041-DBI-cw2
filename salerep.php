@@ -86,7 +86,8 @@
     <!-- <link rel="stylesheet" href="css/sweetalert.css"> -->
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/all.css">
-    <link rel="stylesheet" href="library/fontawesome/css/all.css">
+    <!-- <link rel="stylesheet" href="library/fontawesome/css/all.css"> -->
+    <link rel="stylesheet" href="library/font-awesome-4.7.0/css/font-awesome.css">
     <!-- <link rel="stylesheet" href="css/salerep.css"> -->
     <style>
         .aside{
@@ -267,7 +268,8 @@
                     </ul>
                   </li>
                   <li>
-                    <a class ="logout" href="logout.php">Logout</a>
+                    <a class ="logout" href="logout.php">
+                    <i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
                   </li>
                 </ul>
             </div>

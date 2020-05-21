@@ -37,10 +37,6 @@ button:active{
     align-items: center;
 }
 
-img{
-    width: 50%;
-}
-
 .mask .mask-name{
     width: 100%;
     height: 10%;
@@ -71,7 +67,7 @@ img{
 
 .mask-box{
     margin: 20px;
-    width: 20%;
+    width: 18%;
     height: 90%;
     background: #454545;
     display: flex;
@@ -86,7 +82,7 @@ img{
 }
 
 .mask-box:hover{
-    width: 21%;
+    width: 20%;
     height: 100%;
 }
 
@@ -100,7 +96,7 @@ img{
 }
 
 .mask-box .mask-img-box img{
-    width: 50%;
+    width: 45%;
 }
 
 .mask-box .mask-name {
@@ -172,10 +168,12 @@ img{
     border:1px solid rgb(211, 211, 211);
     height: 2em;
     text-align: center;
-    /* width: 30px; */
-
+    width: 50px!important;
 }
 
+/* .info-box input{
+    width: 50px;
+} */
 
 .mask-info{
     align-items: center;

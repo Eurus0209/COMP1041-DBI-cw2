@@ -68,7 +68,7 @@ a, a:hover{
 }
 
 .table{
-    align : center;
+    text-align : center;
     font-size: 14px;
     /* height : 18px; */
     margin: 10vh 10vh;
@@ -252,10 +252,10 @@ box-shadow: none;
 }
 
 .update-btn{
-    border: 2px solid #364758;
+    border: 2px solid #42586d;
     border-radius: 4px;
-    background-color: rgb(255, 255, 255);
-    color: #364758;
+    background-color: #42586d;
+    color: #fafafa;
     font-weight: 600;
     margin-top: -2px;
 }
