@@ -110,6 +110,18 @@
                     var myChart3 = echarts.init(document.getElementById('main6'));
 
                     var option1 = { 
+                        title:{
+                            show:true,
+                            text: "N95 respirator",
+                            x: 'center',
+                            textStyle: {
+                                fontFamily: 'Arial, Verdana, sans...',
+                                fontSize: 14,
+                                fontStyle: 'normal',
+                                fontWeight: 'normal',
+                            },
+
+                        },
                         tooltip: {
                             trigger: 'item',
                             formatter: '{a} <br/>{b} : {c}'
@@ -118,12 +130,11 @@
                             {
                                 name: 'N95',
                                 type: 'pie',
-                                radius: '55%',
-                                // roseType: 'area',
-                                
-                                // radius: [20, 70],
-                                roseType:'angle',
-                                radius: 60,
+                                // radius: '55%',
+                                roseType: 'area',
+                                radius: [20, 70],
+                                // roseType:'angle',
+                                // radius: 60,
                                 color: ['#6b88ac','#364b61','#415974','#4a6483','#526e91','#5c7ba1'],
                                 data:[
                                     {value:<?php echo $China_processing[0] ?>, name:'China'},
@@ -137,6 +148,17 @@
                         ]
                     };
                     var option2 = {
+                        title:{
+                            show:true,
+                            text: "Surgial mask",
+                            x: 'center',
+                            textStyle: {
+                                fontFamily: 'Arial, Verdana, sans...',
+                                fontSize: 14,
+                                fontStyle: 'normal',
+                                fontWeight: 'normal',
+                            },
+                        },
                         tooltip: {
                             trigger: 'item',
                             formatter: '{a} <br/>{b} : {c}'
@@ -145,9 +167,8 @@
                             {
                                 name: 'Surgial',
                                 type: 'pie',
-                                radius: '55%',
-                                roseType:'angle',
-                                radius: 60,
+                                roseType: 'area',
+                                radius: [20, 70],
                                 color: ['#6b88ac','#364b61','#415974','#4a6483','#526e91','#5c7ba1'],
                                 data:[
                                     {value:<?php echo $China_processing[1] ?>, name:'China'},
@@ -161,6 +182,17 @@
                         ]
                     };
                     var option3 = {
+                        title:{
+                            show:true,
+                            text: "N95-surgial",
+                            x: 'center',
+                            textStyle: {
+                                fontFamily: 'Arial, Verdana, sans...',
+                                fontSize: 14,
+                                fontStyle: 'normal',
+                                fontWeight: 'normal',
+                            },
+                        },
                         tooltip: {
                             trigger: 'item',
                             formatter: '{a} <br/>{b} : {c}'
@@ -169,9 +201,8 @@
                             {
                                 name: 'N95 Surgial',
                                 type: 'pie',
-                                radius: '55%',
-                                roseType:'angle',
-                                radius: 60,
+                                roseType: 'area',
+                                radius: [20, 70],
                                 color: ['#6b88ac','#364b61','#415974','#4a6483','#526e91','#5c7ba1'],
                                 data:[
                                     {value:<?php echo $China_processing[2] ?>, name:'China'},

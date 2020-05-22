@@ -97,6 +97,17 @@
                     var myChart3 = echarts.init(document.getElementById('main3'));
 
                     var option1 = { 
+                        title:{
+                            show:true,
+                            text: "N95 respirator",
+                            x: 'center',
+                            textStyle: {
+                                fontFamily: 'Arial, Verdana, sans...',
+                                fontSize: 14,
+                                fontStyle: 'normal',
+                                fontWeight: 'normal',
+                            },
+                        },
                         tooltip: {
                             trigger: 'item',
                             formatter: '{a} <br/>{b} : {c}'
@@ -122,6 +133,17 @@
                         ]
                     };
                     var option2 = {
+                        title:{
+                            show:true,
+                            text: "Surgial mask",
+                            x: 'center',
+                            textStyle: {
+                                fontFamily: 'Arial, Verdana, sans...',
+                                fontSize: 14,
+                                fontStyle: 'normal',
+                                fontWeight: 'normal',
+                            },
+                        },
                         tooltip: {
                             trigger: 'item',
                             formatter: '{a} <br/>{b} : {c}'
@@ -146,6 +168,17 @@
                         ]
                     };
                     var option3 = {
+                        title:{
+                            show:true,
+                            text: "N95-surgial",
+                            x: 'center',
+                            textStyle: {
+                                fontFamily: 'Arial, Verdana, sans...',
+                                fontSize: 14,
+                                fontStyle: 'normal',
+                                fontWeight: 'normal',
+                            },
+                        },
                         tooltip: {
                             trigger: 'item',
                             formatter: '{a} <br/>{b} : {c}'

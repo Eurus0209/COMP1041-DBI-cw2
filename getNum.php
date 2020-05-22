@@ -13,4 +13,5 @@ function getNumOfRegion($sql,$conn){
     }
     return $num;
 }
+
 ?>

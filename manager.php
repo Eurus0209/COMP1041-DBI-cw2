@@ -8,7 +8,7 @@
     include 'getSrInfo.php';
     include 'print_srinfo.php';
     include 'warning_data.php';
-    
+    $custInfoStr = getCustInfoForManager($conn);
     $China_sql = "SELECT * FROM ordering WHERE custregion = 'China'";
     $America_sql = "SELECT * FROM ordering WHERE custregion = 'America'";
     $Canada_sql = "SELECT * FROM ordering WHERE custregion = 'Canada'";
@@ -94,7 +94,7 @@
                     </ul>
                   </li>
                   <li>
-                    <a href="#">Information</a>
+                    <a class = "cust-info-label" id = "cust-info" href="#">Customer </a>
                   </li>
                   <li>
                     <a class ="logout" href="logout.php">
@@ -104,7 +104,7 @@
             </div>
         </div>
         <div class="col-10">
-            <div class="selling-table total-box total">
+            <div class="selling-table total-box total show">
                 <?php include 'selling_total.php'; ?>
             </div>
             <div class="selling-table total-box under-ord">
@@ -120,6 +120,10 @@
             <div class="sr-info-table sr-warning">
                 <?php include 'warning.php' ?>
             </div>
+            <div class="cust-info-table cust-info">
+                <?php include 'custinfo.php';?>
+            </div>
+
         </div>
     </div>
 </body>

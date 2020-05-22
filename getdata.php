@@ -182,6 +182,24 @@ function getDateAllMaskNum($dateArray,$conn){
     return $maskNum;
 }
 
-
+function getCustInfoForManager($conn){
+    $sql = "SELECT * FROM user WHERE role = 1";
+    $result = $conn->query($sql);
+    $custInfoStr = '';
+    if($result->num_rows>0){
+        while($row = $result->fetch_assoc()){
+            $custInfoStr = $custInfoStr.'<tr>
+            <td>'.$row['passportid'].'</td>
+            <td class="cust-name">'.$row['name'].'</td>
+            <td>'.$row['realname'].'</td>
+            <td>'.$row['email'].'</td>
+            <td>'.$row['region'].'</td>
+            <td><a href="#" data-toggle="modal" data-target="#staticBackdrop" class="btn-detail" style="color: black;">detail</a></td>
+        </tr>';
+        }
+    }
+    return $custInfoStr;
+    
+}
 
 ?>

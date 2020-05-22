@@ -64,7 +64,7 @@ a, a:hover{
     font-weight: 700;
     color: #eee;
 }
-.selling-table, .sr-info-table {
+.selling-table, .sr-info-table, .cust-info-table {
     display: none;
 }
 

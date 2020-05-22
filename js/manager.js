@@ -7,10 +7,19 @@ $(function(){
         var str = $(this).attr("id");
         $(".selling-table").removeClass("show");
         $(".sr-info-table").removeClass("show");
+        $(".cust-info-table").removeClass("show");
         $("."+str).addClass("show");
     })
 
     $(".sr-info-label").on("click",function(){
+        var str = $(this).attr("id");
+        $(".selling-table").removeClass("show");
+        $(".sr-info-table").removeClass("show");
+        $(".cust-info-table").removeClass("show");
+        $("."+str).addClass("show");
+    })
+
+    $(".cust-info-label").on("click",function(){
         var str = $(this).attr("id");
         $(".selling-table").removeClass("show");
         $(".sr-info-table").removeClass("show");
