@@ -68,7 +68,7 @@
             <a class="nav-link" id="china-processing-tab" data-toggle="tab" href="#china-processing" role="tab" aria-controls="china-processing" aria-selected="false">China</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="amercian-processing-tab" data-toggle="tab" href="#amercian-processing" role="tab" aria-controls="amercian-processing" aria-selected="false">Amercian</a>
+            <a class="nav-link" id="amercian-processing-tab" data-toggle="tab" href="#amercian-processing" role="tab" aria-controls="amercian-processing" aria-selected="false">America</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" id="england-processing-tab" data-toggle="tab" href="#england-processing" role="tab" aria-controls="england-processing" aria-selected="false">England</a>
@@ -119,12 +119,15 @@
                                 name: 'N95',
                                 type: 'pie',
                                 radius: '55%',
-                                roseType: 'area',
-                                radius: [20, 70],
-                                color: ['#4962a5','#5b71ac','#7182b3','#7489ca','#55679c','#6693e9'],
+                                // roseType: 'area',
+                                
+                                // radius: [20, 70],
+                                roseType:'angle',
+                                radius: 60,
+                                color: ['#6b88ac','#364b61','#415974','#4a6483','#526e91','#5c7ba1'],
                                 data:[
                                     {value:<?php echo $China_processing[0] ?>, name:'China'},
-                                    {value:<?php echo $American_processing[0] ?>, name:'American'},
+                                    {value:<?php echo $America_processing[0] ?>, name:'America'},
                                     {value:<?php echo $Canada_processing[0] ?>, name:'Canada'},
                                     {value:<?php echo $Korea_processing[0] ?>, name:'Korea'},
                                     {value:<?php echo $England_processing[0] ?>, name:'England'},
@@ -143,12 +146,12 @@
                                 name: 'Surgial',
                                 type: 'pie',
                                 radius: '55%',
-                                roseType: 'area',
-                                radius: [20, 70],
-                                color: ['#4962a5','#5b71ac','#7182b3','#7489ca','#55679c','#6693e9'],
+                                roseType:'angle',
+                                radius: 60,
+                                color: ['#6b88ac','#364b61','#415974','#4a6483','#526e91','#5c7ba1'],
                                 data:[
                                     {value:<?php echo $China_processing[1] ?>, name:'China'},
-                                    {value:<?php echo $American_processing[1] ?>, name:'American'},
+                                    {value:<?php echo $America_processing[1] ?>, name:'America'},
                                     {value:<?php echo $Canada_processing[1] ?>, name:'Canada'},
                                     {value:<?php echo $Korea_processing[1] ?>, name:'Korea'},
                                     {value:<?php echo $England_processing[1] ?>, name:'England'},
@@ -167,12 +170,12 @@
                                 name: 'N95 Surgial',
                                 type: 'pie',
                                 radius: '55%',
-                                roseType: 'area',
-                                radius: [20, 70],
-                                color: ['#4962a5','#5b71ac','#7182b3','#7489ca','#55679c','#6693e9'],
+                                roseType:'angle',
+                                radius: 60,
+                                color: ['#6b88ac','#364b61','#415974','#4a6483','#526e91','#5c7ba1'],
                                 data:[
                                     {value:<?php echo $China_processing[2] ?>, name:'China'},
-                                    {value:<?php echo $American_processing[2] ?>, name:'American'},
+                                    {value:<?php echo $America_processing[2] ?>, name:'America'},
                                     {value:<?php echo $Canada_processing[2] ?>, name:'Canada'},
                                     {value:<?php echo $Korea_processing[2] ?>, name:'Korea'},
                                     {value:<?php echo $England_processing[2] ?>, name:'England'},
@@ -203,7 +206,7 @@
             <?php echo $selling_proce_table_head; ?>
             <tbody>
             <?php
-                $find_sql = "SELECT * FROM ordering WHERE custregion = 'American' AND status = 'processing' ";
+                $find_sql = "SELECT * FROM ordering WHERE custregion = 'America' AND status = 'processing' ";
                 $td = print_table_formanager_processing($find_sql,$conn);
                 echo $td;
             ?>

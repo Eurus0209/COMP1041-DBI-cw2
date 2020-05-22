@@ -58,7 +58,7 @@
         <!-- <input type="text" class="form-control" id="srregion" > -->
             <select class="form-control" name = "region" id="srregion" style="font-size:16px; padding : 0 6px;" >
             <option value="China">China</option>
-            <option value="American">American</option>
+            <option value="America">America</option>
             <option value="England">England</option>
             <option value="Japan">Japan</option>
             <option value="Korea">Korea</option>

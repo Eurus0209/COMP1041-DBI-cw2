@@ -1,6 +1,6 @@
 
 <nav class="navbar navbar-expand-sm navbar-light bg-light nav-before-login">
-    <a href="index.php" class="navbar-brand">SMS</a>
+    <a href="index.php" class="navbar-brand">Woolin Auto</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target = "#myNav" >
         <span class="navbar-toggler-icon small"></span>
     </button>

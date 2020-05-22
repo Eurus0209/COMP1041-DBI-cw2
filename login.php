@@ -21,7 +21,7 @@ session_start();
 </head>
 <body>
     <?php
-        include 'nav-before.php';
+        include 'nav_before.php';
     ?>
       <div class="sign-up-box" > 
         <div class="container">

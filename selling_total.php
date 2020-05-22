@@ -54,7 +54,7 @@
             <a class="nav-link" id="china-tab" data-toggle="tab" href="#china" role="tab" aria-controls="china" aria-selected="false">China</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="amercian-tab" data-toggle="tab" href="#amercian" role="tab" aria-controls="amercian" aria-selected="false">Amercian</a>
+            <a class="nav-link" id="amercian-tab" data-toggle="tab" href="#amercian" role="tab" aria-controls="amercian" aria-selected="false">America</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" id="england-tab" data-toggle="tab" href="#england" role="tab" aria-controls="england" aria-selected="false">England</a>
@@ -109,10 +109,10 @@
                                 roseType: 'area',
                                 radius: [15, 60],
                                 // roseType: 'angle',
-                                color: ['#6a89cc','#4a69bd','#60a3bc','#3c6382','#3498db','#2980b9'],
+                                color: ['#6b88ac','#364b61','#415974','#4a6483','#526e91','#5c7ba1'],
                                 data:[
                                     {value:<?php echo $China[0] ?>, name:'China'},
-                                    {value:<?php echo $American[0] ?>, name:'American'},
+                                    {value:<?php echo $America[0] ?>, name:'America'},
                                     {value:<?php echo $Canada[0] ?>, name:'Canada'},
                                     {value:<?php echo $Korea[0] ?>, name:'Korea'},
                                     {value:<?php echo $England[0] ?>, name:'England'},
@@ -133,10 +133,10 @@
                                 radius: '55%',
                                 roseType: 'area',
                                 radius: [20, 70],
-                                color: ['#6a89cc','#4a69bd','#60a3bc','#3c6382','#3498db','#2980b9'],
+                                color: [' #2c3e50','#364b61','#415974','#4a6483','#526e91','#5c7ba1'],
                                 data:[
                                     {value:<?php echo $China[1] ?>, name:'China'},
-                                    {value:<?php echo $American[1] ?>, name:'American'},
+                                    {value:<?php echo $America[1] ?>, name:'America'},
                                     {value:<?php echo $Canada[1] ?>, name:'Canada'},
                                     {value:<?php echo $Korea[1] ?>, name:'Korea'},
                                     {value:<?php echo $England[1] ?>, name:'England'},
@@ -157,10 +157,10 @@
                                 radius: '55%',
                                 roseType: 'area',
                                 radius: [20, 70],
-                                color: ['#6a89cc','#4a69bd','#60a3bc','#3c6382','#3498db','#2980b9'],
+                                color: ['#6b88ac','#364b61','#415974','#4a6483','#526e91','#5c7ba1'],
                                 data:[
                                     {value:<?php echo $China[2] ?>, name:'China'},
-                                    {value:<?php echo $American[2] ?>, name:'American'},
+                                    {value:<?php echo $America[2] ?>, name:'America'},
                                     {value:<?php echo $Canada[2] ?>, name:'Canada'},
                                     {value:<?php echo $Korea[2] ?>, name:'Korea'},
                                     {value:<?php echo $England[2] ?>, name:'England'},
@@ -199,7 +199,7 @@
         <div class="tab-pane fade" id="amercian" role="tabpanel" aria-labelledby="amercian-tab">
             <div id="amercian-chart" class = "charts" style ="width: 600px;height:300px;"></div>
             <?php
-                $masknum_amer = getDateMaskNum($date,'American',$conn);
+                $masknum_amer = getDateMaskNum($date,'America',$conn);
                 $json_num_amer = json_encode($masknum_amer);
             ?>
             <script>

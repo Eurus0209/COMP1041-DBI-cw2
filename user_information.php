@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="css/userInfo.css">
 </head>
 <body>
-    <?php include 'nav-after.php' ?>
+    <?php include 'nav_after.php' ?>
   <div class="cust-info-box">
     <div class="info-content">
         <div class="form-group row">

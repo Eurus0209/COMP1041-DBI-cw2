@@ -168,7 +168,7 @@ button:active{
     border:1px solid rgb(211, 211, 211);
     height: 2em;
     text-align: center;
-    width: 50px!important;
+    width: 45px!important;
 }
 
 /* .info-box input{
@@ -193,7 +193,7 @@ button:active{
     width: 100%;
     align-items: center;
 }
-.total-box button{
+.btn-purchase{
     display: inline;
     position: fixed;
     bottom: 30px;

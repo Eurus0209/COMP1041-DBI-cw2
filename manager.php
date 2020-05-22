@@ -10,26 +10,26 @@
     include 'warning_data.php';
     
     $China_sql = "SELECT * FROM ordering WHERE custregion = 'China'";
-    $American_sql = "SELECT * FROM ordering WHERE custregion = 'American'";
+    $America_sql = "SELECT * FROM ordering WHERE custregion = 'America'";
     $Canada_sql = "SELECT * FROM ordering WHERE custregion = 'Canada'";
     $Japan_sql = "SELECT * FROM ordering WHERE custregion = 'Japan'";
     $England_sql = "SELECT * FROM ordering WHERE custregion = 'England'";
     $Korea_sql = "SELECT * FROM ordering WHERE custregion = 'korea'";
     $China = getNumOfRegion($China_sql,$conn);
-    $American = getNumOfRegion($American_sql,$conn);
+    $America = getNumOfRegion($America_sql,$conn);
     $Canada = getNumOfRegion($Canada_sql,$conn);
     $Japan = getNumOfRegion($Japan_sql,$conn);
     $England = getNumOfRegion($England_sql,$conn);
     $Korea = getNumOfRegion($Korea_sql,$conn);
 
     $China_sql_processing = "SELECT * FROM ordering WHERE status = 'processing' AND custregion = 'China'";
-    $American_sql_processing = "SELECT * FROM ordering WHERE status = 'processing' AND custregion = 'American'";
+    $America_sql_processing = "SELECT * FROM ordering WHERE status = 'processing' AND custregion = 'America'";
     $Canada_sql_processing = "SELECT * FROM ordering WHERE status = 'processing' AND custregion = 'Canada'";
     $Japan_sql_processing = "SELECT * FROM ordering WHERE status = 'processing' AND custregion = 'Japan'";
     $England_sql_processing = "SELECT * FROM ordering WHERE status = 'processing' AND custregion = 'England'";
     $korea_sql_processing = "SELECT * FROM ordering WHERE status = 'processing' AND custregion = 'korea'";
     $China_processing = getNumOfRegion($China_sql_processing,$conn);
-    $American_processing = getNumOfRegion($American_sql_processing,$conn);
+    $America_processing = getNumOfRegion($America_sql_processing,$conn);
     $Canada_processing = getNumOfRegion($Canada_sql_processing,$conn);
     $Japan_processing = getNumOfRegion($Japan_sql_processing,$conn);
     $England_processing = getNumOfRegion($England_sql_processing,$conn);

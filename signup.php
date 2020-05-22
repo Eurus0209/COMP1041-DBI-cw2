@@ -4,9 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="js/jquery-1.12.3.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> -->
     <link rel="stylesheet" href="css/signup.css">
     <script src="js/jquery-1.12.3.js"></script>
     <script src="js/bootstrap.js"></script>
@@ -15,25 +12,8 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/signup.css">
     
-    <!-- <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap-theme.css" rel="stylesheet"> -->
-</head>
 <body>
-  <nav class="navbar navbar-expand-sm navbar-light bg-light nav-before-login">
-    <a href="index.php" class="navbar-brand">SMS</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target = "#myNav" >
-        <span class="navbar-toggler-icon small"></span>
-    </button>
-    <div class="collapse navbar-collapse " id="myNav">
-        <ul class="navbar-nav  ml-auto ">
-            <li class="nav-item">
-                <a href="signup.php" class="nav-link">Sign Up</a>
-            </li>
-            <li class="nav-item">
-                <a href="login.php" class="nav-link">Login</a>
-            </li>
-        </ul>
-    </div>
-</nav>
+    <?php include 'nav_before.php'; ?>
       <div class="sign-up-box" > 
         <div class="container">
           <div class="row inner-box">
@@ -41,7 +21,7 @@
               <div class="sign-up-welcome">
                 <h3>
                   WELCOME<br>
-                  SIGN UP TO SMS
+                  SIGN UP TO Woolin Auto
                 </h3>
               </div>
 
@@ -87,7 +67,7 @@
                 <div class="form-group">
                   <select class="form-control" name = "region" id = "region" style="font-size:16px; padding : 0 6px;" >
                     <option value="China">China</option>
-                    <option value="American">American</option>
+                    <option value="America">America</option>
                     <option value="England">England</option>
                     <option value="Japan">Japan</option>
                     <option value="Korea">Korea</option>
@@ -130,15 +110,8 @@
         }
     })
     $("input").on("focus",function(){
-        // alert($(this).attr("id"));
-        // console.log($(this).attr("id"));
         $(this).siblings(".tip").removeClass("active-tip");
     })
-
-    // $("#form-regist").submit(function (e) {
-    //     e.preventDefault();
-    //     // return false;
-    // })
 
     $(".btn-sign-up").on("click",function(){
       if($("#telephone").val()=='' ||

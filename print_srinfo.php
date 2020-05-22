@@ -20,7 +20,7 @@
         <td class = "srinfo_region">
         <select class="form-control sr-ud-select-box" name = "region" id = "region" style="width:100px;font-size:16px; padding : 0 6px;" >
           <option '.($srInfo[4]=="China"?"selected":"").'  value="China">China</option>
-          <option '.($srInfo[4]=="American"?"selected":"").' value="American">American</option>
+          <option '.($srInfo[4]=="America"?"selected":"").' value="America">America</option>
           <option '.($srInfo[4]=="England"?"selected":"").' value="England">England</option>
           <option '.($srInfo[4]=="Japan"?"selected":"").' value="Japan">Japan</option>
           <option '.($srInfo[4]=="Korea"?"selected":"").' value="Korea">Korea</option>
