@@ -137,8 +137,8 @@
         dataZoom: [
             { 
                 type: 'slider', 
-                start: 10,    
-                end: 60         
+                start: 60,    
+                end: 90         
             }
         ],
         series: [

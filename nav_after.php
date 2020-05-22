@@ -1,4 +1,6 @@
 
+<link rel="stylesheet" href="library/font-awesome-4.7.0/css/font-awesome.css">
+
 <nav class="navbar navbar-expand-sm navbar-light bg-light nav-before-login">
     <a href="index.php" class="navbar-brand">Woolin Auto</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target = "#myNav" >
