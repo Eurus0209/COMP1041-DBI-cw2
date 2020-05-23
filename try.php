@@ -80,12 +80,23 @@
     $date =  getDateFromRange($startdate, $now_date);
     $arr =  getDateMaskNumBySR($date,'rep9',$conn);
     print_r ($arr);
+    $json_date = json_encode($date);
     $json_arr = json_encode($arr);
 
 ?>
 <script>    
     var arr = <?php echo $json_arr; ?>;
+    var date = <?php echo $json_date;?>;
     // alert(arr);
+    var newarr = getData(date,arr);
+    // alert(newarr.type2);
+    // var num_info = [[0,0,0,0,0,0,0,0,0,0,0,108,0,0],[0,0,0,0,0,0,0,0,0,0,0,264,0,0],[0,0,0,0,0,0,0,0,0,0,0,640,0,0]];
+    //         var dateinfo = ["2020-05-15","2020-05-16","2020-05-17","2020-05-18","2020-05-19","2020-05-20","2020-05-21","2020-05-22","2020-05-23"];
+    //         var data = getData(dateinfo, num_info);
+    var num_info = [[0,0,0,0,0,0,0,0,0,0,0,244,16,0],[0,0,0,0,0,0,0,0,0,0,0,230,468,0],[0,0,0,0,0,0,0,0,0,0,0,60,244,0]];
+            var dateinfo = ["2020-05-15","2020-05-16","2020-05-17","2020-05-18","2020-05-19","2020-05-20","2020-05-21","2020-05-22","2020-05-23"];
+            var data = getData(dateinfo, num_info);
+    alert(data.type1);
     function getData(dateinfo, numinfo){
         var date = [];
         var type1 = [];
