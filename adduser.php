@@ -16,9 +16,9 @@
     
 
     if($role == 2){
-        $sql = "INSERT INTO user (name, phone, email, password, region,employeeid, realname, role,quota1, quota2, quota3) VALUES ('$name','$phone','$email','$pass','$region','$id','$realname',2,'$q1','$q2','$q3')";
+        $sql = "INSERT INTO salerep (srname, phone, email, password, srregion,employeeid, realname, quota1, quota2, quota3) VALUES ('$name','$phone','$email','$pass','$region','$id','$realname','$q1','$q2','$q3')";
     }else{
-        $sql = "INSERT INTO user (name, phone, email, password, region,passportid, realname, role) VALUES ('$name','$phone','$email','$pass','$region','$id','$realname',1)";
+        $sql = "INSERT INTO customer (custname, phone, email, password, custregion,passportid, realname) VALUES ('$name','$phone','$email','$pass','$region','$id','$realname')";
     }
 
     if($conn->query($sql)){

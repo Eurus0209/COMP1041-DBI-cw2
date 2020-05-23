@@ -25,13 +25,13 @@
 
             // find customer's region
             include 'conntodb.php';
-            $find_re = "select * from user where name = '$name'";
+            $find_re = "SELECT * FROM customer WHERE custname = '$name'";
             $result = $conn -> query($find_re);
             $r = $result -> fetch_assoc();
-            $region = $r['region'];
+            $region = $r['custregion'];
 
             // find sale reps in current region
-            $find_sr = "select * from user where region = '$region' and role = 2";
+            $find_sr = "SELECT * FROM salerep WHERE srregion = '$region'";
             $result_sr = $conn -> query($find_sr);
 
             // $sr_list contains sale reps
@@ -40,7 +40,7 @@
                 <label for="sr-selector">Sale Rep:</label> 
                   <select class="form-control" id = "sr-selector" name = "s-salerep" style="font-size:16px; padding : 0 6px;">';
                 while($row = $result_sr->fetch_assoc()){
-                    $sr_list = $sr_list."<option value = ".$row["name"].">".$row["name"]."</option>";
+                    $sr_list = $sr_list."<option value = ".$row["srname"].">".$row["srname"]."</option>";
                 }
                 $sr_list = $sr_list."</select> </div>";
                 $ishavesr = 1;

@@ -68,7 +68,7 @@
                     <div class="user-ordering-table">
                             <?php
                                 echo $table_head1;
-                                $find_sql = "select * from ordering where custname = '$user_name'";
+                                $find_sql = "SELECT * FROM ordering WHERE custname = '$user_name'";
                                 $td = print_table_user_ordering($find_sql,$conn);
                                 echo $td;
                             ?>
@@ -80,7 +80,7 @@
                     <div class="user-ordering-table">
                             <?php
                                 echo $table_head1;
-                                $find_sql = "select * from ordering where custname = '$user_name' and status = 'processing'";
+                                $find_sql = "SELECT * FROM ordering WHERE custname = '$user_name' AND status = 'processing'";
                                 $td = print_table_user_ordering($find_sql,$conn);
                                 echo $td;
                             ?>
@@ -92,7 +92,7 @@
                     <div class="user-ordering-table">
                             <?php
                                 echo $table_head1;
-                                $find_sql = "select * from ordering where custname = '$user_name'and status = 'completed'";
+                                $find_sql = "SELECT * FROM ordering WHERE custname = '$user_name' AND status = 'completed'";
                                 $td = print_table_user_ordering($find_sql,$conn);
                                 echo $td;
                             ?>
@@ -105,7 +105,7 @@
                         
                             <?php
                                 echo $table_head1;
-                                $find_sql = "select * from ordering where custname = '$user_name'and status = 'cancelled'";
+                                $find_sql = "SELECT * FROM ordering WHERE custname = '$user_name' AND status = 'cancelled'";
                                 $td = print_table_user_ordering($find_sql,$conn);
                                 echo $td;
                             ?>
@@ -118,7 +118,7 @@
                         
                             <?php
                                 echo $table_head2;
-                                $find_sql = "select * from ordering where custname = '$user_name'and status = 'processing'";
+                                $find_sql = "SELECT * FROM ordering WHERE custname = '$user_name' AND status = 'processing'";
                                 $result = $conn -> query($find_sql);
                                 $td = "";
                                 if($result->num_rows > 0){
@@ -127,7 +127,7 @@
 
                                         $td = $td."<tr> <th rowspan=3 class ='ord-id' >".$row["orderid"]."</th>";
                                         $td = $td."<td rowspan=3>" .$row["date"]."</td>";
-                                        $td = $td."<td rowspan=3>" .$row["salerep"]."</td>";
+                                        $td = $td."<td rowspan=3>" .$row["srname"]."</td>";
 
                                         $td = $td."<td>"."N95 respirator"."</td>";
                                         $td = $td."<td>".$row['type1']."</td>";

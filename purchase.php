@@ -8,10 +8,10 @@
     $username = $_POST['user'];
     $sr = $_POST['sr'];
 
-    $find_region = "SELECT * FROM user WHERE name = '$username'";
+    $find_region = "SELECT * FROM customer WHERE custname = '$username'";
     $result = $conn->query($find_region);
     $r = $result->fetch_assoc();
-    $region = $r['region'];
+    $region = $r['custregion'];
 
 
     date_default_timezone_set('PRC');
@@ -19,7 +19,7 @@
     $datetime = date("ymdHis");
     $sales = ($num1+$num2) * 1.0 + $num3 * 1.5;
 
-    $sql = "INSERT INTO ordering (orderid, custname, date, totalsales, status,custregion,type1,type2,type3,salerep) VALUES ('$ordid','$username','$datetime','$sales','processing','$region','$num1','$num2','$num3','$sr')";
+    $sql = "INSERT INTO ordering (orderid, custname, date, totalsales, status,custregion,type1,type2,type3,srname) VALUES ('$ordid','$username','$datetime','$sales','processing','$region','$num1','$num2','$num3','$sr')";
 
     if($conn->query($sql) === true){
          echo 1;
