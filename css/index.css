@@ -194,7 +194,7 @@ button:active{
     align-items: center;
 }
 .btn-purchase{
-    display: inline;
+    display: inline-block;
     position: fixed;
     bottom: 30px;
     right: 300px;
@@ -223,4 +223,17 @@ button:active{
     bottom: 30px;
     /* align-items: center; */
     margin-left: 600px;
+}
+
+.btn-confirm-sr{
+    background-color:#626d85 ;
+    color: white;
+}
+
+.btn-confirm-sr:focus,
+.btn-confirm-sr:hover{
+    outline: none;
+    background-color: #525c70;
+    color: white;
+    box-shadow: none;
 }

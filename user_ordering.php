@@ -14,11 +14,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Ordering</title>
 </head>
-<script src="js/jquery-1.12.3.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <script src="js/bootstrap.bundle.js"></script>
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <script src = "js/sweetalert.js"> </script>
+<script src="library/jquery-1.12.3.js"></script>
+    <script src="library/bootstrap.js"></script>
+    <script src="library/bootstrap.bundle.js"></script>
+    <link rel="stylesheet" href="library/bootstrap.css">
+    <script src = "library/sweetalert.js"> </script>
     <link rel="stylesheet" href="css/user_ordering.css">
 <body>
     <?php
@@ -195,7 +195,6 @@
 <script>
     $(".cancel-btn").on("click",function(){
         var id = $(this).parent().siblings(".ord-id").html();
-        // alert(id);
         swal({
             text:"Confirm to cancel?",
             buttons: true,

@@ -76,28 +76,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="js/jquery-1.12.3.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <script src="js/bootstrap.bundle.js"></script>
-    <script src="library/echarts-4.8.0/dist/echarts.min.js"></script>
-    <!-- <script src="https://cdn.bootcdn.net/ajax/libs/sweetalert/2.1.1/sweetalert.min.js"></script> -->
-    <script src = "js/sweetalert.js"> </script>
-    <script src="js/salerep.js"></script>
-    <!-- <link rel="stylesheet" href="css/sweetalert.css"> -->
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/all.css">
-    <!-- <link rel="stylesheet" href="library/fontawesome/css/all.css"> -->
+    <script src="library/jquery-1.12.3.js"></script>
+    <script src="library/bootstrap.js"></script>
+    <script src="library/bootstrap.bundle.js"></script>
+    <script src = "library/sweetalert.js"> </script>
     <link rel="stylesheet" href="library/font-awesome-4.7.0/css/font-awesome.css">
-    <!-- <link rel="stylesheet" href="css/salerep.css"> -->
+    <link rel="stylesheet" href="library/bootstrap.css">
+    <script src="library/echarts-4.8.0/dist/echarts.min.js"></script>
+    <script src="js/salerep.js"></script>
+    <link rel="stylesheet" href="css/salerep.css">
     <style>
-        .aside{
+        /* .aside{
             position: fixed;
             top: 0;
             left: 0;
             height: 100%;
             width: 180px;
             background-color: rgb(41, 53, 77);
-            /* height: 100vh; */
         }
         li{
             list-style: none;
@@ -113,14 +108,11 @@
         .nav a{
             padding: 10px 20px;
             width: 180px;
-            /* width:30%; */
             font-weight: 500;
-            /* border: .4px solid #22293b; */
         }
 
         .aside .nav .active > a {
             color: #eee;
-            /* background-color: #243443; */
         } 
         .aside .nav a:hover,
         .aside .nav a:focus {
@@ -142,12 +134,10 @@
             margin-left: 18px;
             margin-top: 20px;
             margin-bottom: 20px;
-            /* text-align: center; */
+
         }
         .account-img{
             width: 28%;
-            /* display: inline; */
-            /* object-fit: cover; */
         }
         .aside .profile .name{
             display: inline;
@@ -165,20 +155,17 @@
         .table{
             align : center;
             font-size: 14px;
-            /* height : 18px; */
             margin: 10vh 10vh;
             width: 80%;
             
         }
         .table tr th,
         .table tr td{
-            /* height : 20px; */
             padding: 7px;
             text-align : center;
         }
 
         .logout{
-            /* position :fixed; */
             bottom : 10px;
         }
         .cancel-btn {
@@ -197,11 +184,9 @@
         }
         .form-control{
         height: 1.7em;
-        /* border-top: none; */
         border-radius: 0;
         }
         .form-control:focus{
-        /* border: tomato; */
         border-color: rgb(75, 90, 131);
         box-shadow: none;
         }
@@ -232,13 +217,12 @@
         display: none;
         color: rgb(255, 79, 79);
         font-size: .8em;
-        /* margin-bottom: 1.1em; */
         margin-top: .1em;
         margin-left: .2em;
         }
         .quota-chart-box{
             margin-top: 5vh;
-        }
+        } */
     </style>
 </head>
 <body>

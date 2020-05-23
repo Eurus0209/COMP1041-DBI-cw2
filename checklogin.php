@@ -8,7 +8,7 @@
     if(($rs = $conn->query($sql))===false){
         echo 4;
     }
-    if($rs->num_rows ==1 ){
+    else if($rs->num_rows ==1 ){
         $result = $rs ->fetch_assoc();
         if($result['role']==1){
             $_SESSION['username'] = $name;

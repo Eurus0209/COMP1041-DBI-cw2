@@ -157,10 +157,13 @@ box-shadow: none;
     margin-left: .2em;
 }
 
-.show{
-    display: block!important;
+.show-tip{
+    display: block;
 }
 
+.show-table{
+    display: block;
+}
 .warning-tip{
     display:none;
 }

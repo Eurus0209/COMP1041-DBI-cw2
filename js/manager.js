@@ -5,53 +5,75 @@ $(function(){
 
     $(".selling-label").on("click",function(){
         var str = $(this).attr("id");
-        $(".selling-table").removeClass("show");
-        $(".sr-info-table").removeClass("show");
-        $(".cust-info-table").removeClass("show");
-        $("."+str).addClass("show");
+        $(".selling-table").removeClass("show-table");
+        $(".sr-info-table").removeClass("show-table");
+        $(".cust-info-table").removeClass("show-table");
+        $("."+str).addClass("show-table");
     })
 
     $(".sr-info-label").on("click",function(){
         var str = $(this).attr("id");
-        $(".selling-table").removeClass("show");
-        $(".sr-info-table").removeClass("show");
-        $(".cust-info-table").removeClass("show");
-        $("."+str).addClass("show");
+        $(".selling-table").removeClass("show-table");
+        $(".sr-info-table").removeClass("show-table");
+        $(".cust-info-table").removeClass("show-table");
+        $("."+str).addClass("show-table");
     })
 
     $(".cust-info-label").on("click",function(){
         var str = $(this).attr("id");
-        $(".selling-table").removeClass("show");
-        $(".sr-info-table").removeClass("show");
-        $("."+str).addClass("show");
+        $(".selling-table").removeClass("show-table");
+        $(".sr-info-table").removeClass("show-table");
+        $("."+str).addClass("show-table");
     })
 
+    $("#srname").on("blur",function(){
+        //can't contain other char except letter and digit
+        var reg1 = new RegExp(/^[0-9a-zA-Z]*$/g);
+    
+        //must contain at least one letter
+        var reg2 = new RegExp(/[A-Za-z]+/);
+    
+        var text = $(this).val();
+        if((reg2.test(text)==false)){
+          $(".tip-name2").addClass("show-tip");
+        }else if((reg1.test(text)==false)){
+          $(".tip-name1").addClass("show-tip");
+        }
+      })
+
+    $("#srname").on("focus",function(){
+        $(".tip-name1").removeClass("show-tip");
+        $(".tip-name2").removeClass("show-tip");
+        
+    })
+    
     $("#email").on("focus",function(){
-        $(".email-tip").removeClass("show");
+        $(".email-tip").removeClass("show-tip");
         
     })
     $("#email").on("blur",function(){
         if(/([\w\-]+\@[\w\-]+\.[\w\-]+)/.test($(this).val())==false){
-            $(".email-tip").addClass("show");
+            $(".email-tip").addClass("show-tip");
         }
     })
     $("#phone").on("focus",function(){
-        $(".phone-tip").removeClass("show");
+        $(".phone-tip").removeClass("show-tip");
     })
     $("#phone").on("blur",function(){
         if(/\d{11}/.test($(this).val())==false){
-            $(".phone-tip").addClass("show");
+            $(".phone-tip").addClass("show-tip");
         }
     })
 
     $("#repeatPassword").on("focus",function(){
-        $(".password-tip").removeClass("show");
+        $(".password-tip").removeClass("show-tip");
     })
     $("#repeatPassword").on("blur",function(){
         if($("#inputPassword").val()!=$("#repeatPassword").val()){
-            $(".password-tip").addClass("show");
+            $(".password-tip").addClass("show-tip");
         }
     })
+
 
 
     $(".btn-save-change").on("click",function(){
@@ -66,7 +88,9 @@ $(function(){
         }
         else if(
             /([\w\-]+\@[\w\-]+\.[\w\-]+)/.test($("#email").val())==false ||
-            /\d{11}/.test($("#phone").val())==false
+            /\d{11}/.test($("#phone").val())==false ||
+            /^[0-9a-zA-Z]*$/.test($("#srname").val())==false||
+        /[A-Za-z]+/.test($("#srname").val())==false
         ){
             swal("Please complete the form as right format!");
         }else if($("#inputPassword").val()!=$("#repeatPassword").val()){

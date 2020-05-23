@@ -14,6 +14,7 @@
         <label for="realname" class="col-sm-3 col-form-label">Realname</label>
         <div class="col-sm-9">
         <input type="text" class="form-control" id="realname" >
+        
         </div>
     </div>
 
@@ -21,6 +22,12 @@
         <label for="srname" class="col-sm-3 col-form-label">Username</label>
         <div class="col-sm-9">
         <input type="text" class="form-control" id="srname" >
+        <div class="tip-name1 tip">
+        Only contain letter and digit!
+        </div>
+        <div class="tip-name2 tip">
+            At least contain one letter!
+        </div>
         </div>
     </div>
     <div class="form-group row">
@@ -86,63 +93,3 @@
         
     <button class="btn btn-primary btn-save-change">Add</button>
 </div>
-
-<!-- <form class="form-regist form-horizontal sign-up-content sr-info-add-box2">
-    <div class="form-group ">
-
-        <input type="text" name = "username" class="form-control" id="username" placeholder="Username" >
-    </div>
-
-    <div class="form-group ">
-
-        <input type="text" name = "realname" class="form-control" id="realname" placeholder="RealName" >
-    </div>
-
-    <div class="form-group ">
-
-        <input type="text" name = "passportid" class="form-control" id="passportid" placeholder="PassportID" >
-    </div>
-
-    <div class="form-group">
-        
-        <input type="text" name = "telephone" class="form-control" id="telephone" placeholder="Telephone" >
-        <div class="tip-phone tip">
-            Wrong format of phone number!
-        </div>
-    </div>
-    
-
-    <div class="form-group">
-     
-        <input type="email" name = "email" class="form-control" id="email" placeholder="Email">
-        <div class="tip-email tip">
-            Wrong format of email!
-        </div>
-    </div>
-    
-
-    <div class="form-group">
-
-        <input type="password" name = "password1" class="form-control" id="password1" placeholder="Password">
-    </div>
-
-    <div class="form-group">
-
-        <input type="password" name = "password2" class="form-control" id="password2" placeholder="Repeate Password">
-        <div class="tip-pass tip">
-            Entered passwords differ.
-        </div>
-    </div>
-    <div class="form-group">
-
-        <select class="form-control" name = "region" style="font-size:16px; padding : 0 6px;" >
-        <option value="China">China</option>
-        <option value="American">American</option>
-        <option value="England">England</option>
-        <option value="Japan">Japan</option>
-        <option value="Korea">Korea</option>
-        <option value="Canada">Canada</option>
-        </select>
-    </div>
-    <button class="btn btn-primary btn-save-change">Add</button>
-    </form> -->

@@ -12,11 +12,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Information</title>
-  <script src="js/jquery-1.12.3.js"></script>
-  <script src="js/bootstrap.js"></script>
-  <script src="js/updateUserInfo.js"></script>
-  <script src="library/sweetalert.js"></script>
-  <link rel="stylesheet" href="css/bootstrap.css">
+  <script src="library/jquery-1.12.3.js"></script>
+    <script src="library/bootstrap.js"></script>
+    <script src="library/bootstrap.bundle.js"></script>
+    <script src = "library/sweetalert.js"> </script>
+    <link rel="stylesheet" href="library/font-awesome-4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="library/bootstrap.css">
+    <script src="library/echarts-4.8.0/dist/echarts.min.js"></script>
   <link rel="stylesheet" href="css/userInfo.css">
 </head>
 <body>

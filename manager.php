@@ -4,7 +4,7 @@
     include 'check_iscomplete.php';
     include 'conntodb.php';
     include 'print_table.php';
-    include 'getNum.php';
+    // include 'getNum.php';
     include 'getSrInfo.php';
     include 'print_srinfo.php';
     include 'warning_data.php';
@@ -42,20 +42,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="js/jquery-1.12.3.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <!-- <script src="js/bootstrap.bundle.js"></script> -->
-    <script src="library/echarts-4.8.0/dist/echarts.min.js"></script>
-    <script src = "js/sweetalert.js"> </script>
-    <script src="js/manager.js"></script>
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/all.css">
+    <title>Dashboard</title>
+    <script src="library/jquery-1.12.3.js"></script>
+    <script src="library/bootstrap.js"></script>
+    <script src="library/bootstrap.bundle.js"></script>
+    <script src = "library/sweetalert.js"> </script>
     <link rel="stylesheet" href="library/font-awesome-4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="library/bootstrap.css">
+
+    <script src="js/manager.js"></script>
     <link rel="stylesheet" href="css/manager.css">
     <script>
         var fw = <?php echo $flag_warning;?>;
-        
     </script>
 </head>
 <body>
@@ -102,7 +100,7 @@
             </div>
         </div>
         <div class="col-10">
-            <div class="selling-table total-box total show">
+            <div class="selling-table total-box total show-table">
                 <?php include 'selling_total.php'; ?>
             </div>
             <div class="selling-table total-box under-ord">

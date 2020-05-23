@@ -5,8 +5,6 @@
             },
             yAxis:{},
             legend: {
-                // type: 'scroll',
-                // bottom: 10,
                 top:10,
                 data: [{name:'N95'},
                     {name:'Surgial'},

@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/signup.css">
-    <script src="js/jquery-1.12.3.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <script src="js/bootstrap.bundle.js"></script>
-    <script src="https://cdn.bootcdn.net/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
-    <link rel="stylesheet" href="css/bootstrap.css">
+    <title>Signup</title>
+    <script src="library/jquery-1.12.3.js"></script>
+    <script src="library/bootstrap.js"></script>
+    <script src="library/bootstrap.bundle.js"></script>
+    <script src = "library/sweetalert.js"> </script>
+    <link rel="stylesheet" href="library/font-awesome-4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="library/bootstrap.css">
     <link rel="stylesheet" href="css/signup.css">
     
 <body>
@@ -28,6 +28,12 @@
               <form class="form-regist form-horizontal sign-up-content" action = "signup-back.php" method = "post">
                 <div class="form-group ">
                   <input type="text" name = "username" class="form-control" id="username" placeholder="Username" >
+                  <div class="tip-name1 tip">
+                      Only contain letter and digit!
+                    </div>
+                    <div class="tip-name2 tip">
+                      At least contain one letter!
+                    </div>
                 </div>
 
                 <div class="form-group ">
@@ -92,6 +98,21 @@
     
 </body>
 <script>
+  $("#username").on("blur",function(){
+    //can't contain other char except letter and digit
+    var reg1 = new RegExp(/^[0-9a-zA-Z]*$/g);
+
+    //must contain at least one letter
+    var reg2 = new RegExp(/[A-Za-z]+/);
+
+    var text = $(this).val();
+    if((reg2.test(text)==false)){
+      $(".tip-name2").addClass("active-tip");
+    }else if((reg1.test(text)==false)){
+      $(".tip-name1").addClass("active-tip");
+    }
+  })
+
     $("#email").on("blur",function () {
         if(/([\w\-]+\@[\w\-]+\.[\w\-]+)/.test($(this).val())==false){
             $(".tip-email").addClass("active-tip");
@@ -126,9 +147,11 @@
       }else if(
         /([\w\-]+\@[\w\-]+\.[\w\-]+)/.test($("#email").val())==false ||
         $("#password1").val()!=$("#password2").val() ||
-        /\d{11}/.test($("#telephone").val())==false
+        /\d{11}/.test($("#telephone").val())==false ||
+        /^[0-9a-zA-Z]*$/.test($("#username").val())==false||
+        /[A-Za-z]+/.test($("#username").val())==false
       ){
-        alert("Please complete form as right format!");
+        swal("Please complete form as right format!");
       }else{
           $.ajax({
               type: "post",

@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Start Page</title>
-    <script src="js/jquery-1.12.3.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <script src="js/bootstrap.bundle.js"></script>
-    <script src = "js/sweetalert.js"> </script>
+    <script src="library/jquery-1.12.3.js"></script>
+    <script src="library/bootstrap.js"></script>
+    <script src="library/bootstrap.bundle.js"></script>
+    <script src = "library/sweetalert.js"> </script>
     <link rel="stylesheet" href="library/font-awesome-4.7.0/css/font-awesome.css">
-    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="library/bootstrap.css">
+
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
@@ -149,7 +150,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary confirm-sr">Confirm</button>
+                <button type="button" class="btn btn-confirm-sr">Confirm</button>
             </div>
             </div>
         </div>
@@ -196,7 +197,7 @@
             )
         }else{
             $('.chose-sr').modal('show');
-            $('.confirm-sr').on("click",function(){
+            $('.btn-confirm-sr').on("click",function(){
                 var num1 = ($("input").get(0).value)*1.0;
                 var num2 = ($("input").get(1).value)*1.0;
                 var num3 = ($("input").get(2).value)*1.0;

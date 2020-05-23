@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="js/jquery-1.12.3.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <script src="js/bootstrap.bundle.js"></script>
+    <title>Customer</title>
+    <script src="library/jquery-1.12.3.js"></script>
+    <script src="library/bootstrap.js"></script>
+    <script src="library/bootstrap.bundle.js"></script>
     <script src="library/echarts-4.8.0/dist/echarts.min.js"></script>
-    <script src = "js/sweetalert.js"> </script>
-    <script src="js/manager.js"></script>
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/all.css">
+    <script src = "library/sweetalert.js"> </script>
+    <link rel="stylesheet" href="library/bootstrap.css">
     <link rel="stylesheet" href="library/font-awesome-4.7.0/css/font-awesome.css">
+    <script src="js/manager.js"></script>
     <link rel="stylesheet" href="css/manager.css">
 </head>
 <body>
@@ -28,14 +27,6 @@
         </tr>
         </thead>
         <tbody>
-             <tr>
-                 <td>123</td>
-                 <td class="cust-name">china1</td>
-                 <td>aaa</td>
-                 <td>123@qwedq</td>
-                 <td>china</td>
-                 <td><a href="#" data-toggle="modal" data-target="#staticBackdrop" class="btn-detail" style="color: black;">detail</a></td>
-             </tr>
              <?php
                 echo $custInfoStr;
              ?>
@@ -78,11 +69,8 @@
 <script>
     $(".btn-detail").on("click",function(){
         var custname = $(this).parent().siblings(".cust-name").text();
-        // alert(custname);
         $.ajax({
             type:"post",
-            // async:false,
-            // dataType:'JSON',
             url:"cust_detail.php",
             data: {
                 name: custname
