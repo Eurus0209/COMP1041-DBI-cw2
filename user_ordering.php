@@ -4,7 +4,34 @@
     include 'conntodb.php';
     include 'print_table.php';
     $user_name = $_SESSION['username'];
-
+    $table_head1 = '<table class="table ordering-table">
+    <thead>
+    <tr>
+        <th >Ord-ID</th>
+        <th >Date</th>
+        <th >Sale Rep</th>
+        <th >Mask Types</th>
+        <th >Quantity</th>
+        <th >Sales</th>
+        <th >Total Sales</th>
+        <th >Status </th>
+    </tr>
+    </thead>
+    <tbody>';
+    $table_head2 = '<table class="table ordering-table">
+    <thead>
+    <tr>
+        <th >Ord-ID</th>
+        <th >Date</th>
+        <th >Sale Rep</th>
+        <th >Mask Types</th>
+        <th >Quantity</th>
+        <th >Sales</th>
+        <th >Total Sales</th>
+        <th >Edit </th>
+    </tr>
+    </thead>
+    <tbody>';
 ?>
 
 <!DOCTYPE html>
@@ -39,21 +66,8 @@
                 <div class="tab-content right-side" id="v-pills-tabContent">
                 <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                     <div class="user-ordering-table">
-                        <table class="table ordering-table">
-                            <thead>
-                            <tr>
-                                <th >Ord-ID</th>
-                                <th >Date</th>
-                                <th >Sale Rep</th>
-                                <th >Mask Types</th>
-                                <th >Quantity</th>
-                                <th >Sales</th>
-                                <th >Total Sales</th>
-                                <th >Status </th>
-                            </tr>
-                            </thead>
-                            <tbody>
                             <?php
+                                echo $table_head1;
                                 $find_sql = "select * from ordering where custname = '$user_name'";
                                 $td = print_table_user_ordering($find_sql,$conn);
                                 echo $td;
@@ -64,21 +78,8 @@
                 </div>
                 <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
                     <div class="user-ordering-table">
-                        <table class="table ordering-table">
-                            <thead>
-                            <tr>
-                                <th >Ord-ID</th>
-                                <th >Date</th>
-                                <th >Sale Rep</th>
-                                <th >Mask Types</th>
-                                <th >Quantity</th>
-                                <th >Sales</th>
-                                <th >Total Sales</th>
-                                <th >Status </th>
-                            </tr>
-                            </thead>
-                            <tbody>
                             <?php
+                                echo $table_head1;
                                 $find_sql = "select * from ordering where custname = '$user_name' and status = 'processing'";
                                 $td = print_table_user_ordering($find_sql,$conn);
                                 echo $td;
@@ -89,21 +90,8 @@
                 </div>
                 <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
                     <div class="user-ordering-table">
-                        <table class="table ordering-table">
-                            <thead>
-                            <tr>
-                                <th >Ord-ID</th>
-                                <th >Date</th>
-                                <th >Sale Rep</th>
-                                <th >Mask Types</th>
-                                <th >Quantity</th>
-                                <th >Sales</th>
-                                <th >Total Sales</th>
-                                <th >Status </th>
-                            </tr>
-                            </thead>
-                            <tbody>
                             <?php
+                                echo $table_head1;
                                 $find_sql = "select * from ordering where custname = '$user_name'and status = 'completed'";
                                 $td = print_table_user_ordering($find_sql,$conn);
                                 echo $td;
@@ -114,21 +102,9 @@
                 </div>
                 <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
                     <div class="user-ordering-table">
-                        <table class="table ordering-table">
-                            <thead>
-                            <tr>
-                                <th >Ord-ID</th>
-                                <th >Date</th>
-                                <th >Sale Rep</th>
-                                <th >Mask Types</th>
-                                <th >Quantity</th>
-                                <th >Sales</th>
-                                <th >Total Sales</th>
-                                <th >Status </th>
-                            </tr>
-                            </thead>
-                            <tbody>
+                        
                             <?php
+                                echo $table_head1;
                                 $find_sql = "select * from ordering where custname = '$user_name'and status = 'cancelled'";
                                 $td = print_table_user_ordering($find_sql,$conn);
                                 echo $td;
@@ -139,21 +115,9 @@
                 </div>
                 <div class="tab-pane fade" id="edit-ordering" role="tabpanel" aria-labelledby="edit-ordering">
                     <div class="user-ordering-table">
-                        <table class="table ordering-table">
-                            <thead>
-                            <tr>
-                                <th >Ord-ID</th>
-                                <th >Date</th>
-                                <th >Sale Rep</th>
-                                <th >Mask Types</th>
-                                <th >Quantity</th>
-                                <th >Sales</th>
-                                <th >Total Sales</th>
-                                <th >Edit </th>
-                            </tr>
-                            </thead>
-                            <tbody>
+                        
                             <?php
+                                echo $table_head2;
                                 $find_sql = "select * from ordering where custname = '$user_name'and status = 'processing'";
                                 $result = $conn -> query($find_sql);
                                 $td = "";

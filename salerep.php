@@ -65,9 +65,35 @@
         $exceed3 = $num3-$quota3;
         $remain3 = 0;
     }
-
-    include 'print_table1.php';
-    include 'print_table2.php';
+    $table_head1 = '<thead>
+    <tr>
+        <th >Ord-ID</th>
+        <th >Date</th>
+        <th >Customer</th>
+        
+        <th >Mask Types</th>
+        <th >Quantity</th>
+        <th >Sales</th>
+        <th >Total Sales</th>
+        <th >Status </th>
+    </tr>
+    </thead>
+    <tbody>';
+    $table_head2 = '<thead>
+    <tr>
+        <th >Ord-ID</th>
+        <th >Date</th>
+        <th >Customer</th>
+        
+        <th >Mask Types</th>
+        <th >Quantity</th>
+        <th >Sales</th>
+        <th >Total Sales</th>
+        <th >Edit</th>
+    </tr>
+    </thead>
+    <tbody>';
+    include 'print_table.php';
 ?>
 
 <!DOCTYPE html>
@@ -85,145 +111,6 @@
     <script src="library/echarts-4.8.0/dist/echarts.min.js"></script>
     <script src="js/salerep.js"></script>
     <link rel="stylesheet" href="css/salerep.css">
-    <style>
-        /* .aside{
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 180px;
-            background-color: rgb(41, 53, 77);
-        }
-        li{
-            list-style: none;
-        }
-        
-
-        a, a:hover{
-            display: block;
-            color: white;
-            text-decoration: none;
-        }
-
-        .nav a{
-            padding: 10px 20px;
-            width: 180px;
-            font-weight: 500;
-        }
-
-        .aside .nav .active > a {
-            color: #eee;
-        } 
-        .aside .nav a:hover,
-        .aside .nav a:focus {
-            color: #fcfcfc;
-            background-color: #22293b;
-        }
-        #ordering-menu{
-            padding:0 0 0 0px;
-            background-color: rgb(56, 69, 94);
-            font-size: 0.8em;
-        }
-
-        #ordering-menu a{
-            border: none;
-        }
-
-        .profile{
-            align-items: center;
-            margin-left: 18px;
-            margin-top: 20px;
-            margin-bottom: 20px;
-
-        }
-        .account-img{
-            width: 28%;
-        }
-        .aside .profile .name{
-            display: inline;
-            margin-left: 10px;
-            font-size: 16px;
-            font-weight: 700;
-            color: #eee;
-        }
-        .ordering-table {
-            display: none;
-        }
-        .show{
-            display: block;
-        }
-        .table{
-            align : center;
-            font-size: 14px;
-            margin: 10vh 10vh;
-            width: 80%;
-            
-        }
-        .table tr th,
-        .table tr td{
-            padding: 7px;
-            text-align : center;
-        }
-
-        .logout{
-            bottom : 10px;
-        }
-        .cancel-btn {
-            border: none;
-            border-radius: 4px;
-            height:27px;
-            width: 90px;
-            background-color:#eee;
-            margin: 0;
-        }
-        .no-need{
-            margin : 20vh 40px;
-        }
-        .info-content{
-            width:70%;
-        }
-        .form-control{
-        height: 1.7em;
-        border-radius: 0;
-        }
-        .form-control:focus{
-        border-color: rgb(75, 90, 131);
-        box-shadow: none;
-        }
-
-        .info-content{
-            margin-top:10vh;
-            margin-left: 8vh;
-            font-size: 14px;
-            font-weight:600;
-        }
-        .btn-save-change{
-            font-size: 14px;
-            background-color: rgb(75, 90, 131);
-            border: none;
-            width: 180px;
-            display: block;
-            margin: 0 auto;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            }
-        .info-content .hide{
-            display:none;
-        }
-        .info-content .show{
-            display:block;
-        }
-        .tip{
-        display: none;
-        color: rgb(255, 79, 79);
-        font-size: .8em;
-        margin-top: .1em;
-        margin-left: .2em;
-        }
-        .quota-chart-box{
-            margin-top: 5vh;
-        } */
-    </style>
 </head>
 <body>
     
@@ -231,7 +118,6 @@
         <div class="col-2">
             <div class="aside">
                 <div class="profile">
-                  <!-- <img class="avatar" src="../uploads/avatar.jpg"> -->
                   <img class = "account-img" src="img/account1.png" alt="">
                   <h3 class="name"><?php echo $name ?></h3>
                 </div>
@@ -260,7 +146,6 @@
         </div>
         <div class="col-10">
             <div class="ordering-box">
-
                 <div class="ordering-table information-tab show">
                     <div class="row">
                         <div class="col-4">
@@ -345,7 +230,7 @@
                     <div class="user-ordering-table">
                         <table class="table">
                             <?php
-                            include 'table_head1.php';
+                                echo $table_head1;
                                 $region_sql = "SELECT * FROM ordering WHERE salerep = '$name'";
                                 $td2 = print_table($region_sql, $conn);
                                 echo $td2;
@@ -360,7 +245,7 @@
                         <table class="table">
                             
                             <?php
-                                include 'table_head1.php';
+                                echo $table_head1;
                                 
                                 $region_sql = "SELECT * FROM ordering WHERE salerep = '$name' and status = 'processing'";
                                 $td2 = print_table($region_sql, $conn);
@@ -375,7 +260,7 @@
                         <table class="table">
                             
                             <?php
-                                include 'table_head1.php';
+                                echo $table_head1;
                                 // 
                                 $region_sql = "SELECT * FROM ordering WHERE salerep = '$name' and status = 'completed'";
                                 $td2 = print_table($region_sql, $conn);
@@ -390,8 +275,7 @@
                         <table class="table">
                             
                             <?php
-                                include 'table_head1.php';
-                            
+                                echo $table_head1;
                                 $region_sql = "SELECT * FROM ordering WHERE salerep = '$name' and status = 'cancelled'";
                                 $td2 = print_table($region_sql, $conn);
                                 echo $td2;
@@ -407,8 +291,7 @@
                                 
                                 
                                  if($num1>$quota1 || $num2>$quota2 || $num3>$quota3){
-                                    include 'table_head2.php';
-                                    // $result = $conn -> query($region_sql);
+                                    echo $table_head2;
                                     $sql = "SELECT * FROM ordering WHERE salerep = '$name' and status = 'processing' ";
                                     $td = print_table2($sql,$conn);
                                     echo $td;
