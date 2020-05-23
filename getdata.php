@@ -51,7 +51,7 @@ function getDateMaskNum($dateArray,$region,$conn){
 function getDateList(){
     date_default_timezone_set('PRC');
     $enddate = date("Y-m-d");
-    $startdate = '2020-5-10';
+    $startdate = '2020-5-15';
     $stimestamp = strtotime($startdate);
     $etimestamp = strtotime($enddate);
     // 计算日期段内有多少天
