@@ -71,10 +71,12 @@
                     <a href="#selling-situtaion" class="collapsed" data-toggle="collapse">
                       Selling Status &nbsp <i class="fa fa-angle-down" aria-hidden="true"></i>
                     </a>
+                    
                     <ul id="selling-situtaion" class="collapse aside-nav">
                       <li><a class = "selling-label" id = "total" href="javascript:;">Total</a></li>
                       <li><a class = "selling-label" id = "under-ord" href="javascript:;">Under Ordering</a></li>
                     </ul>
+      
                   </li>
                   <li>
                     <a href="#salerep-situtaion" class="collapsed" data-toggle="collapse">

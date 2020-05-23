@@ -3,16 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customer</title>
-    <script src="library/jquery-1.12.3.js"></script>
-    <script src="library/bootstrap.js"></script>
-    <script src="library/bootstrap.bundle.js"></script>
-    <script src="library/echarts-4.8.0/dist/echarts.min.js"></script>
-    <script src = "library/sweetalert.js"> </script>
-    <link rel="stylesheet" href="library/bootstrap.css">
-    <link rel="stylesheet" href="library/font-awesome-4.7.0/css/font-awesome.css">
-    <script src="js/manager.js"></script>
-    <link rel="stylesheet" href="css/manager.css">
+    
+
 </head>
 <body>
     <table class="table ordering-table">
