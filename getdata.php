@@ -2,7 +2,7 @@
 include 'conntodb.php';
 date_default_timezone_set('PRC');
 $now_date = date("Y-m-d");
-$startdate = '2020-5-10';
+$startdate = '2020-5-15';
 function getDateFromRange($startdate, $enddate){
     $stimestamp = strtotime($startdate);
     $etimestamp = strtotime($enddate);
@@ -71,7 +71,6 @@ function getDateMaskNumBySR($dateArray,$srname,$conn){
     $num3 = array();
     for($i=0; $i<$days; $i++){
         $today = $dateArray[$i];
-        // $srname = array('$srname');
         $sql = "select * from ordering where salerep = '$srname' and ( datediff ( date , '$today' ) = 0 ) and status in ('processing','completed')";
         $result = $conn->query($sql);
         
@@ -88,11 +87,8 @@ function getDateMaskNumBySR($dateArray,$srname,$conn){
         $num1[] = $t1;
         $num2[] = $t2;
         $num3[] = $t3;
-
-        // $maskNum[] = $num;
     }
     $maskNum = array($num1,$num2,$num3);
-    // $json_maskNum = json_encode($maskNum);
     return $maskNum;
 }
 
@@ -200,6 +196,21 @@ function getCustInfoForManager($conn){
     }
     return $custInfoStr;
     
+}
+
+function getNumOfRegion($sql,$conn){
+    $result = $conn -> query($sql);
+    $num = array(0,0,0);
+    
+    if($result ->num_rows > 0){
+        while($row = $result->fetch_assoc()){
+            $num[0] += $row['type1'];
+            $num[1] += $row['type2'];
+            $num[2] += $row['type3'];
+        }
+        
+    }
+    return $num;
 }
 
 ?>

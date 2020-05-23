@@ -45,15 +45,13 @@
     <title>Document</title>
     <script src="js/jquery-1.12.3.js"></script>
     <script src="js/bootstrap.js"></script>
-    <script src="js/bootstrap.bundle.js"></script>
+    <!-- <script src="js/bootstrap.bundle.js"></script> -->
     <script src="library/echarts-4.8.0/dist/echarts.min.js"></script>
     <script src = "js/sweetalert.js"> </script>
     <script src="js/manager.js"></script>
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/all.css">
-    <!-- <link rel="stylesheet" href="library/fontawesome/css/all.css"> -->
     <link rel="stylesheet" href="library/font-awesome-4.7.0/css/font-awesome.css">
-    <!-- <link rel="stylesheet" href="css/salerep.css"> -->
     <link rel="stylesheet" href="css/manager.css">
     <script>
         var fw = <?php echo $flag_warning;?>;
