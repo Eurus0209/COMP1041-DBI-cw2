@@ -124,7 +124,7 @@ $(function(){
                                 pass : $("#inputPassword").val(),
                                 email: $("#email").val(),
                                 phone: $("#phone").val(),
-                                region: $("#srregion option:selected").val(),
+                                 region: $("#srregion option:selected").val(),
                                 role : 2,
                                 quota1 : $("#quota1").val(),
                                 quota2 : $("#quota2").val(),

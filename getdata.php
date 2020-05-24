@@ -194,6 +194,7 @@ function getCustInfoForManager($conn){
             <td>'.$row['realname'].'</td>
             <td>'.$row['email'].'</td>
             <td>'.$row['custregion'].'</td>
+            <td>'.$row['phone'].'</td>
             <td><a href="#" data-toggle="modal" data-target="#staticBackdrop" class="btn-detail" style="color: black;">
             <i class="fa fa-info-circle" aria-hidden="true"></i> Info</a></td>
         </tr>';

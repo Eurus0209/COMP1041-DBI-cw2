@@ -15,6 +15,7 @@
             <th >Realname</th>
             <th >Email</th>
             <th >Region</th>
+            <th >Phone</th>
             <th ></th>
         </tr>
         </thead>
