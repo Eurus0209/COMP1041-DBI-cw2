@@ -4,11 +4,11 @@
     include 'check_iscomplete.php';
     include 'conntodb.php';
 
-    $find_sql = "SELECT * FROM user WHERE name = '$name'";
+    $find_sql = "SELECT * FROM salerep WHERE srname = '$name'";
     $result_find = $conn -> query($find_sql);
     // if($result_find ->num_rows)
     $result = $result_find->fetch_assoc();
-    $region = $result['region'];
+    $region = $result['srregion'];
     $quota1 = $result['quota1'];
     $quota2 = $result['quota2'];
     $quota3 = $result['quota3'];
@@ -25,7 +25,7 @@
     $com_num1 = 0;
     $com_num2 = 0;
     $com_num3 = 0;
-    $region_sql = "SELECT * FROM ordering WHERE salerep = '$name' and status = 'processing'";
+    $region_sql = "SELECT * FROM ordering WHERE srname = '$name' and status = 'processing'";
     $result = $conn -> query($region_sql);
     if($result ->num_rows >0){
         while($row = $result->fetch_assoc()){
@@ -34,7 +34,7 @@
             $pro_num3 += $row['type3'];
         }
     }
-    $region_sql2 = "SELECT * FROM ordering WHERE salerep = '$name' and status = 'completed'";
+    $region_sql2 = "SELECT * FROM ordering WHERE srname = '$name' and status = 'completed'";
     $result2 = $conn -> query($region_sql2);
     if($result2 ->num_rows >0){
         while($row = $result2->fetch_assoc()){
@@ -233,7 +233,7 @@
                     <div class="user-ordering-table">
                             <?php
                                 echo $table_head1;
-                                $region_sql = "SELECT * FROM ordering WHERE salerep = '$name'";
+                                $region_sql = "SELECT * FROM ordering WHERE srname = '$name'";
                                 $td2 = print_table($region_sql, $conn);
                                 echo $td2;
                             ?>
@@ -248,7 +248,7 @@
                             <?php
                                 echo $table_head1;
                                 
-                                $region_sql = "SELECT * FROM ordering WHERE salerep = '$name' and status = 'processing'";
+                                $region_sql = "SELECT * FROM ordering WHERE srname = '$name' and status = 'processing'";
                                 $td2 = print_table($region_sql, $conn);
                                 echo $td2;
                             ?>
@@ -262,7 +262,7 @@
                             <?php
                                 echo $table_head1;
                                 // 
-                                $region_sql = "SELECT * FROM ordering WHERE salerep = '$name' and status = 'completed'";
+                                $region_sql = "SELECT * FROM ordering WHERE srname = '$name' and status = 'completed'";
                                 $td2 = print_table($region_sql, $conn);
                                 echo $td2;
                             ?>
@@ -275,7 +275,7 @@
                             
                             <?php
                                 echo $table_head1;
-                                $region_sql = "SELECT * FROM ordering WHERE salerep = '$name' and status = 'cancelled'";
+                                $region_sql = "SELECT * FROM ordering WHERE srname = '$name' and status = 'cancelled'";
                                 $td2 = print_table($region_sql, $conn);
                                 echo $td2;
                             ?>
@@ -290,7 +290,7 @@
                                 
                                  if($num1>$quota1 || $num2>$quota2 || $num3>$quota3){
                                     echo $table_head2;
-                                    $sql = "SELECT * FROM ordering WHERE salerep = '$name' and status = 'processing' ";
+                                    $sql = "SELECT * FROM ordering WHERE srname = '$name' and status = 'processing' ";
                                     $td = print_table2($sql,$conn);
                                     echo $td;
                                  }

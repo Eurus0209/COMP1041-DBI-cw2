@@ -11,7 +11,7 @@ $sql = "SELECT * FROM ordering WHERE status = 'processing'";
             date_default_timezone_set('PRC');
             $nowtime = strtotime(date('Y-m-d H:i:s'));
             if($nowtime>$comtime){
-                $up_sql = "update ordering SET status = 'completed' WHERE date = '$odtime'";
+                $up_sql = "UPDATE ordering SET status = 'completed' WHERE date = '$odtime'";
                 $conn->query($up_sql);
             }
 

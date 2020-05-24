@@ -177,11 +177,12 @@
                       role : 1,
                     },
                     success : function(msg){
+                      swal(msg);
                       if(msg == 1){
                         swal("Sign up successfully!");
                         // location.reload();
                       }else{
-                        swal("Failed!");
+                        // swal("Failed!");
                       }
                     }
                     

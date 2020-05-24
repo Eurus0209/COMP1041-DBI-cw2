@@ -18,7 +18,7 @@ function print_table_formanager_processing($find_sql, $conn){
                 $td = $td."<tr class='".$classname."'> <th rowspan=3 class = 'ord-id'>".$row["orderid"]."</th>";
                 $td = $td."<td rowspan=3>" .$row["date"]."</td>";
                 $td = $td."<td rowspan=3>" .$row['custname'] ."</td>";
-                $td = $td."<td rowspan=3>" .$row['salerep'] ."</td>";
+                $td = $td."<td rowspan=3>" .$row['srname'] ."</td>";
                 $td = $td."<td>"."N95 respirator"."</td>";
                 $td = $td."<td>".$row['type1']."</td>";
                 $td = $td."<td> $".number_format($row['type1'], 2)."</td>";
@@ -53,7 +53,7 @@ function print_table_formanager_processing($find_sql, $conn){
 
                 $td = $td."<tr class='".$classname."'> <th rowspan=3>".$row["orderid"]."</th>";
                 $td = $td."<td rowspan=3>" .$row["date"]."</td>";
-                $td = $td."<td rowspan=3>" .$row["salerep"]."</td>";
+                $td = $td."<td rowspan=3>" .$row["srname"]."</td>";
 
                 $td = $td."<td>"."N95 respirator"."</td>";
                 $td = $td."<td>".$row['type1']."</td>";
