@@ -4,7 +4,7 @@
     $type = $_POST['type'];
     $value = $_POST['value'];
 
-    $sql = "UPDATE user SET ".$type."= '$value' WHERE name = '$srname'";
+    $sql = "UPDATE salerep SET ".$type."= '$value' WHERE srname = '$srname'";
     if($conn->query($sql)===true){
         echo 1;
     }else{

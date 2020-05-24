@@ -1,26 +1,23 @@
 <?php
     include 'conntodb.php';
     session_start();
-    if(isset($_SESSION['username'])){
-        $ori_name = $_SESSION['username'];
-    }else{
-        $ori_name = $_SESSION['srname'];
-    }
-     
-    $name = $_POST['name'];
     $pass = $_POST['password'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
-    // $sql = "UPDATE ordering SET status = 'cancelled' WHERE orderid = '$canid'";
-    $up_sql = "UPDATE user SET name = '$name', password = '$pass', email = '$email', phone='$phone' WHERE name = '$ori_name'";
-    $conn -> query($up_sql);
-
     if(isset($_SESSION['username'])){
-        $_SESSION['username'] = $name;
-        // $ori_name = $_SESSION['username'];
+        $ori_name = $_SESSION['username'];
+        $up_sql = "UPDATE customer SET password = '$pass', email = '$email', phone='$phone' WHERE custname = '$ori_name'";
     }else{
-        $_SESSION['srname'] = $name;
-        
-        // $ori_name = $_SESSION['srname'];
+        $ori_name = $_SESSION['srname'];
+        $up_sql = "UPDATE salerep SET password = '$pass', email = '$email', phone='$phone' WHERE srname = '$ori_name'";
+    }
+     
+    
+    // $sql = "UPDATE ordering SET status = 'cancelled' WHERE orderid = '$canid'";
+    
+    if($conn -> query($up_sql) === true){
+        echo 1;
+    }else{
+        echo 0;
     }
 ?>

@@ -75,9 +75,8 @@ session_start();
             },
             success: function(msg){
               if(msg == 4){
-                swal("Failed login!");
-              }
-              if(msg == 1){
+                swal("Username dosen't exist or password is wrong!");
+              }else if(msg == 1){
                 window.location= 'index.php';
               }else if (msg == 2){
                 window.location= 'salerep.php';

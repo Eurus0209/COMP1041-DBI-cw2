@@ -6,7 +6,7 @@
     $q3 = $_POST['quota3'];
     $region = $_POST['region'];
 
-    $sql = "UPDATE user SET quota1 = '$q1',quota2 = '$q2',quota3 = '$q3',region='$region' WHERE name = '$name' ";
+    $sql = "UPDATE salerep SET quota1 = '$q1',quota2 = '$q2',quota3 = '$q3',srregion='$region' WHERE srname = '$name' ";
     if($conn->query($sql)==true){
         echo 1;
     }

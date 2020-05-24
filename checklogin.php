@@ -4,24 +4,27 @@
     $name = $_POST["name"];
     $pass = $_POST["password"];
 
-    $sql = "select * from user where name ='$name' and password = '$pass'";
-    if(($rs = $conn->query($sql))===false){
-        echo 4;
-    }
-    else if($rs->num_rows ==1 ){
-        $result = $rs ->fetch_assoc();
-        if($result['role']==1){
-            $_SESSION['username'] = $name;
-            echo 1;
-        }else if ($result['role']== 2){
+    $sql = "SELECT * FROM customer WHERE custname = '$name' AND password ='$pass'";
+    $rs = $conn->query($sql);
+    if($rs->num_rows ==0){
+        $sql = "SELECT * FROM salerep WHERE srname = '$name' AND password ='$pass'";
+        $rs = $conn->query($sql);
+        if($rs->num_rows ==0){
+            $sql = "SELECT * FROM manager WHERE maname = '$name' AND password ='$pass'";
+            $rs = $conn->query($sql);
+            if($rs->num_rows ==0){
+                echo 4;
+            }else{
+                $_SESSION['manager'] = $name;
+                echo 3;
+            }
+        }else{
             $_SESSION['srname'] = $name;
             echo 2;
-        }else if ($result['role']== 3){
-            $_SESSION['manager'] = $name;
-            echo 3;
         }
     }else{
-        echo 4;
+        $_SESSION['username'] = $name;
+        echo 1;
     }
     
 ?>

@@ -2,7 +2,7 @@
     include 'conntodb.php';
     session_start();
     $custname = $_SESSION['username'];
-    $sql = "SELECT * FROM user WHERE name = '$custname'";
+    $sql = "SELECT * FROM customer WHERE custname = '$custname'";
     $result = $conn->query($sql);
     $info = $result->fetch_assoc();
 ?>
@@ -42,7 +42,7 @@
         <div class="form-group row">
             <label for="srname" class="col-sm-3 col-form-label">Username</label>
             <div class="col-sm-9">
-            <input type="text" readonly class="form-control" id="srname" value =<?php echo $info['name']; ?>>
+            <input type="text" readonly class="form-control" id="srname" value =<?php echo $info['custname']; ?>>
             </div>
         </div>
         
@@ -64,7 +64,7 @@
         <div class="form-group row">
             <label for="srregion" class="col-sm-3 col-form-label">Region</label>
             <div class="col-sm-9">
-            <input type="text" readonly class="form-control" id="srregion" value =<?php echo $info['region']; ?>>
+            <input type="text" readonly class="form-control" id="srregion" value =<?php echo $info['custregion']; ?>>
             </div>
         </div>
         <div class="form-group row">

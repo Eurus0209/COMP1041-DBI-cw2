@@ -24,8 +24,7 @@ function getDateMaskNum($dateArray,$region,$conn){
     $num3 = array();
     for($i=0; $i<$days; $i++){
         $today = $dateArray[$i];
-        // $region = array('$region');
-        $sql = "select * from ordering where custregion = '$region' and ( datediff ( date , '$today' ) = 0 ) and status in ('processing','completed')";
+        $sql = "SELECT * FROM ordering WHERE custregion = '$region' AND ( datediff ( date , '$today' ) = 0 ) AND status in ('processing','completed')";
         $result = $conn->query($sql);
         
         $t1 = 0;
@@ -54,9 +53,7 @@ function getDateList(){
     $startdate = '2020-5-15';
     $stimestamp = strtotime($startdate);
     $etimestamp = strtotime($enddate);
-    // 计算日期段内有多少天
     $days = ($etimestamp-$stimestamp)/86400+1;
-    // 保存每天日期
     $date = array();
     for($i=0; $i<$days; $i++){
       $date[] = date('Y-m-d', $stimestamp+(86400*$i));
@@ -71,7 +68,7 @@ function getDateMaskNumBySR($dateArray,$srname,$conn){
     $num3 = array();
     for($i=0; $i<$days; $i++){
         $today = $dateArray[$i];
-        $sql = "select * from ordering where salerep = '$srname' and ( datediff ( date , '$today' ) = 0 ) and status in ('processing','completed')";
+        $sql = "SELECT * FROM ordering WHERE srname = '$srname' AND ( datediff ( date , '$today' ) = 0 ) AND status in ('processing','completed')";
         $result = $conn->query($sql);
         
         $t1 = 0;
@@ -99,7 +96,7 @@ function getDetailSoldMask($name,$conn,$quota1,$quota2,$quota3){
     $com_num1 = 0;
     $com_num2 = 0;
     $com_num3 = 0;
-    $processing_sql = "SELECT * FROM ordering WHERE salerep = '$name' and status = 'processing'";
+    $processing_sql = "SELECT * FROM ordering WHERE srname = '$name' AND status = 'processing'";
     $result = $conn -> query($processing_sql);
     if($result ->num_rows >0){
         while($row = $result->fetch_assoc()){
@@ -108,7 +105,7 @@ function getDetailSoldMask($name,$conn,$quota1,$quota2,$quota3){
             $pro_num3 += $row['type3'];
         }
     }
-    $completed_sql = "SELECT * FROM ordering WHERE salerep = '$name' and status = 'completed'";
+    $completed_sql = "SELECT * FROM ordering WHERE srname = '$name' AND status = 'completed'";
     $result2 = $conn -> query($completed_sql);
     if($result2 ->num_rows >0){
         while($row = $result2->fetch_assoc()){
@@ -155,7 +152,7 @@ function getDateAllMaskNum($dateArray,$conn){
     for($i=0; $i<$days; $i++){
         $today = $dateArray[$i];
         // $region = array('$region');
-        $sql = "select * from ordering where ( datediff ( date , '$today' ) = 0 )";
+        $sql = "SELECT * FROM ordering where ( datediff ( date , '$today' ) = 0 )";
         $result = $conn->query($sql);
         
         $t1 = 0;
@@ -179,17 +176,17 @@ function getDateAllMaskNum($dateArray,$conn){
 }
 
 function getCustInfoForManager($conn){
-    $sql = "SELECT * FROM user WHERE role = 1";
+    $sql = "SELECT * FROM customer WHERE 1";
     $result = $conn->query($sql);
     $custInfoStr = '';
     if($result->num_rows>0){
         while($row = $result->fetch_assoc()){
             $custInfoStr = $custInfoStr.'<tr>
             <td>'.$row['passportid'].'</td>
-            <td class="cust-name">'.$row['name'].'</td>
+            <td class="cust-name">'.$row['custname'].'</td>
             <td>'.$row['realname'].'</td>
             <td>'.$row['email'].'</td>
-            <td>'.$row['region'].'</td>
+            <td>'.$row['custregion'].'</td>
             <td><a href="#" data-toggle="modal" data-target="#staticBackdrop" class="btn-detail" style="color: black;">
             <i class="fa fa-info-circle" aria-hidden="true"></i> Info</a></td>
         </tr>';
