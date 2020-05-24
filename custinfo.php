@@ -7,7 +7,7 @@
 
 </head>
 <body>
-    <table class="table ordering-table">
+    <table class="table custinfo-table">
         <thead>
         <tr>
             <th >PassportID</th>

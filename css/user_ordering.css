@@ -48,16 +48,32 @@
 
 .nav-link:hover{
     /* background-color::#525c70; */
-    color:#525c70;
+    color: #000000;
 }
 
 .nav-pills .nav-link.active{
 
-    background-color: #525c70;
+    background-color:  #f8f9fa;
     border-radius: 0;
+    color:black;
+    border-radius: 4px;
 }
 .right-side{
     /* border:1px 1px 0px 0px solid black; */
     border-top: .5px solid #525c70;
     /* border-bottom: .5px solid #525c70; */
+}
+
+.ordering-table tr,
+.ordering-table td{
+    border: none;
+    /* background-color: wheat; */
+}
+
+.ordering-table .bg2{
+    background-color: #f8f9fa;
+}
+
+.ordering-table .bg1{
+    background-color: #ffffff;
 }

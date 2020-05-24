@@ -112,7 +112,7 @@ a, a:hover{
 }
 
 .form-control{
-height: 1.7em;
+height: 1.6em;
 /* border-top: none; */
 border-radius: 0;
 }
@@ -130,13 +130,21 @@ box-shadow: none;
 }
 .btn-save-change{
     font-size: 14px;
-    background-color:  #364758;
+    background-color:  #496077;
+    color: white;
     border: none;
     width: 150px;
     display: block;
     margin: 0 auto;
     margin-top: 30px;
     margin-bottom: 15px;
+    }
+    .btn-save-change:hover,
+    .btn-save-change:active,
+    .btn-save-change:focus{
+        background-color:  #43536b;
+        color: white;
+        outline: none;
     }
 .sr-info-content{
     margin-top:5vh;
@@ -209,7 +217,7 @@ box-shadow: none;
     border-radius: 0; 
     text-align: center;
     border: none;
-    border-bottom: .5px solid black;
+    /* border-bottom: .5px solid black; */
 }
 .save-btn{
     height: 30px;
@@ -256,10 +264,10 @@ box-shadow: none;
 }
 
 .update-btn{
-    border: 2px solid #42586d;
+    border: 1px solid #42586d;
     border-radius: 4px;
-    background-color: #42586d;
-    color: #fafafa;
+    background-color: transparent;
+    color: #42586d;
     font-weight: 600;
     margin-top: -2px;
 }
@@ -283,3 +291,44 @@ box-shadow: none;
     outline: none;
 }
 
+.under-porcessing-table td{
+    border: none;
+}
+
+.bg2{
+    background-color: #f8f9fa;
+  }
+  
+  .bg1{
+    background-color: #ffffff;
+  }
+
+.custinfo-table{
+    font-size: 15px;
+}
+
+.table td td{
+    border: none;
+}
+
+.bg2{
+    background-color: #f8f9fa;
+  }
+  
+  .bg1{
+    background-color: #ffffff;
+  }
+
+  .srinfo_region select,
+  .srinfo_region select:focus,
+  .update-input {
+      background-color: transparent;
+  }
+
+  .sr-ud-select-box option{
+    background-color: rgb(240, 240, 240);
+  }
+
+  .sr-ud-select-box option:active{
+    background-color: rgb(240, 240, 240);
+  }

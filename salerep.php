@@ -65,7 +65,9 @@
         $exceed3 = $num3-$quota3;
         $remain3 = 0;
     }
-    $table_head1 = '<thead>
+    $table_head1 = '
+    <table class="table sr-ordering-table">
+    <thead>
     <tr>
         <th >Ord-ID</th>
         <th >Date</th>
@@ -79,7 +81,8 @@
     </tr>
     </thead>
     <tbody>';
-    $table_head2 = '<thead>
+    $table_head2 = '<table class="table sr-ordering-table">
+    <thead>
     <tr>
         <th >Ord-ID</th>
         <th >Date</th>
@@ -228,7 +231,6 @@
 
                 <div class="ordering-table all">
                     <div class="user-ordering-table">
-                        <table class="table">
                             <?php
                                 echo $table_head1;
                                 $region_sql = "SELECT * FROM ordering WHERE salerep = '$name'";
@@ -242,7 +244,6 @@
                 </div>
                 <div class="ordering-table processing">
                 <div class="user-ordering-table">
-                        <table class="table">
                             
                             <?php
                                 echo $table_head1;
@@ -257,7 +258,6 @@
                 </div>
                 <div class="ordering-table completed">
                 <div class="user-ordering-table">
-                        <table class="table">
                             
                             <?php
                                 echo $table_head1;
@@ -272,7 +272,6 @@
                 </div>
                 <div class="ordering-table cancelled">
                 <div class="user-ordering-table">
-                        <table class="table">
                             
                             <?php
                                 echo $table_head1;
@@ -286,7 +285,6 @@
                 </div>
                 <div class="ordering-table edit">
                 <div class="user-ordering-table">
-                        <table class="table">
                             <?php
                                 
                                 

@@ -147,3 +147,15 @@ margin-left: .2em;
 .quota-chart-box{
   margin-top: 5vh;
 }
+
+.bg2{
+  background-color: #f8f9fa;
+}
+
+.bg1{
+  background-color: #ffffff;
+}
+
+.sr-ordering-table td{
+  border: none;
+}

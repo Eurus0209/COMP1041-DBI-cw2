@@ -183,8 +183,15 @@ function getCustInfoForManager($conn){
     $result = $conn->query($sql);
     $custInfoStr = '';
     if($result->num_rows>0){
+        $c = 0;
         while($row = $result->fetch_assoc()){
-            $custInfoStr = $custInfoStr.'<tr>
+            $c ++;
+            if($c%2==0){
+                $class = "bg1";
+            }else{
+                $class = "bg2";
+            }
+            $custInfoStr = $custInfoStr.'<tr class="'.$class.'">
             <td>'.$row['passportid'].'</td>
             <td class="cust-name">'.$row['name'].'</td>
             <td>'.$row['realname'].'</td>

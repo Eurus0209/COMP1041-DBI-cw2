@@ -91,5 +91,5 @@
     </div>
 
         
-    <button class="btn btn-primary btn-save-change">Add</button>
+    <button class="btn btn-save-change">Add</button>
 </div>

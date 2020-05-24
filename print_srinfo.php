@@ -6,6 +6,11 @@
     $date = getDateFromRange($startdate,$now_date);
     $json_date = json_encode($date);
     for($i=0;$i<$numOfSR; $i++){
+        if($i%2==0){
+            $class = "bg1";
+        }else{
+            $class = "bg2";
+;        }
         $srInfo = $srInfoList[$i];
         $saleNum = $srInfo[9];
         $numInfo = $srInfo[8];
@@ -13,7 +18,7 @@
         $total1 = $saleNum[0][0]+$saleNum[0][1];
         $total2 = $saleNum[1][0]+$saleNum[1][1];
         $total3 = $saleNum[2][0]+$saleNum[2][1];
-        $tStr = $tStr.'<tr>
+        $tStr = $tStr.'<tr class="'.$class.'">
         <td >'.$srInfo[0].'</th>
         <td class = "srinfo_table_name">'.$srInfo[1].'</td>
         <td>'.$srInfo[3].'</td>
@@ -32,9 +37,11 @@
         <td class="info_quota2"><input type ="text" name="quota2" class="update-input "  onkeyup = "value=value.replace(/[^\d]/g,'."''".')" value="'.$srInfo[6].'"></td>
         <td class="info_quota3"><input type ="text" name="quota3" class="update-input "  onkeyup = "value=value.replace(/[^\d]/g,'."''".')" value="'.$srInfo[7].'"></td>
         <td><a href="javascript:;" class = "expand"><i class="fa fa-caret-down" aria-hidden="true"></i></a></td>
-        <td><input type="button" class ="update-btn" value="update"></td>
+        <td>
+        <button class = "update-btn"> <i class="fa fa-pencil-square-o " aria-hidden="true"></i> </button>
+        </td>
     </tr>';
-        $tStr = $tStr.'<tr><td colspan="10" class = "detail-box" id = "'.$srInfo[1].'-label'.'">
+        $tStr = $tStr.'<tr class="'.$class.'"><td colspan="10" class = "detail-box" id = "'.$srInfo[1].'-label'.'">
         <div class="detail-content row">
             <div class="col-1"></div>
             <div class="col-1 chart-column">

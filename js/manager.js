@@ -1,3 +1,8 @@
+function sleep(ms) {
+    return new Promise(resolve => 
+        setTimeout(resolve, ms)
+    )
+  }
 $(function(){
     if(fw==1){
         $(".warning-tip").addClass("show-wt");
@@ -126,10 +131,16 @@ $(function(){
                                 quota3 : $("#quota3").val(),
                             },
                             success : function(msg){
-                                if(msg == 1)
-                                    swal("Add successfully!");
-                                    // history.go(0);
-                                    // location.reload();
+                                if(msg == 1){
+                                    swal({
+                                        text:"Add successfully!",
+                                        buttons: false,
+                                    });
+                                      sleep(1000).then(()=>{
+                                        history.go(0);
+                                      })
+                                }
+                                
                                 else{
                                     swal("Add failed!");
                                 }
@@ -143,30 +154,68 @@ $(function(){
 
     $(".update-btn").on("click",function(){
         // alert($(this).parent().siblings(".info_quota1").children().val());
-        var name = $(this).parent().siblings(".srinfo_table_name").html();
-        var q1 = $(this).parent().siblings(".info_quota1").children().val();
-        var q2 = $(this).parent().siblings(".info_quota2").children().val();
-        var q3 = $(this).parent().siblings(".info_quota3").children().val();
-        var region = $(this).parent().siblings(".srinfo_region").children().find("option:selected").text();
-        // alert(region);
-        $.ajax({
-            type:"post",
-            url: "update_quota.php",
-            data:{
-                name:name,
-                quota1: q1,
-                quota2: q2,
-                quota3: q3,
-                region: region
-            },success:function(msg){
-                if(msg == 1){
-                    swal("Update successfully!");
-                }else{
-                    swal("Failed update!");
-                    history.go(0);
-                }
+        var current = $(this);
+        swal({
+            text:"Confirm to update information?",
+            buttons: true,
+        }).then(function(isConfirm){
+            if(isConfirm){
+                var name = current.parent().siblings(".srinfo_table_name").html();
+                var q1 = current.parent().siblings(".info_quota1").children().val();
+                var q2 = current.parent().siblings(".info_quota2").children().val();
+                var q3 = current.parent().siblings(".info_quota3").children().val();
+                var region = current.parent().siblings(".srinfo_region").children().find("option:selected").text();
+                $.ajax({
+                    type:"post",
+                    url: "update_quota.php",
+                    data:{
+                        name:name,
+                        quota1: q1,
+                        quota2: q2,
+                        quota3: q3,
+                        region: region
+                    },success:function(msg){
+                        // alert(msg);
+                        if(msg == 1){
+                            swal({
+                                text:"Update successfully!",
+                                buttons: false,
+                            });
+                            
+                              sleep(1000).then(()=>{
+                                history.go(0);
+                              })
+                        }else{
+                            swal("Failed update!");
+                        }
+                    }
+                })
             }
         })
+        // var name = $(this).parent().siblings(".srinfo_table_name").html();
+        // var q1 = $(this).parent().siblings(".info_quota1").children().val();
+        // var q2 = $(this).parent().siblings(".info_quota2").children().val();
+        // var q3 = $(this).parent().siblings(".info_quota3").children().val();
+        // var region = $(this).parent().siblings(".srinfo_region").children().find("option:selected").text();
+        // $.ajax({
+        //     type:"post",
+        //     url: "update_quota.php",
+        //     data:{
+        //         name:name,
+        //         quota1: q1,
+        //         quota2: q2,
+        //         quota3: q3,
+        //         region: region
+        //     },success:function(msg){
+        //         if(msg == 1){
+        //             swal("Update successfully!");
+        //             history.go(0);
+        //         }else{
+        //             swal("Failed update!");
+        //             history.go(0);
+        //         }
+        //     }
+        // })
     })
 
 })
