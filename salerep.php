@@ -302,6 +302,43 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="false">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Detailed Info</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="user-img" style="margin-top:10px;margin-left:40px;height:150px;width:150px;display:inline-block; vertical-align: top; ">
+                    <img src="img/account3.png" style="height:150px" alt="">
+                </div>
+                <div class="user-nameinfo" style="margin-left:30px;margin-top:20px; height:150px;width:220px;display:inline-block; ">
+                    <h5>Username</h5>
+                    <h6 class= "name-info">china1</h6>
+                    <br>
+                    <h5>Realname</h5>
+                    <h6 class= "realname-info">china1</h6>
+
+                </div>
+                <div class="user-otherinfo" style=" margin-top:20px; height:160px;width:420px;display:inline-block;">
+                    <div class="row" style="margin-left:45px;">
+                        <h5 class="col-5" >Email </h5>
+                        <h5 class="col-7 email-info">1111555@qqq.com</h5>
+                        <h5 class="col-5">Passport-ID </h5>
+                        <h5 class="col-7 passport-info">1111555</h5>
+                        <h5 class="col-5">Telephone </h5>
+                        <h5 class="col-7 phone-info">11115552122</h5>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
 </body>
 <script >
     var n95 = echarts.init(document.getElementById("n95-quota")); 

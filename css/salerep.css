@@ -159,3 +159,18 @@ margin-left: .2em;
 .sr-ordering-table td{
   border: none;
 }
+.custname-btn{
+  border: none;
+  background-color: transparent;
+  color: rgb(75, 90, 131);
+  font-weight: 700;
+}
+
+.custname-btn:focus{
+  outline: transparent;
+}
+
+.user-otherinfo .row h5{
+  padding: 7px; 
+  display:inline-block;
+}

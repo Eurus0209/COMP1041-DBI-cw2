@@ -1,3 +1,6 @@
+function sleep (time) {
+    return new Promise((resolve) => setTimeout(resolve, time));
+    }
 $(function(){
     var ispasschange = 0;
     $("#inputPassword").on("click",function(){
@@ -88,22 +91,43 @@ $(function(){
                 url: 'cancel.php',
                 data: {ordid: id,},
                 success: function(msg){
-                    swal({
-                        text:"Cancel successfully!",
-                        timer:2000,
-                        button : false,
-                    });
-                    
-                    function sleep (time) {
-                    return new Promise((resolve) => setTimeout(resolve, time));
+                    if(msg==1){
+                        swal({
+                            text:"Cancel successfully!",
+                            timer:2000,
+                            button : false,
+                        });
+                        sleep(1500).then(() => {
+                            history.go(0);
+                        })
                     }
                     
-                    sleep(1500).then(() => {
-                        history.go(0);
-                    })
+                    
+                    
+                    
+                    
                     
                 }
                 })
+            }
+        })
+    })
+
+    $(".custname-btn").on("click",function(){
+        var custname = $(this).val();
+        $.ajax({
+            type:"post",
+            url: "sr_getcustinfo.php",
+            data: {
+                name: custname
+            },success: function(msg) {
+                var data = eval('(' + msg+ ')');
+                // console.log( data[1]);
+                $(".name-info").text(custname);
+                $(".realname-info").text(data[0]);
+                $(".email-info").text(data[1]);
+                $(".phone-info").text(data[2]);
+                $(".passport-info").text(data[3]);
             }
         })
     })
