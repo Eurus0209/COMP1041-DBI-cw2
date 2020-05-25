@@ -2,6 +2,8 @@
     include 'conntodb.php';
     $date = getDateFromRange($startdate,$now_date);
     $json_date = json_encode($date);
+
+    
 ?>
 
 <head>
@@ -48,25 +50,25 @@
 <div class="content-box">
     <ul class="nav nav-tabs sell-nav-box" id="myTab" role="tablist">
         <li class="nav-item">
-            <a class="nav-link active" id="all-region-tab" data-toggle="tab" href="#all-region" role="tab" aria-controls="all-region" aria-selected="true">All Region</a>
+            <a class="nav-link active nav-link-use" id="all-region-tab" data-toggle="tab" href="#all-region" role="tab" aria-controls="all-region" aria-selected="true">All Region</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="china-tab" data-toggle="tab" href="#china" role="tab" aria-controls="china" aria-selected="false">China</a>
+            <a class="nav-link nav-link-use" id="china-tab" data-toggle="tab" href="#china" role="tab" aria-controls="china" aria-selected="false">China</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="amercian-tab" data-toggle="tab" href="#amercian" role="tab" aria-controls="amercian" aria-selected="false">America</a>
+            <a class="nav-link nav-link-use" id="amercian-tab" data-toggle="tab" href="#amercian" role="tab" aria-controls="amercian" aria-selected="false">America</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="england-tab" data-toggle="tab" href="#england" role="tab" aria-controls="england" aria-selected="false">England</a>
+            <a class="nav-link nav-link-use" id="england-tab" data-toggle="tab" href="#england" role="tab" aria-controls="england" aria-selected="false">England</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="canada-tab" data-toggle="tab" href="#canada" role="tab" aria-controls="canada" aria-selected="false">Canada</a>
+            <a class="nav-link nav-link-use" id="canada-tab" data-toggle="tab" href="#canada" role="tab" aria-controls="canada" aria-selected="false">Canada</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="japan-tab" data-toggle="tab" href="#japan" role="tab" aria-controls="japan" aria-selected="false">Japan</a>
+            <a class="nav-link nav-link-use" id="japan-tab" data-toggle="tab" href="#japan" role="tab" aria-controls="japan" aria-selected="false">Japan</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="korea-tab" data-toggle="tab" href="#korea" role="tab" aria-controls="korea" aria-selected="false">Korea</a>
+            <a class="nav-link nav-link-use" id="korea-tab" data-toggle="tab" href="#korea" role="tab" aria-controls="korea" aria-selected="false">Korea</a>
         </li>
     </ul>
         <div class="tab-content" id="myTabContent">
@@ -209,10 +211,15 @@
                 </script>
             </div>
         <div class="tab-pane fade" id="china" role="tabpanel" aria-labelledby="china-tab">
-            <div id="china-chart" class = "charts" style ="width: 600px;height:300px;"></div>
+            <div id="china-chart" class = "charts" style ="display:inline-block; width: 600px;height:300px;"></div>
+            
             <?php                 
                 $masknum_china = getDateMaskNum($date,'China',$conn);
                 $json_num_china = json_encode($masknum_china);
+                $total1 = array_sum( $masknum_china[0]);
+                $total2 = array_sum( $masknum_china[1]);
+                $total3 = array_sum( $masknum_china[2]);
+                echo print_table_region_total($total1,$total2,$total3);
                 
             ?>
             <script>
@@ -221,6 +228,7 @@
                 
                 var data = getData(dateinfo,china_num);
                 var datazoom = echarts.init(document.getElementById("china-chart"));
+               
                 <?php
                     include 'chart1.php';
                 ?>
@@ -230,16 +238,21 @@
 
         </div>
         <div class="tab-pane fade" id="amercian" role="tabpanel" aria-labelledby="amercian-tab">
-            <div id="amercian-chart" class = "charts" style ="width: 600px;height:300px;"></div>
+            <div id="amercian-chart" class = "charts" style ="display:inline-block; width: 600px;height:300px;"></div>
             <?php
                 $masknum_amer = getDateMaskNum($date,'America',$conn);
                 $json_num_amer = json_encode($masknum_amer);
+                $total1 = array_sum( $masknum_amer[0]);
+                $total2 = array_sum( $masknum_amer[1]);
+                $total3 = array_sum( $masknum_amer[2]);
+                echo print_table_region_total($total1,$total2,$total3);
             ?>
             <script>
                 var amer_num = <?php echo $json_num_amer ;?>;
                 var dateinfo = <?php echo $json_date ;?>;
                 var data = getData(dateinfo,amer_num);
                 var datazoom = echarts.init(document.getElementById("amercian-chart"));
+                
                 <?php
                     include 'chart1.php';
                 ?>
@@ -248,10 +261,14 @@
             
         </div>
         <div class="tab-pane fade" id="england" role="tabpanel" aria-labelledby="england-tab">
-            <div id="england-chart" class = "charts" style ="width: 600px;height:300px; "></div>
+            <div id="england-chart" class = "charts" style ="display:inline-block; width: 600px;height:300px; "></div>
             <?php
                 $masknum_eng = getDateMaskNum($date,'England',$conn);
                 $json_num_eng = json_encode($masknum_eng);
+                $total1 = array_sum( $masknum_eng[0]);
+                $total2 = array_sum( $masknum_eng[1]);
+                $total3 = array_sum( $masknum_eng[2]);
+                echo print_table_region_total($total1,$total2,$total3);
             ?>
             <script>
                 var eng_num = <?php echo $json_num_eng ;?>;
@@ -265,10 +282,14 @@
             </script>
         </div>
         <div class="tab-pane fade" id="canada" role="tabpanel" aria-labelledby="canada-tab">
-            <div id="canada-chart" class = "charts" style ="width: 600px;height:300px; "></div>
+            <div id="canada-chart" class = "charts" style ="display:inline-block; width: 600px;height:300px; "></div>
             <?php
                 $masknum_can = getDateMaskNum($date,'Canada',$conn);
                 $json_num_can = json_encode($masknum_can);
+                $total1 = array_sum( $masknum_can[0]);
+                $total2 = array_sum( $masknum_can[1]);
+                $total3 = array_sum( $masknum_can[2]);
+                echo print_table_region_total($total1,$total2,$total3);
             ?>
             <script>
                 var can_num = <?php echo $json_num_can ;?>;
@@ -282,10 +303,14 @@
             </script>
         </div>
         <div class="tab-pane fade" id="japan" role="tabpanel" aria-labelledby="japan-tab">
-            <div id="japan-chart" class = "charts" style ="width: 600px;height:300px; "></div>
+            <div id="japan-chart" class = "charts" style ="display:inline-block; width: 600px;height:300px; "></div>
                 <?php
                     $masknum_jap = getDateMaskNum($date,'Japan',$conn);
                     $json_num_jap = json_encode($masknum_jap);
+                    $total1 = array_sum( $masknum_jap[0]);
+                    $total2 = array_sum( $masknum_jap[1]);
+                    $total3 = array_sum( $masknum_jap[2]);
+                    echo print_table_region_total($total1,$total2,$total3);
                 ?>
                 <script>
                     var jap_num = <?php echo $json_num_jap ;?>;
@@ -299,10 +324,14 @@
                 </script>
         </div>
         <div class="tab-pane fade" id="korea" role="tabpanel" aria-labelledby="korea-tab">
-            <div id="korea-chart" class = "charts" style ="width: 600px;height:300px; "></div>
+            <div id="korea-chart" class = "charts" style ="display:inline-block; width: 600px;height:300px; "></div>
                 <?php
                     $masknum_kor = getDateMaskNum($date,'Korea',$conn);
                     $json_num_kor = json_encode($masknum_kor);
+                    $total1 = array_sum( $masknum_kor[0]);
+                    $total2 = array_sum( $masknum_kor[1]);
+                    $total3 = array_sum( $masknum_kor[2]);
+                    echo print_table_region_total($total1,$total2,$total3);
                 ?>
                 <script>
                     var kor_num = <?php echo $json_num_kor ;?>;

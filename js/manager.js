@@ -13,6 +13,7 @@ $(function(){
         $(".selling-table").removeClass("show-table");
         $(".sr-info-table").removeClass("show-table");
         $(".cust-info-table").removeClass("show-table");
+        $(".order-info-table").removeClass("show-table");
         $("."+str).addClass("show-table");
     })
 
@@ -21,12 +22,22 @@ $(function(){
         $(".selling-table").removeClass("show-table");
         $(".sr-info-table").removeClass("show-table");
         $(".cust-info-table").removeClass("show-table");
+        $(".order-info-table").removeClass("show-table");
         $("."+str).addClass("show-table");
     })
 
     $(".cust-info-label").on("click",function(){
         var str = $(this).attr("id");
         $(".selling-table").removeClass("show-table");
+        $(".sr-info-table").removeClass("show-table");
+        $(".order-info-table").removeClass("show-table");
+        $("."+str).addClass("show-table");
+    })
+
+    $(".order-info-label").on("click",function(){
+        var str = $(this).attr("id");
+        $(".selling-table").removeClass("show-table");
+        $(".cust-info-table").removeClass("show-table");
         $(".sr-info-table").removeClass("show-table");
         $("."+str).addClass("show-table");
     })
@@ -192,30 +203,6 @@ $(function(){
                 })
             }
         })
-        // var name = $(this).parent().siblings(".srinfo_table_name").html();
-        // var q1 = $(this).parent().siblings(".info_quota1").children().val();
-        // var q2 = $(this).parent().siblings(".info_quota2").children().val();
-        // var q3 = $(this).parent().siblings(".info_quota3").children().val();
-        // var region = $(this).parent().siblings(".srinfo_region").children().find("option:selected").text();
-        // $.ajax({
-        //     type:"post",
-        //     url: "update_quota.php",
-        //     data:{
-        //         name:name,
-        //         quota1: q1,
-        //         quota2: q2,
-        //         quota3: q3,
-        //         region: region
-        //     },success:function(msg){
-        //         if(msg == 1){
-        //             swal("Update successfully!");
-        //             history.go(0);
-        //         }else{
-        //             swal("Failed update!");
-        //             history.go(0);
-        //         }
-        //     }
-        // })
     })
 
 })

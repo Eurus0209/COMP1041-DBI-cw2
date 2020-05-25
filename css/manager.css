@@ -64,7 +64,7 @@ a, a:hover{
     font-weight: 700;
     color: #eee;
 }
-.selling-table, .sr-info-table, .cust-info-table {
+.selling-table, .sr-info-table, .cust-info-table, .order-info-table{
     display: none;
 }
 
@@ -331,4 +331,57 @@ box-shadow: none;
 
   .sr-ud-select-box option:active{
     background-color: rgb(240, 240, 240);
+  }
+
+  .option-select-box{
+      margin-top: 6vh;
+      margin-left: 50px;
+  }
+
+  .option-select-box .check-btn{
+      /* vertical-align: middle; */
+      background-color: #496077;
+      color: white;
+      font-weight: 600;
+      margin-top: 20px;
+      margin-left: 20px;
+      width: 70px;
+  }
+  .option-select-box .check-btn:hover,
+  .option-select-box .check-btn:focus{
+    background-color: #3f5266;
+  }
+
+  .option-select-box .form-control{
+      height: 2.2em;
+  }
+
+  .table-print-box table{
+      margin: 0;
+      margin-top: 4vh;
+      margin-left: 30px;
+      margin-bottom: 5vh;
+      width: 85%;
+  }
+
+  .cname-btn,
+  .srname-btn{
+      border: none;
+      background-color: transparent;
+      font-weight: 700;
+      color: #496077;
+  }
+
+  .cname-btn:hover,
+  .srname-btn:hover{
+    color: #405468;
+    font-weight: 800;
+  }
+
+  .col-5{
+    padding: 5px;
+  }
+
+  .all-order-table td{
+      border: none;
   }

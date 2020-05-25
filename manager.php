@@ -95,6 +95,9 @@
                     <a class = "cust-info-label" id = "cust-info" href="#">Customer </a>
                   </li>
                   <li>
+                    <a class = "order-info-label" id = "order-info" href="#">Ordering </a>
+                  </li>
+                  <li>
                     <a class ="logout" href="logout.php">
                     <i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
                   </li>
@@ -121,7 +124,9 @@
             <div class="cust-info-table cust-info">
                 <?php include 'custinfo.php';?>
             </div>
-
+            <div class="order-info-table order-info">
+            <?php include 'ma_ordering.php'?>
+            </div>
         </div>
     </div>
 </body>

@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordering</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <!-- <script src="library/jquery-1.12.3.js"></script> -->
+    <!-- <script src="library/jquery-3.4.js"></script> -->
+    <script src="library/bootstrap.js"></script>
+    <link rel="stylesheet" href="library/bootstrap.css">
+    <script src="library/moment-develop/dist/moment.js"></script>
+    <!-- <script src="library/jquery-3.4.js"></script> -->
+    <!-- <script src="library/moment.js"></script> -->
+    <!-- <script src="library/jquery-date-range-picker-master/dist/jquery.daterangepicker.min.js"></script>
+    <link rel="stylesheet" href="library/jquery-date-range-picker-master/dist/daterangepicker.min.css"> -->
+</head>
+<body>
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-3">
+            <div class="form-group">
+                <label for="sel1">Region</label>
+                <select class="form-control" id="sel1">
+                  <option>All </option>
+                  <option>China</option>
+                  <option>America</option>
+                  <option>Japan</option>
+                  <option>Canada</option>
+                  <option>Korea</option>
+                  <option>England</option>
+                </select>
+            </div>
+        </div>
+
+
+        <div class="col-3">
+            <div class="form-group">
+                <label for="sel2">Status</label>
+                <select class="form-control" id="sel2">
+                  <option>All </option>
+                  <option>processing</option>
+                  <option>completed</option>
+                  <option>cancelled</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col-3">
+            <div class="form-group">
+                <label for="sel3">date</label>
+                <input type="text" id="sel3"  class="form-control">
+                
+            </div>
+        </div>
+        <div class="col-2">
+            <button class="check-btn">Check</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8 ordering-content-box">
+            
+        </div>
+        <div class="col-2"></div>
+    </div>
+</body>
+<script>
+    $(function(){
+      $("#sel4").each(function () {
+        var $this = $(this);
+
+        $this.daterangepicker({
+        //   startDate: "2018-09-01",
+        //   endDate: "2018-10-01",
+          locale: {
+            "format": "YYYY-MM-DD", // 显示格式
+            "separator": " ～ ", // 两个日期之间的分割线
+            // 中文化
+            "applyLabel": "confirm",
+            "cancelLabel": "cancel",
+            "fromLabel": "start",
+            "toLabel": "end",
+            "firstDay": 1
+          },
+        }, function (start, end, label) {
+          startDate = start.format("YYYY-MM-DD");
+          endDate = end.format("YYYY-MM-DD");
+
+          // 设置最小宽度，否则显示不全
+        }).css("min-width", "210px").next("i").click(function () {
+          // 对日期的i标签增加click事件，使其在鼠标点击时可以拉出日期选择
+          $(this).parent().find('input').click();
+        });
+      });
+    //   $("#sel4").daterangepicker();
+    })
+
+    $(".check-btn").on("click",function(){
+
+    })
+
+    
+    
+</script>
+</html>
