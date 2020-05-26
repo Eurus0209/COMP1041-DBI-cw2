@@ -1,5 +1,11 @@
 <?php
     session_start();
+    if(isset($_SESSION['manager'])){
+      $name = $_SESSION['manager'];
+    }else{
+        echo '<script>window.location.href="index.php";</script>';
+        exit();
+    }
     include 'getDataFunctions.php';
     include 'checkIsComplete.php';
     include 'conntodb.php';

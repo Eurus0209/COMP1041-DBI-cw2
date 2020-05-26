@@ -1,6 +1,12 @@
 <?php
     session_start();
-    $name = $_SESSION['srname'];
+    if(isset($_SESSION['srname'])){
+        $name = $_SESSION['srname'];
+    }else{
+        echo '<script>window.location.href="index.php";</script>';
+        exit();
+    }
+    
     include 'checkIsComplete.php';
     include 'conntodb.php';
 
@@ -114,7 +120,7 @@
     <script src="../published/moment.js"></script>
     <script src="../published/date-range-picker.js"></script>
     <link rel="stylesheet" href="../published/date-range-picker.css">
-    
+
     <script src="js/salerep.js"></script>
     <link rel="stylesheet" href="css/salerep.css">
 </head>

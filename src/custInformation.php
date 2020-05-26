@@ -1,7 +1,12 @@
 <?php
     include 'conntodb.php';
     session_start();
-    $custname = $_SESSION['username'];
+    if(isset($_SESSION['username'])){
+        $custname = $_SESSION['username'];
+    }else{
+        echo '<script>window.location.href="index.php";</script>';
+        exit();
+    }
     $sql = "SELECT * FROM customer WHERE custname = '$custname'";
     $result = $conn->query($sql);
     $info = $result->fetch_assoc();

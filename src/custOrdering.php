@@ -1,9 +1,15 @@
 <?php
     session_start();
+    if(isset($_SESSION['username'])){
+        $user_name = $_SESSION['username'];
+    }else{
+        echo '<script>window.location.href="index.php";</script>';
+        exit();
+    }
     include 'checkIsComplete.php';
     include 'conntodb.php';
     include 'printTableFunction.php';
-    $user_name = $_SESSION['username'];
+    
     $table_head1 = '<table class="table ordering-table">
     <thead>
     <tr>

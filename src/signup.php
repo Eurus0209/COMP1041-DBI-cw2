@@ -155,7 +155,7 @@
       }else{
           $.ajax({
               type: "post",
-              url : "isexist.php",
+              url : "isExist.php",
               data:{
                 name : $("#username").val(),
               },
