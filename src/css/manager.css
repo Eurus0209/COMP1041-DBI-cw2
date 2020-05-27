@@ -369,13 +369,18 @@ box-shadow: none;
       border: none;
       background-color: transparent;
       font-weight: 700;
-      color: #496077;
+      color: #2b59bb;
   }
 
   .cname-btn:hover,
-  .srname-btn:hover{
-    color: #405468;
+  .srname-btn:hover，
+  .cname-btn:focus,
+  .srname-btn:focus,
+  .cname-btn:active,
+  .srname-btn:active{
+    color: #255483;
     font-weight: 800;
+    outline: none;
   }
 
   .col-5{

@@ -78,7 +78,7 @@
                     <div id="main2" class ="pie-chart" style="width: 300px;height:300px;"></div>
                     <div id="main3" class ="pie-chart" style="width: 300px;height:300px;"></div>
                 </div>
-                <div id="all-bar-chart" class="all-region-bar-chart" style="width: 700px;height:350px;"></div>
+                <div id="all-bar-chart" class="all-region-bar-chart" style="width: 1000px;height:350px;"></div>
                 <?php
                     $masknum_all = getDateAllMaskNum($date,$conn);
                     $json_num_all = json_encode($masknum_all);

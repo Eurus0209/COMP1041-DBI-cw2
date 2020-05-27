@@ -128,8 +128,15 @@
                                 $result = $conn -> query($find_sql);
                                 $td = "";
                                 if($result->num_rows > 0){      
+                                    $count = 0;
                                     while($row = $result->fetch_assoc()){
-                                        $td = $td."<tr> <th rowspan=3 class ='ord-id' >".$row["orderid"]."</th>";
+                                        $count++;
+                                        if($count%2==0){
+                                            $classname = "bg1";
+                                        }else{
+                                            $classname = "bg2";
+                                        }
+                                        $td = $td."<tr class='".$classname."'> <th rowspan=3 class ='ord-id' >".$row["orderid"]."</th>";
                                         $td = $td."<td rowspan=3>" .$row["date"]."</td>";
                                         $td = $td."<td rowspan=3>" .$row["srname"]."</td>";
 
@@ -138,11 +145,11 @@
                                         $td = $td."<td> $".number_format($row['type1'], 2)."</td>";
                                         
                                         $td = $td."<td rowspan=3> $".number_format($row["totalsales"], 2)."</td>";
-                                        $td = $td."<td rowspan=3> <button class = 'cancel-btn'>cancel</button></td> </tr>";
-                                        $td = $td."<tr> <td>"."surgical mask"."</td>";
+                                        $td = $td."<td rowspan=3> <button type ='button' class = 'cancel-btn'>cancel</button></td> </tr>";
+                                        $td = $td."<tr class='".$classname."'> <td>"."surgical mask"."</td>";
                                         $td = $td."<td>".$row['type2']."</td>";
                                         $td = $td."<td> $".number_format($row['type2'], 2)."</td> </tr>";
-                                        $td = $td."<tr> <td>"."surgical N95 respirator"."</td>";
+                                        $td = $td."<tr class='".$classname."'> <td>"."surgical N95 respirator"."</td>";
                                         $td = $td."<td>".$row['type3']."</td>";
                                         $td = $td."<td> $".number_format($row['type3']*1.5, 2)."</td> </tr>";
                                     }

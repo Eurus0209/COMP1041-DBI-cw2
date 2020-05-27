@@ -26,25 +26,25 @@
             ],
             series: [
                 {
-                    color:['#82ccdd'],
+                    color:['#b0ebe7'],
                     type:'bar',
                     name:'N95',
                     data:data.type1
                 },
                 {
-                    color:['#60a3bc'],
+                    color:['#82d4d4'],
                     name:'Surgial',
                     type:'bar',
                     data:data.type2
                 },
                 {
-                    color:['rgb(65, 83, 102)'],
+                    color:['#68b9b3'],
                     name:'N95 Surgial',
                     type:'bar',
                     data:data.type3
                 },
                 {
-                    color:['#34495e'],
+                    color:['#47837f'],
                     name: 'Average',
                     type:'line',
                     data:data.ave
