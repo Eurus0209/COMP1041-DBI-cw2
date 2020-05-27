@@ -58,7 +58,7 @@
     <script src="../published/moment.js"></script>
     <script src="../published/date-range-picker.js"></script>
     <link rel="stylesheet" href="../published/date-range-picker.css">
-
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <script src="js/manager.js"></script>
     <link rel="stylesheet" href="css/manager.css">
     <script>

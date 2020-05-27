@@ -15,7 +15,7 @@ session_start();
     <link rel="stylesheet" href="../published/font-awesome-4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="../published/bootstrap.css">
     <link rel="stylesheet" href="css/login.css">
-    
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
     <?php

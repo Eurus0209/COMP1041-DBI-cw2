@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../published/font-awesome-4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="../published/bootstrap.css">
     <link rel="stylesheet" href="css/signup.css">
-    
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 <body>
     <?php include 'navBefore.php'; ?>
       <div class="sign-up-box" > 

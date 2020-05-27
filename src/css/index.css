@@ -226,14 +226,14 @@ button:active{
 }
 
 .btn-confirm-sr{
-    background-color:#626d85 ;
+    background-color:#386bda ;
     color: white;
 }
 
 .btn-confirm-sr:focus,
 .btn-confirm-sr:hover{
     outline: none;
-    background-color: #525c70;
+    background-color: #2454b4;
     color: white;
     box-shadow: none;
 }
