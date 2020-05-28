@@ -1,4 +1,6 @@
 <?php
+// Every time user, sale rep or manager login to system
+// execute this file to check wether ordering is completed
 include 'conntodb.php';
 $sql = "SELECT * FROM ordering WHERE status = 'processing'";
 $result = $conn -> query($sql);
@@ -8,6 +10,8 @@ if($result->num_rows > 0){
         $todtime = strtotime($odtime);
         $nodtime = date('Y-m-d H:i:s',$todtime);
         $comtime = $todtime + 24*60*60;
+
+        // get now time
         date_default_timezone_set('PRC');
         $nowtime = strtotime(date('Y-m-d H:i:s'));
         if($nowtime>$comtime){

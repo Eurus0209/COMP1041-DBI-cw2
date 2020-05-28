@@ -1,4 +1,3 @@
-
             option = {
             xAxis:{
                 data: data.date

@@ -1,6 +1,9 @@
 <?php
+// this is information page for customer
     include 'conntodb.php';
     session_start();
+
+    // check if login, avoid other view website invalid
     if(isset($_SESSION['username'])){
         $custname = $_SESSION['username'];
     }else{

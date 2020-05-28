@@ -1,4 +1,5 @@
 <?php
+// this is ordering page for customer
     session_start();
     if(isset($_SESSION['username'])){
         $user_name = $_SESSION['username'];

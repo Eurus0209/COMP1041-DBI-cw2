@@ -1,4 +1,5 @@
-<?php 
+<?php
+    // This file will add user into database
     include 'conntodb.php';
     $name = $_POST['name'];
     $realname = $_POST['realname'];
