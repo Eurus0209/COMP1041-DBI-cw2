@@ -81,7 +81,7 @@
 
         <div class="form-group col-md-4">
             <label for="quota2">Surgial</label>
-            <input type=text" class="form-control" id="quota2" value = "300" onkeyup = "value=value.replace(/[^\d]/g,'')">
+            <input type="   text" class="form-control" id="quota2" value = "300" onkeyup = "value=value.replace(/[^\d]/g,'')">
         </div>
 
         <div class="form-group col-md-4">

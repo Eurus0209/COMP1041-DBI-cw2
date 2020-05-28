@@ -166,7 +166,7 @@ box-shadow: none;
 }
 
 .show-tip{
-    display: block;
+    display: block!important;
 }
 
 .show-table{
