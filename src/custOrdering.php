@@ -53,6 +53,7 @@
     <link rel="stylesheet" href="../published/bootstrap.css">
     <script src = "../published/sweetalert.js"> </script>
     <link rel="stylesheet" href="css/user_ordering.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 <body>
     <?php
         include "navAfter.php";

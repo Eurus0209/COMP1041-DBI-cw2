@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="../published/bootstrap.css">
     <script src="../published/echarts-4.8.0/dist/echarts.min.js"></script>
   <link rel="stylesheet" href="css/userInfo.css">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
     <?php include 'navAfter.php' ?>
