@@ -1,4 +1,5 @@
 <?php
+// regrant quota
     include 'conntodb.php';
     $srname = $_POST['name'];
     $type = $_POST['type'];

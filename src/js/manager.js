@@ -1,3 +1,24 @@
+function getData(dateinfo, numinfo){
+    var date = [];
+    var type1 = [];
+    var type2 = [];
+    var type3 = [];
+    var ave = [];
+    for(var i=0; i<dateinfo.length; i++){
+        date.push(dateinfo[i].substr(5));
+        type1.push(numinfo[0][i]);
+        type2.push(numinfo[1][i]);
+        type3.push(numinfo[2][i]);
+        ave.push(Math.round((numinfo[0][i]+numinfo[1][i]+numinfo[2][i])/3));
+    }
+    return {
+        date:date,
+        type1: type1,
+        type2: type2,
+        type3: type3,
+        ave:ave
+    }
+}
 function sleep(ms) {
     return new Promise(resolve => 
         setTimeout(resolve, ms)
@@ -204,5 +225,145 @@ $(function(){
             }
         })
     })
+
+    $(".regrant-btn").on("click",function(){
+        var a = $(".warning-table .table-row");
+        var i = 0;
+        while(a.html() != undefined){
+            var name = a.children()[0].innerHTML;
+            var type = '';
+            if(a.children()[1].innerHTML == 'N95 respirator'){
+                type = 'quota1';
+            }else if(a.children()[1].innerHTML == 'Surgial mask'){
+                type = 'quota2';
+            }else{
+                type = 'quota3';
+            }
+            var value_before = (a.children()[2].innerHTML).split("/")[1] * 1.0;
+            var value_t = a.children()[3].children[0].value *1.0;
+            var value = value_before +value_t;
+            $.ajax({
+                type: "post",
+                url: 'regrant.php',
+                data:{
+                    name: name,
+                    type: type,
+                    value :value
+                },success: function(msg){
+                    if(msg == 0){
+                        swal("Failed to regrant!");
+                    }else{
+                    }
+                        
+                }
+            })
+            a = a.next();
+        }
+        history.go(0);
+    })
+
+    $(".btn-detail").on("click",function(){
+        var custname = $(this).parent().siblings(".cust-name").text();
+        $.ajax({
+            type:"post",
+            url:"getCustDetail.php",
+            data: {
+                name: custname
+            },success: function(data){
+                var arr = eval('(' + data+ ')');
+                $('#staticBackdrop').modal('show');
+                var myChart = echarts.init(document.getElementById('typeRoseChart'));
+                var option1 = { 
+                        tooltip: {
+                            trigger: 'item',
+                            formatter: '{a} <br/>{b} : {c}'
+                        },
+                        legend: {
+                            data: [{name:'N95'},
+                                {name:'Surgial'},
+                                {name:'N95-surgial'},
+                                ]
+                        },
+                        series : [
+                            {
+                                name: 'Purchase detail',
+                                type: 'pie',
+                                radius: '45%',
+                                roseType: 'area',
+                                color: ['#6b88ac','#364b61','#4a6483','#526e91'],
+                                data:[
+                                    {value:arr[1][0], name:'N95'},
+                                    {value:arr[1][1], name:'Surgial'},
+                                    {value:arr[1][2], name:'N95-surgial'},
+                                ]
+                            }
+                        ]
+                    };
+                myChart.setOption(option1);
+                var quantity = arr[1][0]*1.0+arr[1][1]*1.0+arr[1][2]*1.0;
+                var sales = arr[1][0]*1.0+arr[1][1]*1.0+arr[1][2]*1.5;
+                $(".order-amount").text(arr[0]);
+                $(".total-quantity").text(quantity);
+                $(".total-sale").text("$"+sales);
+            }
+        })
+    })
+
+    $("#sel3").each(function () {
+        var $this = $(this);
+
+        $this.daterangepicker({
+          startDate: "2020-05-18",
+          endDate: "2020-05-24",
+          locale: {
+            "format": "YYYY-MM-DD",
+            "separator": " ～ ", 
+            "applyLabel": "confirm",
+            "cancelLabel": "cancel",
+            "fromLabel": "start",
+            "toLabel": "end",
+            "firstDay": 1
+          },
+        }, function (start, end, label) {
+          startDate = start.format("YYYY-MM-DD");
+          endDate = end.format("YYYY-MM-DD");
+
+        }).css("min-width", "210px").next("i").click(function () {
+          $(this).parent().find('input').click();
+        });
+      });
+
+      $(".check-btn").on("click",function(){
+        var region = $("#sel1").find("option:selected").text();
+        var status = $("#sel2").find("option:selected").text();
+        var date = $("#sel3").val();
+        var sdate = date.substr(0,10)+" 00:00:00";
+        var edate = date.substr(13,23)+" 23:59:59";
+        $.ajax({
+            type :"post",
+            url: "getOrderForManager.php",
+            data:{
+                region: region,
+                status: status,
+                sdate: sdate,
+                edate: edate
+            },success: function(msg){
+                $(".tbody").html(msg);
+            }
+        })
+    })
+
+    $(".expand").on("click",function(){
+        var a = $(this).parent().siblings()[1];
+        var idname = a.innerHTML;
+        if($("#"+idname+"-label").hasClass("show-cell")){
+            $("#"+idname+"-label").removeClass("show-cell");
+        }else{
+            $("#"+idname+"-label").addClass("show-cell");
+        }
+        
+    })
+
+
 
 })

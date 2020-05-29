@@ -1,4 +1,6 @@
 <?php
+    // get all of sale reps' information 
+    // put these into an array
     include 'conntodb.php';
     $sql = "SELECT * FROM salerep WHERE 1";
     $info_list = array();

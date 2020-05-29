@@ -1,4 +1,5 @@
 <?php
+// update quota for manager
     include 'conntodb.php';
     $name = $_POST['name'];
     $q1 = $_POST['quota1'];

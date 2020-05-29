@@ -1,4 +1,5 @@
 <?php
+// get all of quantity of each mask for customer
     include 'conntodb.php';
     $name = $_POST['name'];
     $sql = "SELECT * FROM ordering WHERE custname = '$name'";

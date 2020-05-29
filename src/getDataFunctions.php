@@ -6,9 +6,9 @@ $startdate = '2020-5-15';
 function getDateFromRange($startdate, $enddate){
     $stimestamp = strtotime($startdate);
     $etimestamp = strtotime($enddate);
-    // 计算日期段内有多少天
+    // compute how many days between two date
     $days = ($etimestamp-$stimestamp)/86400+1;
-    // 保存每天日期
+    // save date info
     $date = array();
     for($i=0; $i<$days; $i++){
       $date[] = date('Y-m-d', $stimestamp+(86400*$i));
@@ -40,8 +40,6 @@ function getDateMaskNum($dateArray,$region,$conn){
         $num1[] = $t1;
         $num2[] = $t2;
         $num3[] = $t3;
-
-        // $maskNum[] = $num;
     }
     $maskNum = array($num1,$num2,$num3);
     return $maskNum;
@@ -151,7 +149,6 @@ function getDateAllMaskNum($dateArray,$conn){
     $num3 = array();
     for($i=0; $i<$days; $i++){
         $today = $dateArray[$i];
-        // $region = array('$region');
         $sql = "SELECT * FROM ordering where ( datediff ( date , '$today' ) = 0 )";
         $result = $conn->query($sql);
         
@@ -168,8 +165,6 @@ function getDateAllMaskNum($dateArray,$conn){
         $num1[] = $t1;
         $num2[] = $t2;
         $num3[] = $t3;
-
-        // $maskNum[] = $num;
     }
     $maskNum = array($num1,$num2,$num3);
     return $maskNum;

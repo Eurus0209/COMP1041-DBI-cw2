@@ -1,51 +1,10 @@
 <?php
-    include 'conntodb.php';
+    include 'conntodb.php';   
+    // get every day from 2020-05-15 to now
     $date = getDateFromRange($startdate,$now_date);
     $json_date = json_encode($date);
-
-    
 ?>
 
-<head>
-<!-- <script src="https://cdn.bootcdn.net/ajax/libs/echarts/4.7.0/echarts-en.common.js"></script> -->
-<!-- <script src="library/echarts-4.8.0/dist/echarts.min.js"></script> -->
-<script>
-    function getData(dateinfo, numinfo){
-        var date = [];
-        var type1 = [];
-        var type2 = [];
-        var type3 = [];
-        var ave = [];
-        for(var i=0; i<dateinfo.length; i++){
-            date.push(dateinfo[i].substr(5));
-            type1.push(numinfo[0][i]);
-            type2.push(numinfo[1][i]);
-            type3.push(numinfo[2][i]);
-            ave.push(Math.round((numinfo[0][i]+numinfo[1][i]+numinfo[2][i])/3));
-        }
-        return {
-            date:date,
-            type1: type1,
-            type2: type2,
-            type3: type3,
-            ave:ave
-        }
-    }
-</script>
-<style>
-    .charts{
-        margin-top: 10vh;
-    }
-    .pie-chart{
-        display: inline-block;
-    }
-    .pie-chart-box{
-        margin-top: 8vh;
-    }
-    .all-region-bar-chart{
-        margin-top:5vh;
-    }
-</style>
 </head>
 <div class="content-box">
     <ul class="nav nav-tabs sell-nav-box" id="myTab" role="tablist">

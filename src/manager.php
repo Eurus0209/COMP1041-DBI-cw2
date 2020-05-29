@@ -1,5 +1,7 @@
 <?php
     session_start();
+    // check if login
+    // if not , return to start page
     if(isset($_SESSION['manager'])){
       $name = $_SESSION['manager'];
     }else{
@@ -14,6 +16,8 @@
     include 'printSrInfo.php';
     include 'warningMessData.php';
     $custInfoStr = getCustInfoForManager($conn);
+
+    // some sql statements that needed
     $China_sql = "SELECT * FROM ordering WHERE custregion = 'China'";
     $America_sql = "SELECT * FROM ordering WHERE custregion = 'America'";
     $Canada_sql = "SELECT * FROM ordering WHERE custregion = 'Canada'";
@@ -133,7 +137,7 @@
             <div class="cust-info-table cust-info">
                 <?php include 'managerCustInfo.php';?>
             </div>
-            <div class="order-info-table order-info" id ="ordering-info">
+            <div class="order-info-table order-info" >
             <?php include 'managerOrdering.php'?>
             </div>
         </div>

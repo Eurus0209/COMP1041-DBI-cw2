@@ -1,4 +1,6 @@
 <?php
+    // check if username is repeat
+    // if repeat return 1 else return 0
     include 'conntodb.php';
     $name = $_POST['name'];
     $sql = "SELECT * FROM customer WHERE custname = '$name'";

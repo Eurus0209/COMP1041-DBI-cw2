@@ -1,6 +1,7 @@
 function sleep (time) {
     return new Promise((resolve) => setTimeout(resolve, time));
     }
+    
 $(function(){
     var ispasschange = 0;
     $("#inputPassword").on("click",function(){
@@ -34,7 +35,6 @@ $(function(){
             $(".password-tip").addClass("show");
         }
     })
-
     $(".btn-save-change").on("click",function(){
         if($("#email").val()==''|| 
         $("#phone").val() =='' ||
@@ -64,23 +64,21 @@ $(function(){
                     email :email
                 },
                 success :function(msg){
-                    swal("success!");
-                    window.location.herf="salerep.php";
+                    if(msg==1){
+                        swal("Success!");
+                    }else{
+                        swal("Failed!");
+                        sleep(1500).then(() => {
+                            history.go(0);
+                        })
+                    }
+                    
                 }
             })
         }
     })
-
-    $(".order-label").on("click",function(){
-        var str = $(this).attr("id");
-        $(".ordering-table").removeClass("show");
-        $("."+str).addClass("show");
-        // alert(str);
-    })
-    
     $(".cancel-btn").on("click",function(){
         var id = $(this).parent().siblings(".ord-id").html();
-        // alert(id);
         swal({
             text:"Confirm to cancel?",
             buttons: true,
@@ -89,42 +87,34 @@ $(function(){
                 $.ajax({
                 type: 'POST',
                 url: 'cancel.php',
-                data: {ordid: id,},
+                data: {ordid: id,
+                },
                 success: function(msg){
-                    if(msg==1){
+                    if(msg == 1){
                         swal({
                             text:"Cancel successfully!",
                             timer:2000,
                             button : false,
                         });
-                        sleep(1500).then(() => {
-                            history.go(0);
-                        })
+                    }else{
+                        swal({
+                            text:"Cancel failed!",
+                            timer:2000,
+                            button : false,
+                        });
                     }
                     
+                    
+                    
+                    sleep(1500).then(() => {
+                        history.go(0);
+                    })
+                    
                 }
-                })
-            }
-        })
-    })
-
-    $(".custname-btn").on("click",function(){
-        var custname = $(this).val();
-        $.ajax({
-            type:"post",
-            url: "getCustInfoForSr.php",
-            data: {
-                name: custname
-            },success: function(msg) {
-                var data = eval('(' + msg+ ')');
-                // console.log( data[1]);
-                $(".name-info").text(custname);
-                $(".realname-info").text(data[0]);
-                $(".email-info").text(data[1]);
-                $(".phone-info").text(data[2]);
-                $(".passport-info").text(data[3]);
-            }
-        })
-    })
-})
-
+                });
+            
+        }
+    });
+});
+});
+    

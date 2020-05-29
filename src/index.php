@@ -204,7 +204,7 @@
                 var num3 = ($("input").get(2).value)*1.0;
                 var user = "<?php echo $name ?>";
                 var sr = $("#sr-selector option:selected").val();
-                var flag = <?php echo $ishavesr; ?>;
+                var flag = "<?php echo $ishavesr; ?>";
                 if(num1+num2+num3 == 0){
                     swal("Please select product before purchase!");
                 }else if (flag == 1){

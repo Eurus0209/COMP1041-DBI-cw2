@@ -1,4 +1,5 @@
 <?php
+// get customer's personal information through customer name
     include 'conntodb.php';
     $name = $_POST['name'];
     $sql = "SELECT * FROM customer WHERE custname = '$name'";
@@ -20,8 +21,7 @@
         $list[] = $row['passportid'];
     }
     
-
+    // transfer to javascript as json format
     $json_list = json_encode($list);
-    
     echo $json_list;
 ?>

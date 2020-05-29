@@ -7,6 +7,8 @@
         echo '<script>window.location.href="index.php";</script>';
         exit();
     }
+
+    // check ordeirng complete or not
     include 'checkIsComplete.php';
     include 'conntodb.php';
     include 'printTableFunction.php';
@@ -53,6 +55,7 @@
     <script src="../published/bootstrap.bundle.js"></script>
     <link rel="stylesheet" href="../published/bootstrap.css">
     <script src = "../published/sweetalert.js"> </script>
+    <script src="js/customer.js"></script>
     <link rel="stylesheet" href="css/user_ordering.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 <body>
@@ -169,49 +172,4 @@
     
     
 </body>
-<script>
-    $(".cancel-btn").on("click",function(){
-        var id = $(this).parent().siblings(".ord-id").html();
-        swal({
-            text:"Confirm to cancel?",
-            buttons: true,
-        }).then(function(isConfirm){
-            if(isConfirm){
-                $.ajax({
-                type: 'POST',
-                url: 'cancel.php',
-                data: {ordid: id,
-                },
-                success: function(msg){
-                    if(msg == 1){
-                        swal({
-                            text:"Cancel successfully!",
-                            timer:2000,
-                            button : false,
-                        });
-                    }else{
-                        swal({
-                            text:"Cancel failed!",
-                            timer:2000,
-                            button : false,
-                        });
-                    }
-                    
-                    
-                    function sleep (time) {
-                    return new Promise((resolve) => setTimeout(resolve, time));
-                    }
-                    
-                    sleep(1500).then(() => {
-                        history.go(0);
-                    })
-                    
-                }
-            });
-            
-        }
-    });
-});
-
-</script>
 </html>

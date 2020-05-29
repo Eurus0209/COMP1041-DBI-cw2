@@ -1,5 +1,6 @@
 <?php
     session_start();
+    // purchase product
     include 'conntodb.php';
 
     $num1 = $_POST['num1'];

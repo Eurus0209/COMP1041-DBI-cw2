@@ -13,8 +13,6 @@
     }
      
     
-    // $sql = "UPDATE ordering SET status = 'cancelled' WHERE orderid = '$canid'";
-    
     if($conn -> query($up_sql) === true){
         echo 1;
     }else{

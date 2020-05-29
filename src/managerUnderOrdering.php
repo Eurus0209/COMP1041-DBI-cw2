@@ -1,7 +1,6 @@
 <?php
+// under ordering page
     include 'conntodb.php';
-    // $date = getDateFromRange($startdate,$now_date);
-    // $json_date = json_encode($date);
     $selling_proce_table_head = '<table class="table under-porcessing-table">
     <thead>
     <tr>
@@ -18,47 +17,6 @@
 
 ?>
 
-<head>
-<!-- <script src="https://cdn.bootcdn.net/ajax/libs/echarts/4.7.0/echarts-en.common.js"></script> -->
-
-<script>
-    function getData(dateinfo, numinfo){
-        var date = [];
-        var type1 = [];
-        var type2 = [];
-        var type3 = [];
-        var ave = [];
-        for(var i=0; i<dateinfo.length; i++){
-            date.push(dateinfo[i].substr(5));
-            type1.push(numinfo[0][i]);
-            type2.push(numinfo[1][i]);
-            type3.push(numinfo[2][i]);
-            ave.push(Math.round((numinfo[0][i]+numinfo[1][i]+numinfo[2][i])/3));
-        }
-        return {
-            date:date,
-            type1: type1,
-            type2: type2,
-            type3: type3,
-            ave:ave
-        }
-    }
-</script>
-<style>
-    .charts{
-        margin-top: 10vh;
-    }
-    .pie-chart{
-        display: inline-block;
-    }
-    .pie-chart-box{
-        margin-top: 8vh;
-    }
-    .all-region-bar-chart{
-        margin-top:5vh;
-    }
-</style>
-</head>
 <div class="content-box">
     <ul class="nav nav-tabs sell-nav-box" id="myTab" role="tablist">
         <li class="nav-item">
@@ -91,6 +49,7 @@
                     <div id="main6" class ="pie-chart" style="width: 300px;height:300px;"></div>
                 </div>
                 <?php
+                // get selling situation
                     $masknum_all = getDateAllMaskNum($date,$conn);
                     $json_num_all = json_encode($masknum_all);
                 ?>
@@ -130,11 +89,8 @@
                             {
                                 name: 'N95',
                                 type: 'pie',
-                                // radius: '55%',
                                 roseType: 'area',
                                 radius: [20, 70],
-                                // roseType:'angle',
-                                // radius: 60,
                                 color: ['#6b88ac','#364b61','#415974','#4a6483','#526e91','#5c7ba1'],
                                 data:[
                                     {value:<?php echo $China_processing[0] ?>, name:'China'},

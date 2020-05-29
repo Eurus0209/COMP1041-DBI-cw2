@@ -1,4 +1,5 @@
 <?php
+// get string that used to print sale reps' information
     $numOfSR = count($srInfoList);
     $tStr = '';
     $sStr = '';

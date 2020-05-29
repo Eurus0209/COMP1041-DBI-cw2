@@ -6,6 +6,7 @@
     $sdate = $_POST['sdate'];
     $edate = $_POST['edate'];
 
+    // create sql statement for different condition
     if($region=="All " && $status=="All "){
         $sql = "SELECT * FROM ordering WHERE date BETWEEN '$sdate' AND '$edate'";
     }else if($region=="All "){
@@ -15,5 +16,7 @@
     }else{
         $sql = "SELECT * FROM ordering WHERE status = '$status' AND custregion = '$region' AND date BETWEEN '$sdate' AND '$edate'";
     }
+
+    // get string that need to be printed
     $str = print_table_ma_order($sql,$conn);
     echo $str;

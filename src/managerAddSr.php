@@ -1,4 +1,5 @@
 <?php 
+// add user page
     date_default_timezone_set('PRC');
     $empid=substr(date("ymdHis"),4,12).mt_rand(1,9);
 ?>

@@ -1,4 +1,5 @@
 <?php
+// functions that help printing table
 function print_table_formanager_processing($find_sql, $conn){
         $result = $conn -> query($find_sql);
         $td = "";

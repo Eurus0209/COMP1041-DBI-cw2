@@ -10,6 +10,7 @@
     include 'checkIsComplete.php';
     include 'conntodb.php';
 
+    // get sale rep's personal information
     $find_sql = "SELECT * FROM salerep WHERE srname = '$name'";
     $result_find = $conn -> query($find_sql);
     $result = $result_find->fetch_assoc();
@@ -23,7 +24,7 @@
     $password = $result['password'];
     $phone = $result['phone'];
 
-    
+    // compute if quota is exceeded
     $pro_num1 = 0;
     $pro_num2 = 0;
     $pro_num3 = 0;
@@ -350,6 +351,7 @@
     </div>
 </body>
 <script >
+// print chart:
     var n95 = echarts.init(document.getElementById("n95-quota")); 
     var surgial = echarts.init(document.getElementById("surgial-quota"));
     var n95_surgial = echarts.init(document.getElementById("n95-surgial-quota"));

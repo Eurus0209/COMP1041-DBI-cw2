@@ -1,4 +1,5 @@
 <?php
+// check ordering conditionally 
     $ordering_table_head = '<table class="table all-order-table">
     <thead>
     <tr>
@@ -150,57 +151,4 @@
     </div>
     
 </body>
-<script>
-    $(function(){
-      $("#sel3").each(function () {
-        var $this = $(this);
-
-        $this.daterangepicker({
-          startDate: "2020-05-18",
-          endDate: "2020-05-24",
-          locale: {
-            "format": "YYYY-MM-DD",
-            "separator": " ～ ", 
-            "applyLabel": "confirm",
-            "cancelLabel": "cancel",
-            "fromLabel": "start",
-            "toLabel": "end",
-            "firstDay": 1
-          },
-        }, function (start, end, label) {
-          startDate = start.format("YYYY-MM-DD");
-          endDate = end.format("YYYY-MM-DD");
-
-        }).css("min-width", "210px").next("i").click(function () {
-          $(this).parent().find('input').click();
-        });
-      });
-    
-
-    })
-
-    $(".check-btn").on("click",function(){
-        var region = $("#sel1").find("option:selected").text();
-        var status = $("#sel2").find("option:selected").text();
-        var date = $("#sel3").val();
-        var sdate = date.substr(0,10)+" 00:00:00";
-        var edate = date.substr(13,23)+" 23:59:59";
-        // alert(edate);
-        $.ajax({
-            type :"post",
-            url: "getOrderForManager.php",
-            data:{
-                region: region,
-                status: status,
-                sdate: sdate,
-                edate: edate
-            },success: function(msg){
-                // alert(msg);
-                $(".tbody").html(msg);
-            }
-        })
-    })
-
-
-</script>
 </html>

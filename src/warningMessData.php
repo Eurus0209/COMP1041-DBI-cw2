@@ -1,4 +1,5 @@
 <?php
+// get warning data
     include 'conntodb.php';
     $sr_sql = "SELECT * FROM salerep WHERE 1";
     $sr_result = $conn->query($sr_sql);

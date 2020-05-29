@@ -1,4 +1,4 @@
-
+<!-- nav-bar after user login -->
 <link rel="stylesheet" href="../published/font-awesome-4.7.0/css/font-awesome.css">
 
 <nav class="navbar navbar-expand-sm navbar-light bg-light nav-before-login">
