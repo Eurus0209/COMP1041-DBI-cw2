@@ -1,6 +1,6 @@
 # COMP1041-DBI-cw2
 
-## View website
+## Visit website
 http://web872347072.gz01.bdysite.com/src/index.php
 
 ## Initial information
